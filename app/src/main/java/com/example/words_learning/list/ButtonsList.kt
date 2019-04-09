@@ -10,7 +10,7 @@ import com.example.words_learning.R
 class ButtonsListAdapter(private val names : Array<String>, private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ButtonHolder {
         val rootView = LayoutInflater.from(viewGroup.context).inflate(R.layout.button_layout, viewGroup, false)
-        val button : Button = rootView.findViewById(R.id.button)
+        val button : Button = rootView.findViewById(R.id.buttons)
         return ButtonHolder(rootView, button, onClick)
     }
 

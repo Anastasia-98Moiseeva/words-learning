@@ -24,6 +24,14 @@ class MainFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.fragment_main, container, false)
         val buttons : RecyclerView = layout.findViewById(R.id.buttons)
+
+        buttons.layoutManager = LinearLayoutManager(
+            inflater.context,
+            RecyclerView.VERTICAL,
+            false
+        )
+        buttons.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
+
         return layout
     }
 
