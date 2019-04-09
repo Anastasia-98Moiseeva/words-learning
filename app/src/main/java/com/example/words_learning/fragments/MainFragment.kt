@@ -3,16 +3,16 @@ package com.example.words_learning.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.mail.technotrack.mainui.R
-import ru.mail.technotrack.mainui.Router
-import ru.mail.technotrack.mainui.list.ButtonsListAdapter
 import java.lang.IllegalStateException
+import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import com.example.words_learning.R
+import com.example.words_learning.Router
+import com.example.words_learning.list.ButtonsListAdapter
 
 class MainFragment : Fragment() {
 
@@ -26,14 +26,14 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.fragment_main, container, false)
-        val buttons : RecyclerView = layout.findViewById(R.id.buttons)
+        //val buttons : RecyclerView = layout.findViewById(R.id.buttons)
 
-        buttons.layoutManager = LinearLayoutManager(
-            inflater.context,
-            RecyclerView.VERTICAL,
-            false
-        )
-        buttons.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
+      //  buttons.layoutManager = LinearLayoutManager(
+      //      inflater.context,
+      //      RecyclerView.VERTICAL,
+      //      false
+      //  )
+      //  buttons.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
 
         return layout
     }

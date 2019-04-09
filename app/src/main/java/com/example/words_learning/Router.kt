@@ -1,7 +1,7 @@
 package com.example.words_learning
 
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import java.lang.ref.WeakReference
 
 class Router(activity : FragmentActivity, container: Int) {

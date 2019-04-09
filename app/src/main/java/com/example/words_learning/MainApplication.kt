@@ -2,21 +2,18 @@ package com.example.words_learning
 
 import android.app.Application
 import android.os.Bundle
+import com.example.words_learning.fragments.MainFragment
 
 class MainApplication : Application() {
-    lateinit var router: Router
+    //lateinit var router: Router
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        router = Router(this, R.id.fragment_container)
-        if (savedInstanceState == null) router.navigateTo(false, ::MainFragment)
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
     }
 
-    override fun onBackPressed() {
-        if (!router.navigateBack()) {
-            super.onBackPressed()
+        companion object {
+            lateinit var instance: MainApplication
+                private set
         }
-    }
 }

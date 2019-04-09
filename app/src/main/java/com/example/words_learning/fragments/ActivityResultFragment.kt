@@ -3,19 +3,19 @@ package com.example.words_learning.fragments
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import kotlinx.android.synthetic.main.start_activity.*
-import ru.mail.technotrack.mainui.CallableActivity
-import ru.mail.technotrack.mainui.MainApplication
-import ru.mail.technotrack.mainui.R
-import ru.mail.technotrack.mainui.createIntent
+import com.example.words_learning.CallableActivity
+import com.example.words_learning.R
+import com.example.words_learning.createIntent
+
 
 class ActivityResultFragment : Fragment() {
+
 
     var defaultText = ""
     lateinit var textview : TextView
@@ -37,7 +37,7 @@ class ActivityResultFragment : Fragment() {
             startActivityForResult(i, 12345)
         }
 
-        textview = root.findViewById(R.id.textview)
+        //textview = root.findViewById(R.id.textview)
         textview.text = defaultText
 
         return root

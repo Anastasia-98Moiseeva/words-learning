@@ -1,11 +1,11 @@
 package com.example.words_learning.list
 
-import androidx.recyclerview.widget.RecyclerView
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import ru.mail.technotrack.mainui.R
 import android.view.LayoutInflater
+import com.example.words_learning.R
 
 class ButtonsListAdapter(private val names : Array<String>, private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ButtonHolder {

@@ -2,13 +2,13 @@ package com.example.words_learning.fragments
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import ru.mail.technotrack.mainui.R
 import java.util.concurrent.TimeUnit
+import android.support.v4.app.Fragment
+import com.example.words_learning.R
 
 class WidgetsFragment : Fragment() {
     val timer = object : CountDownTimer(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(1)) {
@@ -26,7 +26,7 @@ class WidgetsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.widgets, container, false)
-        progressBar = root.findViewById(R.id.progressBar)
+        //progressBar = root.findViewById(R.id.progressBar)
 
         return root
     }
