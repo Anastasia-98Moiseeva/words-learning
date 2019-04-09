@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 
 class MainApplication : AppCompatActivity() {
 
+    lateinit var router  : Router
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -13,6 +15,8 @@ class MainApplication : AppCompatActivity() {
         setContentView(R.layout.main_application)
 
 
+        router = Router(this, R.id.fragment_container)
+        //if (savedInstanceState == null) router.navigateTo(false, ::MainFragment)
     }
 
 
