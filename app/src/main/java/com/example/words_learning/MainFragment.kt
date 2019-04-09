@@ -25,12 +25,12 @@ class MainFragment : Fragment() {
         val layout = inflater.inflate(R.layout.fragment_main, container, false)
         val buttons : RecyclerView = layout.findViewById(R.id.buttons)
 
-        buttons.layoutManager = LinearLayoutManager(
-            inflater.context,
-            RecyclerView.VERTICAL,
-            false
-        )
-        buttons.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
+      //  buttons.layoutManager = LinearLayoutManager(
+      //      inflater.context,
+      //      RecyclerView.VERTICAL,
+      //      false
+      //  )
+      //  buttons.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
 
         return layout
     }
