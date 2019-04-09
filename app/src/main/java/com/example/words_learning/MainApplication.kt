@@ -16,7 +16,8 @@ class MainApplication : AppCompatActivity() {
 
 
         router = Router(this, R.id.fragment_container)
-        //if (savedInstanceState == null) router.navigateTo(false, ::MainFragment)
+        if (savedInstanceState == null)
+            router.navigateTo(false, ::MainFragment)
     }
 
 
