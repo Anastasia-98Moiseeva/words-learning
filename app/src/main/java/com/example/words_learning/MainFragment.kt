@@ -23,7 +23,7 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.fragment_main, container, false)
-        //val buttons : RecyclerView = layout.findViewById(R.id.buttons)
+        val buttons : RecyclerView = layout.findViewById(R.id.buttons)
         return layout
     }
 
