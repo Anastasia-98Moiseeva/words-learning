@@ -5,20 +5,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.TextView
-import com.example.words_learning.fragments.MainFragment
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var router  : Router
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        router = Router(this, R.id.fragment_container)
-        if (savedInstanceState == null) router.navigateTo(false, ::MainFragment)
-
     }
 
     override fun onResume() {
@@ -62,11 +55,6 @@ class MainActivity : AppCompatActivity() {
         outState.putLong(timeSave, waitTime)
     }
 
-    override fun onBackPressed() {
-        if (!router.navigateBack()) {
-            super.onBackPressed()
-        }
-    }
 
     private var waitTime: Long = 4000
     private val timeSave: String = ""

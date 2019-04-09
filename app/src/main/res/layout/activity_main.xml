@@ -8,7 +8,7 @@
 
     <ImageView
             android:src="@drawable/enot"
-            android:id="@+id/fragment_container"
+            android:id="@+id/image_enot"
             android:scaleType="fitCenter"
             android:background="#0A0013"
             android:layout_height="fill_parent"
