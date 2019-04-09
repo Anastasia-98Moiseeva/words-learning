@@ -10,6 +10,18 @@
         tools:context=".MainApplication"
         android:background="@color/screenBackground">
 
+    <TextView
+            android:text="Main menu"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_width="411dp"
+            android:layout_height="64dp"
+            android:textSize="30sp"
+            android:background="@color/headlineBackground"
+            android:fontFamily="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0" android:id="@+id/textView2"/>
 
     <FrameLayout android:id="@+id/fragment_container"
                  android:layout_width="match_parent"
