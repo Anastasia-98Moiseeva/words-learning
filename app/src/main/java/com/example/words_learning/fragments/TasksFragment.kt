@@ -1,17 +1,17 @@
-package com.example.words_learning
+package com.example.words_learning.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.words_learning.fragments.StatisticFragment
-import com.example.words_learning.fragments.TasksFragment
-import com.example.words_learning.fragments.TeacherFragment
+import com.example.words_learning.R
+import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
-import com.example.words_learning.fragments.WordsFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
-class MainFragment : Fragment() {
+
+
+class TasksFragment : Fragment() {
 
     private lateinit var router : Router
 
@@ -22,7 +22,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_words, container, false)
+        var layout = inflater.inflate(R.layout.fragments_tasks, container, false)
 
         layout = createButtons(layout)
 
@@ -33,25 +33,21 @@ class MainFragment : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
-        layout.button1.setText("Words")
-        layout.button2.setText("Tasks")
-        layout.button3.setText("Teacher")
-        layout.button4.setText("Statistics")
+        layout.button1.setText("Button")
+        layout.button2.setText("Button")
+        layout.button3.setText("Button")
+        layout.button4.setText("Button")
 
 
-        layout.button1.setOnClickListener {
-            router.navigateTo(true, ::WordsFragment)
-        }
-        layout.button2.setOnClickListener {
-            router.navigateTo(true, ::TasksFragment)
-        }
-        layout.button3.setOnClickListener {
-            router.navigateTo(true, ::TeacherFragment)
-        }
-        layout.button4.setOnClickListener {
-            router.navigateTo(true, ::StatisticFragment)
-        }
+        layout.button1.setOnClickListener(this::clickEvent)
         return layout
+    }
+
+
+
+    private fun clickEvent(layout: View) {
+        //router.navigateTo(false, ::)
+        //router.navigateTo { getLayoutFragment(R.layout.fragment_words) }
     }
 
 
