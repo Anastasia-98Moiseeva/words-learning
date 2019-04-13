@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private var waitTime: Long = 4000
+    private var waitTime: Long = 2000
     private val timeSave: String = ""
     private lateinit var timer: CountDownTimer
     lateinit var textView : TextView
