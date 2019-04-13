@@ -22,7 +22,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_words, container, false)
+        var layout = inflater.inflate(R.layout.fragment_main, container, false)
 
         layout = createButtons(layout)
 
