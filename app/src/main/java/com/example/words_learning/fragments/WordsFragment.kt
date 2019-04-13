@@ -32,13 +32,6 @@ class WordsFragment : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
-        layout.button1.setText("Button")
-        layout.button2.setText("Button")
-        layout.button3.setText("Button")
-        layout.button4.setText("Button")
-
-
-        layout.button1.setOnClickListener(this::clickEvent)
         return layout
     }
 
