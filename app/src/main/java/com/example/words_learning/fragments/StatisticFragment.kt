@@ -9,6 +9,7 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
+import kotlinx.android.synthetic.main.fragment_search_world.view.*
 
 
 class StatisticFragment : Fragment() {
@@ -22,32 +23,28 @@ class StatisticFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_statistic, container, false)
+        var layout = inflater.inflate(R.layout.fragment_search_world, container, false)
 
         layout = createButtons(layout)
-
-
+        //layout.editText.setOnSearchClickListener(this::clickEvent)
+        layout.editText.onActionViewExpanded()
         return layout
 
     }
 
 
+
+
     private fun createButtons(layout: View) : View{
-        layout.button1.setText("Button")
-        layout.button2.setText("Button")
-        layout.button3.setText("Button")
-        layout.button4.setText("Button")
 
-
-        layout.button1.setOnClickListener(this::clickEvent)
+        //layout.button1.setOnClickListener(this::clickEvent)
         return layout
     }
 
 
 
     private fun clickEvent(layout: View) {
-        //router.navigateTo(false, ::)
-        //router.navigateTo { getLayoutFragment(R.layout.fragment_words) }
+
     }
 
 
