@@ -22,7 +22,7 @@ class StatisticFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_statistic, container, false)
+        var layout = inflater.inflate(R.layout.fragment_search_world, container, false)
 
         layout = createButtons(layout)
 
@@ -32,14 +32,12 @@ class StatisticFragment : Fragment() {
     }
 
 
+
+
     private fun createButtons(layout: View) : View{
-        layout.button1.setText("Button")
-        layout.button2.setText("Button")
-        layout.button3.setText("Button")
-        layout.button4.setText("Button")
 
 
-        layout.button1.setOnClickListener(this::clickEvent)
+        //layout.button1.setOnClickListener(this::clickEvent)
         return layout
     }
 

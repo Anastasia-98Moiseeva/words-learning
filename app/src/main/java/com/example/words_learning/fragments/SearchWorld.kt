@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
-import kotlinx.android.synthetic.main.fragment_main.view.*
-
 
 class SearchWorld : Fragment() {
 
@@ -33,10 +31,8 @@ class SearchWorld : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
-        layout.button1.setText("Button")
 
 
-        layout.button1.setOnClickListener(this::clickEvent)
         return layout
     }
 
