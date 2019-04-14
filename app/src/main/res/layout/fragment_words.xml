@@ -164,8 +164,8 @@
             android:layout_height="90dp"
             app:srcCompat="@drawable/ic_vegetable"
             android:id="@+id/imageButton15"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"/>
 
     <ImageButton
             android:layout_width="90dp"
