@@ -33,9 +33,9 @@ class MainFragment : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
-        layout.button1.setText("Words")
-        layout.button2.setText("Tasks")
-        layout.button3.setText("Teacher")
+        layout.button1.setText("Make set")
+        layout.button2.setText("Learn set")
+        layout.button3.setText("Words on topics")
         layout.button4.setText("Statistics")
 
 
