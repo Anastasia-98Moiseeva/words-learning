@@ -46,44 +46,54 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.35"/>
 
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.81"/>
+
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.19"/>
+
+
     <Button
             android:text="Button"
-            android:layout_width="match_parent"
             android:id="@+id/button4"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="80dp" android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"/>
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" android:layout_width="0dp"/>
     <Button
             android:text="Button"
-            android:layout_width="match_parent"
             android:id="@+id/button1"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="80dp" android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toTopOf="@+id/guideline"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4" android:layout_width="0dp"/>
 
     <Button
             android:text="Button"
-            android:layout_width="match_parent"
             android:id="@+id/button3"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="80dp" android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline5" android:layout_height="wrap_content"
+            android:layout_width="0dp"/>
 
     <Button
             android:text="Button"
-            android:layout_width="match_parent"
             android:id="@+id/button2"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="80dp" android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            android:layout_height="wrap_content"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toTopOf="@+id/guideline1"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline1"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4" android:layout_width="0dp"/>
     <TextView
             android:layout_width="666dp"
             android:layout_height="46dp"
