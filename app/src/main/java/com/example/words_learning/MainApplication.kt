@@ -14,18 +14,17 @@ class MainApplication : AppCompatActivity() {
     lateinit var router  : Router
 
 
-    private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
                 router.navigateTo(false, ::MainFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
+            R.id.navigation_book -> {
                 router.navigateTo(false, ::MainFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
+            R.id.navigation_search -> {
                 router.navigateTo(false, ::SearchWord, true)
                 return@OnNavigationItemSelectedListener true
             }
@@ -40,10 +39,8 @@ class MainApplication : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_application)
 
-        //  setContentView(R.layout.main_application)
-
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        textMessage = findViewById(R.id.textView2)
+
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         router = Router(this, R.id.fragment_container)
