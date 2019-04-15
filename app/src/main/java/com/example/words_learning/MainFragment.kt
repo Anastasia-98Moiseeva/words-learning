@@ -40,13 +40,13 @@ class MainFragment : Fragment() {
 
 
         layout.button1.setOnClickListener {
-            router.navigateTo(true, ::WordsFragment)
-        }
-        layout.button2.setOnClickListener {
             router.navigateTo(true, ::TasksFragment)
         }
-        layout.button3.setOnClickListener {
+        layout.button2.setOnClickListener {
             router.navigateTo(true, ::TeacherFragment)
+        }
+        layout.button3.setOnClickListener {
+            router.navigateTo(true, ::WordsFragment)
         }
         layout.button4.setOnClickListener {
             router.navigateTo(true, ::StatisticFragment)
