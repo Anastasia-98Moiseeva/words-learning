@@ -20,7 +20,7 @@ class SearchWord : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_search_world, container, false)
+        var layout = inflater.inflate(R.layout.fragment_search_word, container, false)
 
         layout = createButtons(layout)
 
