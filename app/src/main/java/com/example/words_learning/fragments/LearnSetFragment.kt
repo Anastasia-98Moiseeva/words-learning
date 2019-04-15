@@ -22,7 +22,7 @@ class LearnSetFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_teacher, container, false)
+        var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
         layout = createButtons(layout)
 
