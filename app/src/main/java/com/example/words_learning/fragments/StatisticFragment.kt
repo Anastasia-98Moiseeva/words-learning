@@ -27,7 +27,7 @@ class StatisticFragment : Fragment() {
 
         layout = createButtons(layout)
         //layout.editText.setOnSearchClickListener(this::clickEvent)
-        layout.editText.onActionViewExpanded()
+        //layout.editText.onActionViewExpanded()
         return layout
 
     }
