@@ -18,15 +18,15 @@ class MainApplication : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                router.navigateTo(false, ::MainFragment)
+                router.navigateTo(false, ::MainFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                router.navigateTo(false, ::MainFragment)
+                router.navigateTo(false, ::MainFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                router.navigateTo(false, ::SearchWord)
+                router.navigateTo(false, ::SearchWord, true)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -51,6 +51,12 @@ class MainApplication : AppCompatActivity() {
             router.navigateTo(false, ::MainFragment)
     }
 
+
+    override fun onBackPressed() {
+        if (!router.navigateBack()) {
+            super.onBackPressed()
+        }
+    }
 
     override fun onResume() {
         super.onResume()
