@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.words_learning.fragments.StatisticFragment
-import com.example.words_learning.fragments.TasksFragment
-import com.example.words_learning.fragments.TeacherFragment
+import com.example.words_learning.fragments.MakeSetFragment
+import com.example.words_learning.fragments.LearnSetFragment
 import com.example.words_learning.list.LayoutFragment
-import com.example.words_learning.fragments.WordsFragment
+import com.example.words_learning.fragments.WordsOnTopicFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
 class MainFragment : Fragment() {
 
@@ -40,13 +40,13 @@ class MainFragment : Fragment() {
 
 
         layout.button1.setOnClickListener {
-            router.navigateTo(true, ::TasksFragment)
+            router.navigateTo(true, ::MakeSetFragment)
         }
         layout.button2.setOnClickListener {
-            router.navigateTo(true, ::TeacherFragment)
+            router.navigateTo(true, ::LearnSetFragment)
         }
         layout.button3.setOnClickListener {
-            router.navigateTo(true, ::WordsFragment)
+            router.navigateTo(true, ::WordsOnTopicFragment)
         }
         layout.button4.setOnClickListener {
             router.navigateTo(true, ::StatisticFragment)

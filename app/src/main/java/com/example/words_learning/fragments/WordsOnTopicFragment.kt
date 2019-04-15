@@ -1,5 +1,6 @@
 package com.example.words_learning.fragments
 
+
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +10,7 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
-
-
-class TeacherFragment : Fragment() {
+class WordsOnTopicFragment : Fragment() {
 
     private lateinit var router : Router
 
@@ -22,7 +21,7 @@ class TeacherFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_teacher, container, false)
+        var layout = inflater.inflate(R.layout.fragment_words, container, false)
 
         layout = createButtons(layout)
 
@@ -33,7 +32,6 @@ class TeacherFragment : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
-
         return layout
     }
 

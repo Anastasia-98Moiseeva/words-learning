@@ -11,7 +11,7 @@ import com.example.words_learning.list.LayoutFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
-class TasksFragment : Fragment() {
+class LearnSetFragment : Fragment() {
 
     private lateinit var router : Router
 
@@ -22,7 +22,7 @@ class TasksFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragments_tasks, container, false)
+        var layout = inflater.inflate(R.layout.fragment_teacher, container, false)
 
         layout = createButtons(layout)
 
@@ -33,6 +33,7 @@ class TasksFragment : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
+
         return layout
     }
 

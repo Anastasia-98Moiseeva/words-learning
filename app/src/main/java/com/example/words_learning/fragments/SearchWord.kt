@@ -9,7 +9,7 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
 
-class SearchWorld : Fragment() {
+class SearchWord : Fragment() {
 
     private lateinit var router : Router
 
