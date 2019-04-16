@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         timer = object : CountDownTimer(waitTime, 1000) {
             override fun onTick(milSeconds: Long) {
                 waitTime = milSeconds
-                textView = findViewById<TextView>(R.id.text_enot)
+                textView = findViewById<TextView>(R.id.textView4)
                 val oldText = textView.text
                 var newText = "hm"
                 if (countTick == 2) {
