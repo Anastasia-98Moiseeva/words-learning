@@ -11,7 +11,7 @@ import com.example.words_learning.list.LayoutFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
-class EditSetFragment : Fragment() {
+class ChooseSetFragment : Fragment() {
 
     private lateinit var router : Router
 
