@@ -22,7 +22,7 @@ class MainApplication : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_book -> {
-                router.navigateTo(false, ::DictionaryFragment, true)
+                router.navigateTo(false, :: ItemFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_search -> {
