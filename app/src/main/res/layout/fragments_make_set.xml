@@ -58,7 +58,7 @@
 
     <Button
             android:text="Create"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             android:textColor="@color/text"
             android:layout_width="0dp"
             android:layout_height="46dp"

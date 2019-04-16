@@ -52,7 +52,7 @@
     <ImageButton
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_test1"
             android:id="@+id/imageButton19"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
@@ -61,7 +61,7 @@
     <ImageButton
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_test2"
             android:id="@+id/imageButton20"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
@@ -70,7 +70,7 @@
     <ImageButton
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_test3"
             android:id="@+id/imageButton21"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
@@ -79,7 +79,7 @@
     <ImageButton
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_test4"
             android:id="@+id/imageButton22"
             app:layout_constraintEnd_toStartOf="@+id/guideline"

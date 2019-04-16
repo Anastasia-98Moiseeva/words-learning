@@ -73,7 +73,7 @@
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_animal1"
             android:id="@+id/imageButton"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -82,17 +82,19 @@
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_berry1"
             android:id="@+id/imageButton2"
-            app:layout_constraintTop_toTopOf="@+id/guideline6" app:layout_constraintEnd_toStartOf="@+id/guideline1"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/guideline6"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
             android:layout_marginStart="8dp"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_home1"
             android:id="@+id/imageButton3"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -101,77 +103,88 @@
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_body1"
             android:id="@+id/imageButton4"
-            app:layout_constraintTop_toTopOf="@+id/guideline7" app:layout_constraintStart_toStartOf="@+id/guideline1"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_clothes1"
             android:id="@+id/imageButton5"
-            app:layout_constraintTop_toTopOf="@+id/guideline5" app:layout_constraintEnd_toStartOf="@+id/guideline1"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
             android:layout_marginStart="8dp"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_face1"
-            android:id="@+id/imageButton9" app:layout_constraintStart_toStartOf="@+id/guideline1"
+            android:id="@+id/imageButton9"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toTopOf="@+id/guideline5"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_family1"
-            android:id="@+id/imageButton10" app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:id="@+id/imageButton10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/guideline4"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_flower1"
             android:id="@+id/imageButton11"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" app:layout_constraintEnd_toStartOf="@+id/guideline1"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginStart="8dp"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_footwear1"
-            android:id="@+id/imageButton12" app:layout_constraintStart_toStartOf="@+id/guideline1"
+            android:id="@+id/imageButton12"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toTopOf="@+id/guideline4"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_furniture1"
             android:id="@+id/imageButton13"
-            app:layout_constraintTop_toTopOf="@+id/guideline6" app:layout_constraintStart_toStartOf="@+id/guideline1"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_stationery1"
             android:id="@+id/imageButton14"
-            app:layout_constraintTop_toTopOf="@+id/guideline7" app:layout_constraintEnd_toStartOf="@+id/guideline1"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginStart="8dp"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_vegetable1"
             android:id="@+id/imageButton15"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
@@ -180,27 +193,30 @@
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_profession1"
-            android:id="@+id/imageButton16" app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:id="@+id/imageButton16"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/guideline7"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_fruit1"
-            android:id="@+id/imageButton17" app:layout_constraintStart_toStartOf="@+id/guideline1"
+            android:id="@+id/imageButton17"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toTopOf="@+id/guideline2"/>
 
     <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@color/button"
+            android:background="@drawable/button_style"
             app:srcCompat="@drawable/ic_cutlery1"
             android:id="@+id/imageButton18"
             app:layout_constraintEnd_toStartOf="@+id/guideline1"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="@+id/guideline"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintTop_toTopOf="@+id/guideline2"/>
