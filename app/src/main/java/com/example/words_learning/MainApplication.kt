@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.words_learning.fragments.DictionaryFragment
 import com.example.words_learning.fragments.SearchWord
 
 
@@ -21,7 +22,7 @@ class MainApplication : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_book -> {
-                router.navigateTo(false, ::MainFragment, true)
+                router.navigateTo(false, ::DictionaryFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_search -> {

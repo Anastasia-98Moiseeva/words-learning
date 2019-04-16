@@ -35,28 +35,5 @@ class WordsOnTopicFragment : Fragment() {
         return layout
     }
 
-
-
-    private fun clickEvent(layout: View) {
-        //router.navigateTo(false, ::)
-        //router.navigateTo { getLayoutFragment(R.layout.fragment_words) }
-    }
-
-
-
-    //private fun onButtonClick(position : Int) = when(position) {
-    //    0 -> router.navigateTo { R.layout.main_application.getLayoutFragment() }
-    //    else -> throw IllegalStateException()
-    //}
-
-
-
-    private fun getLayoutFragment(layout : Int) : Fragment {
-        val fragment = LayoutFragment()
-        val args = Bundle()
-        args.putInt(LayoutFragment.LAYOUT_KEY, layout)
-        fragment.arguments = args
-        return fragment
-    }
 }
 

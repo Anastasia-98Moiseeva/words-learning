@@ -53,22 +53,5 @@ class MainFragment : Fragment() {
         }
         return layout
     }
-
-
-
-    //private fun onButtonClick(position : Int) = when(position) {
-    //    0 -> router.navigateTo { R.layout.main_application.getLayoutFragment() }
-    //    else -> throw IllegalStateException()
-    //}
-
-
-
-    private fun getLayoutFragment(layout : Int) : Fragment {
-        val fragment = LayoutFragment()
-        val args = Bundle()
-        args.putInt(LayoutFragment.LAYOUT_KEY, layout)
-        fragment.arguments = args
-        return fragment
-    }
 }
 

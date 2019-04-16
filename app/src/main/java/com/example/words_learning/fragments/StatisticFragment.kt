@@ -26,8 +26,7 @@ class StatisticFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_statistic, container, false)
 
         layout = createButtons(layout)
-        //layout.editText.setOnSearchClickListener(this::clickEvent)
-        //layout.editText.onActionViewExpanded()
+
         return layout
 
     }
@@ -36,32 +35,9 @@ class StatisticFragment : Fragment() {
 
 
     private fun createButtons(layout: View) : View{
-
-        //layout.button1.setOnClickListener(this::clickEvent)
         return layout
     }
 
 
-
-    private fun clickEvent(layout: View) {
-
-    }
-
-
-
-    //private fun onButtonClick(position : Int) = when(position) {
-    //    0 -> router.navigateTo { R.layout.main_application.getLayoutFragment() }
-    //    else -> throw IllegalStateException()
-    //}
-
-
-
-    private fun getLayoutFragment(layout : Int) : Fragment {
-        val fragment = LayoutFragment()
-        val args = Bundle()
-        args.putInt(LayoutFragment.LAYOUT_KEY, layout)
-        fragment.arguments = args
-        return fragment
-    }
 }
 
