@@ -1,4 +1,4 @@
-package com.example.words_learning.fragments
+package com.example.words_learning.fragments.search
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

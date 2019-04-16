@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.widget.ImageView
-import android.widget.TextView
-import com.example.words_learning.fragments.DictionaryFragment
-import com.example.words_learning.fragments.SearchWord
+import com.example.words_learning.fragments.search.SearchWord
 
 
 class MainApplication : AppCompatActivity() {

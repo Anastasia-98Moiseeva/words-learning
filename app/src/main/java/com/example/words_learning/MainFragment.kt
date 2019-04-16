@@ -5,11 +5,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.words_learning.fragments.StatisticFragment
-import com.example.words_learning.fragments.MakeSetFragment
-import com.example.words_learning.fragments.LearnSetFragment
-import com.example.words_learning.list.LayoutFragment
-import com.example.words_learning.fragments.WordsOnTopicFragment
+import com.example.words_learning.fragments.statistics.StatisticFragment
+import com.example.words_learning.fragments.makeSet.MakeSetFragment
+import com.example.words_learning.fragments.learnSet.LearnSetFragment
+import com.example.words_learning.fragments.wordsOnTopics.WordsOnTopicFragment
 import kotlinx.android.synthetic.main.fragment_main.view.*
 class MainFragment : Fragment() {
 

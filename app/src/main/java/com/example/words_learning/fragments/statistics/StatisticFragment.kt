@@ -1,4 +1,4 @@
-package com.example.words_learning.fragments
+package com.example.words_learning.fragments.statistics
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.list.LayoutFragment
-import kotlinx.android.synthetic.main.fragment_main.view.*
-import kotlinx.android.synthetic.main.fragment_search_word.view.*
 
 
 class StatisticFragment : Fragment() {
