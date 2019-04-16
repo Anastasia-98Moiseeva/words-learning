@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="screenBackground">#A6C3FC</color>
-    <color name="headlineBackground">#2B1A8A</color>
+    <color name="headlineBackground">#381A8A</color>
     <color name="button">#FAFAFA</color>
+    <color name="buttonPressed">#D3DAFD</color>
     <color name="text">#010614</color>
     <color name="text_title">#11128B</color>
 </resources>
