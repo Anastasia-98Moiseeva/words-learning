@@ -3,10 +3,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:color="@android:color/darker_gray"
+        android:color="@color/button"
         android:state_checked="false"/>
 
     <item
-        android:color="@android:color/white"
+        android:color="@color/buttonInBarPressed"
         android:state_checked="true"/>
 </selector>

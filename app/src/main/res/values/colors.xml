@@ -6,7 +6,8 @@
     <color name="screenBackground">#A6C3FC</color>
     <color name="headlineBackground">#381A8A</color>
     <color name="button">#FAFAFA</color>
-    <color name="buttonPressed">#E3E6FA</color>
+    <color name="buttonPressed">#C9CFFA</color>
+    <color name="buttonInBarPressed">#8989AD</color>
     <color name="text">#010614</color>
     <color name="text_title">#11128B</color>
 </resources>
