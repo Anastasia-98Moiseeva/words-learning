@@ -11,7 +11,6 @@
         android:background="@color/screenBackground">
 
     <TextView
-            android:text="Main menu"
             android:textColor="@android:color/white"
             android:gravity="center"
             android:layout_width="match_parent"
