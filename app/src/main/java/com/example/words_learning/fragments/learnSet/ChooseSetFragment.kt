@@ -25,7 +25,7 @@ class ChooseSetFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
         layout = createButtons(layout)
-        layout.textView2.setText("Learn set")
+        //layout.textView2.setText("Learn set")
 
         return layout
 

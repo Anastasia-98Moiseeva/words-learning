@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.SearchWord
 
@@ -36,7 +37,11 @@ class MainApplication : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.main_application)
+
+        val textView2: TextView = findViewById(R.id.textView2)
+        textView2.setText("Main menu")
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.selectedItemId = R.id.navigation_home
