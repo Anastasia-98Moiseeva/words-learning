@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_main.view.*
 class ChooseSetFragment : Fragment() {
 
     private lateinit var router : Router
+    val name = "Learn set"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +26,10 @@ class ChooseSetFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
-        layout = createButtons(layout)
-        //layout.textView2.setText("Learn set")
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
 
+        layout = createButtons(layout)
         return layout
 
     }
@@ -37,6 +40,11 @@ class ChooseSetFragment : Fragment() {
         return layout
     }
 
+    override fun onResume() {
+        super.onResume()
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
+    }
 
 }
 
