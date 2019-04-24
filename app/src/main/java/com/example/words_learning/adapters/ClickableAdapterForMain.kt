@@ -1,4 +1,4 @@
-package com.example.words_learning.list.adapters
+package com.example.words_learning.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
