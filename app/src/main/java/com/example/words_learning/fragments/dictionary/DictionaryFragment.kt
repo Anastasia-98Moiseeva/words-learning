@@ -17,17 +17,6 @@ import com.example.words_learning.list.LayoutFragment
 
 class DictionaryFragment : Fragment() {
 
-    companion object {
-        private const val STYLE_KEY = "STYLE_KEY"
-
-        fun createListFragment(style : Int) : Fragment {
-            val fragment = DictionaryFragment()
-            val args = Bundle()
-            fragment.arguments = args
-            return fragment
-        }
-    }
-
     private lateinit var router : Router
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,24 +31,9 @@ class DictionaryFragment : Fragment() {
 
         recycler.setHasFixedSize(true)
 
-        val style = arguments?.getInt(STYLE_KEY) ?: 1
-
-        when(style) {
-            0 -> createSimpleList(recycler)
-            1 -> createClickableList(recycler)
-            2 -> createPageList(recycler)
-        }
+        createClickableList(recycler)
 
         return layout
-    }
-
-    private fun createSimpleList(recycler : RecyclerView) {
-        recycler.layoutManager = LinearLayoutManager(
-            requireContext(),
-            RecyclerView.VERTICAL,
-            false
-        )
-            //recycler.adapter = SimpleListAdapter()
     }
 
     private fun createClickableList(recycler : RecyclerView) {
@@ -78,15 +52,5 @@ class DictionaryFragment : Fragment() {
         recycler.adapter = ClickableAdapter()
     }
 
-    private fun createPageList(recycler: RecyclerView) {
-        recycler.layoutManager = LinearLayoutManager(
-            requireContext(),
-            RecyclerView.HORIZONTAL,
-            false
-        )
-
-        PagerSnapHelper().attachToRecyclerView(recycler)
-     //   recycler.adapter = PageAdapter()
-    }
 }
 
