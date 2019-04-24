@@ -2,17 +2,22 @@ package com.example.words_learning
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.words_learning.fragments.dictionary.adapters.ClickableAdapter
 import com.example.words_learning.fragments.statistics.StatisticFragment
-import com.example.words_learning.fragments.makeSet.MakeSetFragment
 import com.example.words_learning.fragments.learnSet.LearnSetFragment
 import com.example.words_learning.fragments.wordsOnTopics.WordsOnTopicFragment
-import kotlinx.android.synthetic.main.fragment_main.view.*
+import ru.mail.technotrack.recyclerview.adapters.ButtonsListAdapter
+import java.lang.IllegalStateException
+
 class MainFragment : Fragment() {
 
-    private lateinit var router : Router
+    private lateinit var router: Router
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,36 +26,51 @@ class MainFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_main, container, false)
+        val layout = inflater.inflate(R.layout.fragment_list, container, false)
+        val recycler: RecyclerView = layout.findViewById(R.id.list)
 
-        layout = createButtons(layout)
-
+        recycler.layoutManager = LinearLayoutManager(
+            inflater.context,
+            RecyclerView.VERTICAL,
+            false
+        )
+        recycler.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
 
         return layout
 
     }
 
+    private fun createButtons(): Array<String> {
+        return arrayOf(
+            "Make set",
+            "Learn set",
+            "Words on topics",
+            "Statistics"
+        )
+    }
 
-    private fun createButtons(layout: View) : View{
-        layout.button1.setText("Make set")
-        layout.button2.setText("Learn set")
-        layout.button3.setText("Words on topics")
-        layout.button4.setText("Statistics")
+    private fun onButtonClick(position: Int) = when (position) {
+        0 -> router.navigateTo(true, ::LearnSetFragment)
+        1 -> router.navigateTo(true, ::LearnSetFragment)
+        2 -> router.navigateTo(true, ::WordsOnTopicFragment)
+        3 -> router.navigateTo(true, ::StatisticFragment)
+        else -> throw IllegalStateException()
+    }
 
 
-        layout.button1.setOnClickListener {
-            router.navigateTo(true, ::MakeSetFragment)
+    private fun createClickableList(recycler: RecyclerView) {
+        val layoutManager = GridLayoutManager(
+            requireContext(),
+            2,
+            RecyclerView.VERTICAL,
+            false
+        )
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return if (position % 3 == 0) 2 else 1
+            }
         }
-        layout.button2.setOnClickListener {
-            router.navigateTo(true, ::LearnSetFragment)
-        }
-        layout.button3.setOnClickListener {
-            router.navigateTo(true, ::WordsOnTopicFragment)
-        }
-        layout.button4.setOnClickListener {
-            router.navigateTo(true, ::StatisticFragment)
-        }
-        return layout
+        recycler.layoutManager = layoutManager
+        recycler.adapter = ClickableAdapter()
     }
 }
-
