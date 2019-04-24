@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import kotlinx.android.synthetic.main.fragment_learn_set.view.*
@@ -24,7 +25,9 @@ class StatisticFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_statistic, container, false)
 
         layout = createButtons(layout)
-        layout.textView2.setText("Statistics")
+
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText("Statistics")
 
         return layout
 

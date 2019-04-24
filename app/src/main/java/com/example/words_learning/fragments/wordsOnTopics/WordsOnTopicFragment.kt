@@ -24,7 +24,7 @@ class WordsOnTopicFragment : Fragment() {
 
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText("Words.......")
+        listView.setText("Words On Topic")
 
     }
 

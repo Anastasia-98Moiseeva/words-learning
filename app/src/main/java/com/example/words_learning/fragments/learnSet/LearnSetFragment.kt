@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
@@ -25,8 +26,8 @@ class LearnSetFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
         layout = createButtons(layout)
-        //layout.textView2.setText("Learn set")
-
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText("Learn set")
 
         return layout
 

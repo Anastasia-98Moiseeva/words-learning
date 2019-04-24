@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.fragments.dictionary.adapters.ClickableAdapter
@@ -30,8 +31,10 @@ class DictionaryFragment : Fragment() {
         val recycler : RecyclerView = layout.findViewById(R.id.list)
 
         recycler.setHasFixedSize(true)
-
         createClickableList(recycler)
+
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText("Dictionary")
 
         return layout
     }
