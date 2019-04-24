@@ -24,7 +24,7 @@ class WordsOnTopicFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_words_on_topic, container, false)
 
         layout = createButtons(layout)
-
+        layout.textView2.setText("Words on topic")
 
         return layout
 

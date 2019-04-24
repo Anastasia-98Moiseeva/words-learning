@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
+import kotlinx.android.synthetic.main.fragment_learn_set.view.*
 
 
 class MakeSetFragment : Fragment() {
@@ -24,6 +25,7 @@ class MakeSetFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragments_make_set, container, false)
 
         layout = createButtons(layout)
+        layout.textView2.setText("Make set")
 
         return layout
 
