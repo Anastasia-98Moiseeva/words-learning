@@ -25,17 +25,13 @@
             android:layout_height="0dp"/>
 
     <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="407dp"
+            android:layout_height="636dp"
             android:id="@+id/fragment_container"
-            app:layout_constraintTop_toTopOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0">
-
-        <android.support.design.widget.BottomNavigationView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
