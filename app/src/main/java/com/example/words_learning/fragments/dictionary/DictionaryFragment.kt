@@ -42,12 +42,12 @@ class DictionaryFragment : Fragment() {
 
         recycler.setHasFixedSize(true)
 
-        val style = arguments?.getInt(STYLE_KEY) ?: 0
+        val style = arguments?.getInt(STYLE_KEY) ?: 1
 
         when(style) {
             0 -> createSimpleList(recycler)
-            //CLICKABLE_LIST -> createClickableList(recycler)
-            //PAGES -> createPageList(recycler)
+            1 -> createClickableList(recycler)
+            2 -> createPageList(recycler)
         }
 
         return layout
