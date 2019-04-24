@@ -39,8 +39,7 @@ class MainApplication : AppCompatActivity() {
         setContentView(R.layout.main_application)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        navView.selectedItemId = R.id.fragment_container
+        navView.selectedItemId = R.id.navigation_home
 
         router = Router(this, R.id.fragment_container)
         if (savedInstanceState == null)
@@ -56,9 +55,6 @@ class MainApplication : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        navView.selectedItemId = R.id.fragment_container
-
     }
 
 
