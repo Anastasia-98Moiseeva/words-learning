@@ -16,15 +16,12 @@ import kotlinx.android.synthetic.main.main_application.view.*
 class WordsOnTopicFragment : Fragment() {
 
     private lateinit var router : Router
+    val name = "Words On Topic"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         router = Router(requireActivity(), R.id.fragment_container)
-
-
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText("Words On Topic")
 
     }
 
@@ -41,6 +38,12 @@ class WordsOnTopicFragment : Fragment() {
 
     private fun createButtons(layout: View) : View{
         return layout
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
     }
 
 }

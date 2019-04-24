@@ -2,6 +2,9 @@ package com.example.words_learning
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
+import android.widget.TextView
+import kotlinx.android.synthetic.main.clickable_item.*
+import kotlinx.android.synthetic.main.fragment_words_on_topic.*
 import java.lang.ref.WeakReference
 
 class Router(activity : FragmentActivity, container: Int) {
@@ -36,6 +39,7 @@ class Router(activity : FragmentActivity, container: Int) {
         activity?.run {
             if (supportFragmentManager.backStackEntryCount > 0) {
                 num_stack --
+
                 supportFragmentManager.popBackStack()
                 return true
             }

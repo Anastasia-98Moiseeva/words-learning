@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_main.view.*
 class LearnSetFragment : Fragment() {
 
     private lateinit var router : Router
+    val name = "Learn set"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +27,6 @@ class LearnSetFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
         layout = createButtons(layout)
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText("Learn set")
 
         return layout
 
@@ -39,6 +38,11 @@ class LearnSetFragment : Fragment() {
         return layout
     }
 
+    override fun onResume() {
+        super.onResume()
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
+    }
 
 }
 

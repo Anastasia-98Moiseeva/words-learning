@@ -19,6 +19,7 @@ import com.example.words_learning.list.LayoutFragment
 class DictionaryFragment : Fragment() {
 
     private lateinit var router : Router
+    val name = "Dictionary"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +33,6 @@ class DictionaryFragment : Fragment() {
 
         recycler.setHasFixedSize(true)
         createClickableList(recycler)
-
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText("Dictionary")
 
         return layout
     }
@@ -53,6 +51,12 @@ class DictionaryFragment : Fragment() {
         }
         recycler.layoutManager = layoutManager
         recycler.adapter = ClickableAdapter()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
     }
 
 }

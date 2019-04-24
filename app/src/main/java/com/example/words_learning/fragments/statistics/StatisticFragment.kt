@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_learn_set.view.*
 class StatisticFragment : Fragment() {
 
     private lateinit var router : Router
+    val name = "Statistics"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,20 +27,19 @@ class StatisticFragment : Fragment() {
 
         layout = createButtons(layout)
 
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText("Statistics")
-
         return layout
 
     }
-
-
-
 
     private fun createButtons(layout: View) : View{
         return layout
     }
 
+    override fun onResume() {
+        super.onResume()
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
+    }
 
 }
 
