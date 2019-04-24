@@ -9,7 +9,6 @@
 
 
     <TextView
-            android:text="Search"
             android:textColor="@android:color/white"
             android:gravity="center"
             android:layout_width="match_parent"

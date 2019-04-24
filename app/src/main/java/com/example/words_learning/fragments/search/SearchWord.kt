@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.list.LayoutFragment
+import kotlinx.android.synthetic.main.fragment_learn_set.view.*
 
 class SearchWord : Fragment() {
 
@@ -23,7 +24,7 @@ class SearchWord : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_search_word, container, false)
 
         layout = createButtons(layout)
-
+        layout.textView2.setText("Search")
 
         return layout
 

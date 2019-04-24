@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     countTick = 0
                     newText = baseText
                 } else {
-                    newText = "$oldText."
+                    newText = "$oldText" ///...
                 }
                 textView.text = newText
                 countTick++
