@@ -39,7 +39,7 @@ class MainApplication : AppCompatActivity() {
         setContentView(R.layout.main_application)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
+        navView.selectedItemId = R.id.navigation_home
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         router = Router(this, R.id.fragment_container)
