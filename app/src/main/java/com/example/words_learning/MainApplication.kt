@@ -56,6 +56,9 @@ class MainApplication : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.selectedItemId = R.id.fragment_container
+
     }
 
 

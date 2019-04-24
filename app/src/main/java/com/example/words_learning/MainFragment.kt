@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.example.words_learning.fragments.dictionary.adapters.ClickableAdapter
 import com.example.words_learning.fragments.statistics.StatisticFragment
 import com.example.words_learning.fragments.learnSet.LearnSetFragment
+import com.example.words_learning.fragments.makeSet.MakeSetFragment
 import com.example.words_learning.fragments.wordsOnTopics.WordsOnTopicFragment
 import ru.mail.technotrack.recyclerview.adapters.ButtonsListAdapter
 import java.lang.IllegalStateException
@@ -55,7 +56,7 @@ class MainFragment : Fragment() {
     }
 
     private fun onButtonClick(position: Int) = when (position) {
-        0 -> router.navigateTo(true, ::LearnSetFragment)
+        0 -> router.navigateTo(true, ::MakeSetFragment)
         1 -> router.navigateTo(true, ::LearnSetFragment)
         2 -> router.navigateTo(true, ::WordsOnTopicFragment)
         3 -> router.navigateTo(true, ::StatisticFragment)
