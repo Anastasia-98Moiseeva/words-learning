@@ -26,6 +26,9 @@ class MakeSetFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragments_make_set, container, false)
         layout = createButtons(layout)
 
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
+
         return layout
 
     }

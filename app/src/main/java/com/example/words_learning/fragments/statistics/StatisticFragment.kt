@@ -26,6 +26,8 @@ class StatisticFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_statistic, container, false)
 
         layout = createButtons(layout)
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
 
         return layout
 

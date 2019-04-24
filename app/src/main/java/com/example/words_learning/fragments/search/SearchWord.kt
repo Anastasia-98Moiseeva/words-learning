@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_learn_set.view.*
 class SearchWord : Fragment() {
 
     private lateinit var router : Router
-    val name = "Serch"
+    val name = "Search"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,8 @@ class SearchWord : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_search_word, container, false)
 
         layout = createButtons(layout)
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
 
         return layout
 

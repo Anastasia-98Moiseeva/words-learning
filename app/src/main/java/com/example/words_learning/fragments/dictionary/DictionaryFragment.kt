@@ -34,6 +34,9 @@ class DictionaryFragment : Fragment() {
         recycler.setHasFixedSize(true)
         createClickableList(recycler)
 
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
+
         return layout
     }
 

@@ -20,6 +20,8 @@ class WordsOnTopicFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
 
         router = Router(requireActivity(), R.id.fragment_container)
 
@@ -30,6 +32,8 @@ class WordsOnTopicFragment : Fragment() {
 
         layout = createButtons(layout)
         //layout.textView2.setText("Words on topic")
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
 
         return layout
 

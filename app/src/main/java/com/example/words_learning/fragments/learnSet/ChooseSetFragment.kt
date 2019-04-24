@@ -26,6 +26,9 @@ class ChooseSetFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
+
         layout = createButtons(layout)
         return layout
 

@@ -27,6 +27,8 @@ class LearnSetFragment : Fragment() {
         var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
 
         layout = createButtons(layout)
+        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)
 
         return layout
 
@@ -40,7 +42,7 @@ class LearnSetFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
+       val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
     }
 
