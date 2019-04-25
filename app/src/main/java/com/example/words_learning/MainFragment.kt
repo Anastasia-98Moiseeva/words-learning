@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
         val layout = inflater.inflate(R.layout.fragment_list, container, false)
         val recycler: RecyclerView = layout.findViewById(R.id.list)
 
+        recycler.setHasFixedSize(true)
         recycler.layoutManager = LinearLayoutManager(
             inflater.context,
             RecyclerView.VERTICAL,

@@ -9,7 +9,7 @@ import com.example.words_learning.R
 
 class ImageListAdapter(private val names : Array<String>, private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ButtonHolder {
-        val rootView = LayoutInflater.from(viewGroup.context).inflate(R.layout.image_button_layout, viewGroup, false)
+        val rootView = LayoutInflater.from(viewGroup.context).inflate(R.layout.test_image_button_layout, viewGroup, false)
         val button : Button = rootView.findViewById(R.id.button)
         return ButtonHolder(rootView, button, onClick)
     }

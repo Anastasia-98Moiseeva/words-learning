@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.ClickableAdapter
+import com.example.words_learning.adapters.ImageListAdapter
 
 class WordsOnTopicFragment : Fragment() {
 
@@ -38,9 +38,6 @@ class WordsOnTopicFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
-
         router = Router(requireActivity(), R.id.fragment_container)
 
     }
@@ -64,7 +61,14 @@ class WordsOnTopicFragment : Fragment() {
         val recycler : RecyclerView = layout.findViewById(R.id.list)
 
         recycler.setHasFixedSize(true)
-        createClickableList(recycler)
+
+        recycler.layoutManager = GridLayoutManager(
+            requireContext(),
+            3,
+            RecyclerView.VERTICAL,
+            false
+        )
+        recycler.adapter = ImageListAdapter(createButtons(), ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
@@ -72,21 +76,12 @@ class WordsOnTopicFragment : Fragment() {
         return layout
     }
 
-    private fun createClickableList(recycler : RecyclerView) {
-        val layoutManager = GridLayoutManager(
-            requireContext(),
-            3,
-            RecyclerView.VERTICAL,
-            false
-        )
 
-        recycler.layoutManager = layoutManager
-        recycler.adapter = ClickableAdapter(arrayOfItems)
+    private fun createButtons(): Array<String>{
+        return arrayOfItems
     }
 
-
-    private fun createButtons(layout: View) : View{
-        return layout
+    private fun onButtonClick(position: Int) {
     }
 
     override fun onResume() {
