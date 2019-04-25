@@ -1,4 +1,4 @@
-package com.example.words_learning.fragments.dictionary.adapters
+package com.example.words_learning.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,36 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.words_learning.R
 
-class ClickableAdapter : RecyclerView.Adapter<ClickableViewHolder>() {
-
-    val arrayOfItems = arrayOf(
-        "lorem",
-        "ipsum",
-        "dolor",
-        "sit",
-        "amet",
-        "consectetuer",
-        "adipiscing",
-        "elit",
-        "morbi",
-        "vel",
-        "ligula",
-        "vitae",
-        "arcu",
-        "aliquet",
-        "mollis",
-        "etiam",
-        "vel",
-        "erat",
-        "placerat",
-        "ante",
-        "porttitor",
-        "sodales",
-        "pellentesque",
-        "augue",
-        "purus"
-    )
-
+class ClickableAdapter (val arrayOfItems: Array<String>) : RecyclerView.Adapter<ClickableViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClickableViewHolder {
         val inflater = LayoutInflater.from(parent.context)

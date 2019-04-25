@@ -10,13 +10,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.fragments.dictionary.adapters.ClickableAdapter
+import com.example.words_learning.adapters.ClickableAdapter
 
 
 class LearnSetFragment : Fragment() {
 
     private lateinit var router : Router
     val name = "Learn set"
+
+    val arrayOfItems = arrayOf(
+        "Cards",
+        "Matching",
+        "Test",
+        "Writing"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +66,7 @@ class LearnSetFragment : Fragment() {
         )
 
         recycler.layoutManager = layoutManager
-        recycler.adapter = ClickableAdapter()
+        recycler.adapter = ClickableAdapter(arrayOfItems)
     }
 
     private fun createButtons(layout: View) : View{

@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.fragments.dictionary.adapters.ClickableAdapter
+import com.example.words_learning.adapters.ClickableAdapter
 import com.example.words_learning.list.LayoutFragment
 
 
@@ -20,6 +20,34 @@ class DictionaryFragment : Fragment() {
 
     private lateinit var router : Router
     val name = "Dictionary"
+
+    val arrayOfItems = arrayOf(
+        "lorem",
+        "ipsum",
+        "dolor",
+        "sit",
+        "amet",
+        "consectetuer",
+        "adipiscing",
+        "elit",
+        "morbi",
+        "vel",
+        "ligula",
+        "vitae",
+        "arcu",
+        "aliquet",
+        "mollis",
+        "etiam",
+        "vel",
+        "erat",
+        "placerat",
+        "ante",
+        "porttitor",
+        "sodales",
+        "pellentesque",
+        "augue",
+        "purus"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +81,7 @@ class DictionaryFragment : Fragment() {
             }
         }
         recycler.layoutManager = layoutManager
-        recycler.adapter = ClickableAdapter()
+        recycler.adapter = ClickableAdapter(arrayOfItems)
     }
 
     override fun onResume() {

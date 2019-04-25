@@ -2,14 +2,12 @@ package com.example.words_learning
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.words_learning.adapters.ClickableAdapter
 import com.example.words_learning.fragments.statistics.StatisticFragment
 import com.example.words_learning.fragments.learnSet.LearnSetFragment
 import com.example.words_learning.fragments.makeSet.MakeSetFragment
@@ -50,7 +48,6 @@ class MainFragment : Fragment() {
         listView.setText(name)
 
         return layout
-
     }
 
     private fun createButtons(): Array<String> {
@@ -64,24 +61,6 @@ class MainFragment : Fragment() {
         3 -> router.navigateTo(true, ::StatisticFragment)
         else -> throw IllegalStateException()
     }
-
-
-    private fun createClickableList(recycler: RecyclerView) {
-        val layoutManager = GridLayoutManager(
-            requireContext(),
-            2,
-            RecyclerView.VERTICAL,
-            false
-        )
-        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                return if (position % 3 == 0) 2 else 1
-            }
-        }
-        recycler.layoutManager = layoutManager
-        recycler.adapter = ClickableAdapter(arrayOfItems)
-    }
-
 
     override fun onResume() {
             super.onResume()
