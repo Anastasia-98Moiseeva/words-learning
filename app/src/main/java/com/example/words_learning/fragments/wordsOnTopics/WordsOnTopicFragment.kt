@@ -19,31 +19,21 @@ class WordsOnTopicFragment : Fragment() {
     val name = "Words On Topic"
 
     val arrayOfItems = arrayOf(
-        "lorem",
-        "ipsum",
-        "dolor",
-        "sit",
-        "amet",
-        "consectetuer",
-        "adipiscing",
-        "elit",
-        "morbi",
-        "vel",
-        "ligula",
-        "vitae",
-        "arcu",
-        "aliquet",
-        "mollis",
-        "etiam",
-        "vel",
-        "erat",
-        "placerat",
-        "ante",
-        "porttitor",
-        "sodales",
-        "pellentesque",
-        "augue",
-        "purus"
+        "Vegetables",
+        "Dishes",
+        "Fruits",
+        "Family",
+        "Flowers",
+        "Footwear",
+        "Animals",
+        "Clothes",
+        "Face",
+        "House",
+        "Berries",
+        "Furniture",
+        "Professions",
+        "Writing materials",
+        "Body parts"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
