@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.list.LayoutFragment
-import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
 class ChooseSetFragment : Fragment() {
