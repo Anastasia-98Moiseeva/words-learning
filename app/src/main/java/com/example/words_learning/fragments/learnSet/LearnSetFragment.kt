@@ -31,18 +31,6 @@ class LearnSetFragment : Fragment() {
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
-    /*override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
-
-        layout = createButtons(layout)
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
-
-        return layout
-
-    }*/
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val layout = inflater.inflate(R.layout.fragment_list, container, false)
@@ -63,17 +51,6 @@ class LearnSetFragment : Fragment() {
 
         return layout
     }
-
-    /*private fun createClickableList(recycler : RecyclerView) {
-        recycler.layoutManager = GridLayoutManager(
-            requireContext(),
-            2,
-            RecyclerView.VERTICAL,
-            false
-        )
-
-        recycler.adapter = ClickableAdapter(arrayOfItems)
-    }*/
 
     private fun createButtons(): Array<String>{
         return arrayOfItems
