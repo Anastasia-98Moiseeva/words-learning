@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.ImageListAdapter
+import ru.mail.technotrack.recyclerview.adapters.ButtonsListAdapter
 
 
 class LearnSetFragment : Fragment() {
@@ -44,7 +44,7 @@ class LearnSetFragment : Fragment() {
             false
         )
 
-        recycler.adapter = ImageListAdapter(createButtons(), ::onButtonClick)
+        recycler.adapter = ButtonsListAdapter(createButtons(), R.layout.test_image_button_layout, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.ImListAdapter
+import ru.mail.technotrack.recyclerview.adapters.ButtonsListAdapter
 
 class WordsOnTopicFragment : Fragment() {
 
@@ -68,7 +68,7 @@ class WordsOnTopicFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ImListAdapter(createButtons(), ::onButtonClick)
+        recycler.adapter = ButtonsListAdapter(createButtons(), R.layout.words_image_button_layout, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

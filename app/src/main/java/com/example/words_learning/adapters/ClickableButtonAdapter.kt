@@ -7,9 +7,10 @@ import android.widget.Button
 import android.view.LayoutInflater
 import com.example.words_learning.R
 
-class ButtonsListAdapter(private val names : Array<String>, private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
+class ButtonsListAdapter(private val names : Array<String>, private val cur_layout: Int, private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ButtonHolder {
-        val rootView = LayoutInflater.from(viewGroup.context).inflate(R.layout.button_layout, viewGroup, false)
+        //val cur_layout = R.layout.button_layout
+        val rootView = LayoutInflater.from(viewGroup.context).inflate(cur_layout, viewGroup, false)
         val button : Button = rootView.findViewById(R.id.button)
         return ButtonHolder(rootView, button, onClick)
     }

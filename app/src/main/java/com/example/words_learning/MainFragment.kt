@@ -43,7 +43,7 @@ class MainFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ButtonsListAdapter(createButtons(), ::onButtonClick)
+        recycler.adapter = ButtonsListAdapter(createButtons(), R.layout.button_layout, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
