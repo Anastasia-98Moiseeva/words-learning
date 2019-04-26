@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.view.LayoutInflater
 import com.example.words_learning.R
+import kotlinx.android.synthetic.main.activity_main.view.*
 
-class ButtonsListAdapter(private val names : Array<String>, private val cur_layout: Int, private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
+class ClickableButtonAdapter(private val names : Array<String>, private val cur_layout: Int, private val textSize : Float,
+                             private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ButtonHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ButtonHolder {
         //val cur_layout = R.layout.button_layout
         val rootView = LayoutInflater.from(viewGroup.context).inflate(cur_layout, viewGroup, false)
@@ -21,6 +23,7 @@ class ButtonsListAdapter(private val names : Array<String>, private val cur_layo
 
     override fun onBindViewHolder(holder: ButtonHolder, pos: Int) {
         holder.button.text = names[pos]
+        holder.button.textSize = textSize
     }
 
 }

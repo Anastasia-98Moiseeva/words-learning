@@ -12,7 +12,7 @@ import com.example.words_learning.fragments.statistics.StatisticFragment
 import com.example.words_learning.fragments.learnSet.LearnSetFragment
 import com.example.words_learning.fragments.makeSet.MakeSetFragment
 import com.example.words_learning.fragments.wordsOnTopics.WordsOnTopicFragment
-import ru.mail.technotrack.recyclerview.adapters.ButtonsListAdapter
+import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
 import java.lang.IllegalStateException
 
 class MainFragment : Fragment() {
@@ -26,6 +26,7 @@ class MainFragment : Fragment() {
         "Words on topics",
         "Statistics"
     )
+    val textSize : Float = 18F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +44,7 @@ class MainFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ButtonsListAdapter(createButtons(), R.layout.button_layout, ::onButtonClick)
+        recycler.adapter = ClickableButtonAdapter(createButtons(), R.layout.button_layout, textSize, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

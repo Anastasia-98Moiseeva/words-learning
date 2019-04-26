@@ -10,7 +10,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import ru.mail.technotrack.recyclerview.adapters.ButtonsListAdapter
+
+import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
 
 
 class LearnSetFragment : Fragment() {
@@ -25,13 +26,16 @@ class LearnSetFragment : Fragment() {
         "Writing"
     )
 
+    val textSize : Float = 15F
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
 
         val layout = inflater.inflate(R.layout.fragment_list, container, false)
         val recycler : RecyclerView = layout.findViewById(R.id.list)
@@ -44,7 +48,8 @@ class LearnSetFragment : Fragment() {
             false
         )
 
-        recycler.adapter = ButtonsListAdapter(createButtons(), R.layout.test_image_button_layout, ::onButtonClick)
+        recycler.adapter = ClickableButtonAdapter(createButtons(),
+            R.layout.test_image_button_layout, textSize, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
