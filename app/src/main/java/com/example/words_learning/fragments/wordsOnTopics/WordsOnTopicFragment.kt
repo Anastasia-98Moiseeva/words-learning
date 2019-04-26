@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.ImageListAdapter
+import com.example.words_learning.adapters.ImListAdapter
 
 class WordsOnTopicFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class WordsOnTopicFragment : Fragment() {
         "Berries",
         "Furniture",
         "Professions",
-        "Writing materials",
+        "Stationery",
         "Body parts"
     )
 
@@ -68,10 +68,11 @@ class WordsOnTopicFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ImageListAdapter(createButtons(), ::onButtonClick)
+        recycler.adapter = ImListAdapter(createButtons(), ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
+
 
         return layout
     }
