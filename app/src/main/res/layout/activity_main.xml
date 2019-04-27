@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias="0.0"/>
 
     <TextView
-            android:text=" Words\n    Learning"
+            android:text=" Words\n  Learning"
             android:textSize="50sp"
             android:textColor="@color/text_title"
             android:layout_width="wrap_content"
