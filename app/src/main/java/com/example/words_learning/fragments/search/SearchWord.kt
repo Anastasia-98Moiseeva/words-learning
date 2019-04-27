@@ -2,9 +2,12 @@ package com.example.words_learning.fragments.search
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.ActionBar
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
@@ -28,7 +31,8 @@ class SearchWord : Fragment() {
         layout = createButtons(layout)
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
-
+        val searchView = layout.findViewById<SearchView>(R.id.editText)
+        searchView.set
         return layout
 
     }
