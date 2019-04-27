@@ -32,7 +32,7 @@ class SearchWord : Fragment() {
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
         val searchView = layout.findViewById<SearchView>(R.id.editText)
-        searchView.set
+
         return layout
 
     }
