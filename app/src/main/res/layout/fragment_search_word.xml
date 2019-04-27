@@ -38,10 +38,11 @@
     <SearchView
             android:theme="@android:style/Theme.Black"
             android:background="@android:color/white"
-            android:gravity="end"
             android:queryBackground="@null"
             android:id="@+id/editText"
             android:queryHint="Enter the word"
+            android:searchIcon="@drawable/icon_loppa"
+            android:gravity="right"
             android:inputType="textAutoComplete"
             android:layout_height="54dp"
             android:layout_marginTop="92dp"
