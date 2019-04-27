@@ -19,11 +19,19 @@ class LearnSetFragment : Fragment() {
     private lateinit var router : Router
     val name = "Learn set"
 
-    val arrayOfItems = arrayOf(
+    val arrayOfItems : Array<String> = arrayOf(
         "Cards",
         "Matching",
         "Test",
         "Writing"
+    )
+
+    val arrayOfImages : Array<Int> = arrayOf(
+        R.drawable.ic_test1,
+        R.drawable.ic_test2,
+        R.drawable.ic_test3,
+        R.drawable.ic_test4
+
     )
 
     val textSize : Float = 15F
@@ -37,7 +45,8 @@ class LearnSetFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val layout = inflater.inflate(R.layout.fragment_list, container, false)
+        val layout = inflater.inflate(R.layout.fragment_list,
+            container, false)
         val recycler : RecyclerView = layout.findViewById(R.id.list)
 
         recycler.setHasFixedSize(true)
@@ -45,11 +54,12 @@ class LearnSetFragment : Fragment() {
             requireContext(),
             2,
             RecyclerView.VERTICAL,
-            false
+false
         )
 
         recycler.adapter = ClickableButtonAdapter(createButtons(),
-            R.layout.test_image_button_layout, textSize, ::onButtonClick)
+            R.layout.test_image_button_layout, textSize,
+            arrayOfImages, true, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

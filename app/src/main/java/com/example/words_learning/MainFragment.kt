@@ -20,12 +20,20 @@ class MainFragment : Fragment() {
     private lateinit var router: Router
     val name = "Main menu"
 
-    val arrayOfItems = arrayOf(
+    val arrayOfItems : Array<String> = arrayOf(
         "Make set",
         "Learn set",
         "Words on topics",
         "Statistics"
     )
+
+    val arrayOfImages : Array<Int> = arrayOf(
+        R.drawable.ic_furniture1,
+        R.drawable.ic_profession1,
+        R.drawable.ic_stationery1,
+        R.drawable.ic_body1
+    )
+
     val textSize : Float = 18F
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +42,10 @@ class MainFragment : Fragment() {
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val layout = inflater.inflate(R.layout.fragment_list, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val layout = inflater.inflate(R.layout.fragment_list, container,
+            false)
         val recycler: RecyclerView = layout.findViewById(R.id.list)
 
         recycler.setHasFixedSize(true)
@@ -44,7 +54,9 @@ class MainFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ClickableButtonAdapter(createButtons(), R.layout.button_layout, textSize, ::onButtonClick)
+        recycler.adapter = ClickableButtonAdapter(createButtons(),
+            R.layout.button_layout, textSize, arrayOfImages,
+            false, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

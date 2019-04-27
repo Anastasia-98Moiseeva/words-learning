@@ -18,7 +18,7 @@ class WordsOnTopicFragment : Fragment() {
     private lateinit var router : Router
     val name = "Words On Topic"
 
-    val arrayOfItems = arrayOf(
+    val arrayOfItems : Array<String> = arrayOf(
         "Vegetables",
         "Dishes",
         "Fruits",
@@ -36,6 +36,25 @@ class WordsOnTopicFragment : Fragment() {
         "Body parts"
     )
 
+    val arrayOfImages : Array<Int> = arrayOf(
+        R.drawable.ic_vegetable1,
+        R.drawable.ic_cutlery1,
+        R.drawable.ic_fruit1,
+        R.drawable.ic_family1,
+        R.drawable.ic_flower1,
+        R.drawable.ic_footwear1,
+        R.drawable.ic_animal1,
+        R.drawable.ic_clothes1,
+        R.drawable.ic_face1,
+        R.drawable.ic_home1,
+        R.drawable.ic_berry1,
+        R.drawable.ic_furniture1,
+        R.drawable.ic_profession1,
+        R.drawable.ic_stationery1,
+        R.drawable.ic_body1
+
+    )
+
     val textSize : Float = 12F
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,23 +63,11 @@ class WordsOnTopicFragment : Fragment() {
 
     }
 
-    /*override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_words_on_topic, container, false)
-
-        layout = createButtons(layout)
-        //layout.textView2.setText("Words on topic")
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
-
-        return layout
-
-    }*/
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val layout = inflater.inflate(R.layout.fragment_list, container, false)
+        val layout = inflater.inflate(R.layout.fragment_list,
+            container, false)
         val recycler : RecyclerView = layout.findViewById(R.id.list)
 
         recycler.setHasFixedSize(true)
@@ -72,7 +79,8 @@ class WordsOnTopicFragment : Fragment() {
             false
         )
         recycler.adapter = ClickableButtonAdapter(createButtons(),
-            R.layout.words_image_button_layout, textSize, ::onButtonClick)
+            R.layout.words_image_button_layout, textSize,
+            arrayOfImages, true, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
