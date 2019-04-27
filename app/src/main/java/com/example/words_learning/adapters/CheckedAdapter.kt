@@ -69,8 +69,8 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
 
         init {
 
-            nameTxt = itemView.findViewById(R.id.nameTextView)
-            posTxt = itemView.findViewById(R.id.descritionTextView)
+            nameTxt = itemView.findViewById(R.id.wordTextView)
+            posTxt = itemView.findViewById(R.id.translationTextView)
             myCheckBox = itemView.findViewById(R.id.myCheckBox)
             myCheckBox.setOnClickListener(this)
         }
