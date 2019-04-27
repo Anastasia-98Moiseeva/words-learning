@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.fragments.statistics.StatisticFragment
-import com.example.words_learning.fragments.learnSet.LearnSetFragment
+import com.example.words_learning.fragments.learnSet.ChooseSetFragment
 import com.example.words_learning.fragments.makeSet.MakeSetFragment
 import com.example.words_learning.fragments.wordsOnTopics.WordsOnTopicFragment
 import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
@@ -70,7 +70,7 @@ class MainFragment : Fragment() {
 
     private fun onButtonClick(position: Int) = when (position) {
         0 -> router.navigateTo(true, ::MakeSetFragment)
-        1 -> router.navigateTo(true, ::LearnSetFragment)
+        1 -> router.navigateTo(true, ::ChooseSetFragment)
         2 -> router.navigateTo(true, ::WordsOnTopicFragment)
         3 -> router.navigateTo(true, ::StatisticFragment)
         else -> throw IllegalStateException()

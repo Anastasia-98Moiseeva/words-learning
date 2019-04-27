@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import kotlinx.android.synthetic.main.fragment_learn_set.view.*
 
 
 class StatisticFragment : Fragment() {
