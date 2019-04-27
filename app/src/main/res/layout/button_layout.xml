@@ -15,7 +15,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                card_view:cardCornerRadius="8dp"
+                card_view:cardCornerRadius="5dp"
                 card_view:layout_constraintEnd_toStartOf="@+id/guideline10"
                 card_view:layout_constraintStart_toStartOf="@+id/guideline9"
                 card_view:layout_constraintTop_toTopOf="@+id/guideline8">
