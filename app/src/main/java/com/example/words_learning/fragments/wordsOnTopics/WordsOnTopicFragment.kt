@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
+import java.lang.IllegalStateException
 
 class WordsOnTopicFragment : Fragment() {
 
@@ -94,7 +95,23 @@ class WordsOnTopicFragment : Fragment() {
         return arrayOfItems
     }
 
-    private fun onButtonClick(position: Int) {
+    private fun onButtonClick(position: Int) = when (position){
+        0 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        1 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        2 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        3 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        4 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        5 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        6 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        7 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        8 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        9 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        10 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        11 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        12 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        13 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        14 -> router.navigateTo(true, ::WordsOnTopicListFragment)
+        else -> throw IllegalStateException()
     }
 
     override fun onResume() {

@@ -33,7 +33,6 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
         holder.posTxt.text = teacher.quote
         holder.myCheckBox.isChecked = teacher.isSelected
         holder.myCheckBox.setText("")
-        holder.img.setImageResource(teacher.image)
 
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
@@ -42,7 +41,7 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
                 val currentTeacher = teachers[pos]
 
                 if (myCheckBox.isChecked) {
-                    myCheckBox.setText("Has been added")
+                    myCheckBox.setText("added")
                     currentTeacher.isSelected = true
                     checkedTeachers.add(currentTeacher)
 
@@ -50,7 +49,7 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
                 } else if (!myCheckBox.isChecked) {
                     currentTeacher.isSelected = false
                     checkedTeachers.remove(currentTeacher)
-                    myCheckBox.setText("Has been removed")
+                    myCheckBox.setText("removed")
                 }
             }
         })
@@ -62,7 +61,6 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        var img: ImageView
         var nameTxt: TextView
         var posTxt: TextView
         var myCheckBox: CheckBox
@@ -73,7 +71,6 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
 
             nameTxt = itemView.findViewById(R.id.nameTextView)
             posTxt = itemView.findViewById(R.id.descritionTextView)
-            img = itemView.findViewById(R.id.teacherImageView)
             myCheckBox = itemView.findViewById(R.id.myCheckBox)
             myCheckBox.setOnClickListener(this)
         }
