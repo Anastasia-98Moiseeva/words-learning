@@ -61,22 +61,22 @@ class DictionaryFragment : Fragment() {
         private val teachers: ArrayList<SpiritualTeacher>
             get() =
                 arrayListOf(
-                    SpiritualTeacher("Rumi", "Out beyond ideas of wrongdoing and rightdoing there is a field.I'll meet you there.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Anthony De Mello", "Don't Carry Over Experiences from the past", R.drawable.icon_loppa),
-                    SpiritualTeacher("Eckhart Tolle", "Walk as if you are kissing the Earth with your feet.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Meister Eckhart", "Man suffers only because he takes seriously what the gods made for fun.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Mooji", "I have lived with several Zen masters -- all of them cats.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Confucius", "I'm simply saying that there is a way to be sane. I'm saying that you ", R.drawable.icon_loppa),
-                    SpiritualTeacher("Francis Lucille", "The way out is through the door. Why is it that no one will use this method?", R.drawable.icon_loppa),
-                    SpiritualTeacher("Thich Nhat Hanh", "t is the power of the mind to be unconquerable.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Dalai Lama", "It's like you took a bottle of ink and you threw it at a wall. Smash! ", R.drawable.icon_loppa),
-                    SpiritualTeacher("Jiddu Krishnamurti", "A student, filled with emotion and crying, implored, 'Why is there so much suffering?", R.drawable.icon_loppa),
-                    SpiritualTeacher("Osho", "Only the hand that erases can write the true thing.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Sedata", "Many have died; you also will die. The drum of death is being beaten.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Allan Watts", "Where there are humans, You'll find flies,And Buddhas.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Leo Gura", "Silence is the language of Om. We need silence to be able to reach our Self.", R.drawable.icon_loppa),
-                    SpiritualTeacher("Rupert Spira", "One day in my shoes and a day for me in your shoes, the beauty of travel lies ", R.drawable.icon_loppa),
-                    SpiritualTeacher("Sadhguru", "Like vanishing dew,a passing apparition or the sudden flashnof lightning", R.drawable.icon_loppa)
+                    SpiritualTeacher("Girl", "Девушка", R.drawable.icon_loppa),
+                    SpiritualTeacher("Wine", "Вино", R.drawable.icon_loppa),
+                    SpiritualTeacher("Borsch", "Борщ", R.drawable.icon_loppa),
+                    SpiritualTeacher("Debauchery", "Разврат", R.drawable.icon_loppa),
+                    SpiritualTeacher("Money", "Деньги", R.drawable.icon_loppa),
+                    SpiritualTeacher("Science", "Наука", R.drawable.icon_loppa),
+                    SpiritualTeacher("Angel", "Ангел", R.drawable.icon_loppa),
+                    SpiritualTeacher("Laptop", "Ноутбук", R.drawable.icon_loppa),
+                    SpiritualTeacher("Vanity", "Тщеславие", R.drawable.icon_loppa),
+                    SpiritualTeacher("Stripper", "Стриптизерша", R.drawable.icon_loppa),
+                    SpiritualTeacher("Football", "Футбол", R.drawable.icon_loppa),
+                    SpiritualTeacher("Santa Claus", "Дед Мороз", R.drawable.icon_loppa),
+                    SpiritualTeacher("Marvel", "Чудо", R.drawable.icon_loppa),
+                    SpiritualTeacher("Nature", "Природа", R.drawable.icon_loppa),
+                    SpiritualTeacher("Love", "Любовь", R.drawable.icon_loppa),
+                    SpiritualTeacher("Hoverboard", "Гироскутер", R.drawable.icon_loppa)
                 )
     }
 }

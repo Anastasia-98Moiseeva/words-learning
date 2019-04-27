@@ -42,6 +42,7 @@
             android:queryBackground="@null"
             android:id="@+id/editText"
             android:queryHint="Enter the word"
+
             android:inputType="textAutoComplete"
             android:layout_height="54dp"
             android:layout_marginTop="92dp"

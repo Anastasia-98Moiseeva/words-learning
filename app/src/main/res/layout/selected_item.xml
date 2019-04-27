@@ -12,11 +12,11 @@
             android:layout_height="match_parent"
             android:background="#761C59">
         <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:id="@+id/teacherImageView"
                 android:padding="5dp"
-                android:src="@android:drawable/ic_media_ff" />
+                android:src="@android:drawable/ic_media_ff"/>
 
         <TextView
                 android:layout_width="wrap_content"
@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/myCheckBox"
                 android:layout_alignParentRight="true"
+                android:isScrollContainer="true"
         />
 
     </RelativeLayout>
