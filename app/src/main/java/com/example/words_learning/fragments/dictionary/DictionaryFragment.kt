@@ -58,9 +58,9 @@ class DictionaryFragment : Fragment() {
 
 
     companion object {
-        private val teachers: Array<SpiritualTeacher>
+        private val teachers: ArrayList<SpiritualTeacher>
             get() =
-                arrayOf(
+                arrayListOf(
                     SpiritualTeacher("Rumi", "Out beyond ideas of wrongdoing and rightdoing there is a field.I'll meet you there.", R.drawable.icon_loppa),
                     SpiritualTeacher("Anthony De Mello", "Don't Carry Over Experiences from the past", R.drawable.icon_loppa),
                     SpiritualTeacher("Eckhart Tolle", "Walk as if you are kissing the Earth with your feet.", R.drawable.icon_loppa),

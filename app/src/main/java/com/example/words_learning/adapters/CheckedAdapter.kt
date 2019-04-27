@@ -19,16 +19,14 @@ class SpiritualTeacher(var name: String?, val quote: String, val image: Int) {
 }
 
 
-class CheckedListAdapter(var teachers: Array<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
+class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
     var checkedTeachers = ArrayList<SpiritualTeacher>()
 
-    //VIEWHOLDER IS INITIALIZED
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.selected_item, null)
         return MyHolder(v)
     }
 
-    //DATA IS BOUND TO VIEWS
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val teacher = teachers[position]
         holder.nameTxt.text = teacher.name
@@ -44,9 +42,14 @@ class CheckedListAdapter(var teachers: Array<SpiritualTeacher>) : RecyclerView.A
                 if (myCheckBox.isChecked) {
                     currentTeacher.isSelected = true
                     checkedTeachers.add(currentTeacher)
+                    myCheckBox.setText("Has been added")
+
+
                 } else if (!myCheckBox.isChecked) {
                     currentTeacher.isSelected = false
                     checkedTeachers.remove(currentTeacher)
+                    myCheckBox.setText("")
+
                 }
             }
         })
@@ -71,7 +74,6 @@ class CheckedListAdapter(var teachers: Array<SpiritualTeacher>) : RecyclerView.A
             posTxt = itemView.findViewById(R.id.descritionTextView)
             img = itemView.findViewById(R.id.teacherImageView)
             myCheckBox = itemView.findViewById(R.id.myCheckBox)
-
             myCheckBox.setOnClickListener(this)
         }
 
