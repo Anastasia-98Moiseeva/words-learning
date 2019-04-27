@@ -11,12 +11,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#761C59">
-        <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/teacherImageView"
-                android:padding="5dp"
-                android:src="@android:drawable/ic_media_ff"/>
 
         <TextView
                 android:layout_width="wrap_content"
@@ -27,7 +21,8 @@
                 android:padding="5dp"
                 android:textColor="@color/colorAccent"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/teacherImageView" />
+                android:layout_toRightOf="@+id/teacherImageView" android:layout_marginTop="1dp"
+                android:layout_marginStart="1dp" android:layout_alignParentStart="true"/>
 
         <TextView
                 android:layout_width="wrap_content"
@@ -36,8 +31,10 @@
                 android:text="Teacher Description..."
                 android:id="@+id/descritionTextView"
                 android:padding="5dp"
-                android:layout_alignBottom="@+id/teacherImageView"
-                android:layout_toRightOf="@+id/teacherImageView" />
+                android:layout_toRightOf="@+id/teacherImageView" android:layout_marginTop="4dp"
+                android:layout_alignParentTop="true" android:layout_toEndOf="@+id/nameTextView"
+                android:layout_marginStart="16dp" android:layout_toStartOf="@+id/myCheckBox"
+                android:layout_marginEnd="13dp"/>
 
         <CheckBox
                 android:layout_width="wrap_content"
