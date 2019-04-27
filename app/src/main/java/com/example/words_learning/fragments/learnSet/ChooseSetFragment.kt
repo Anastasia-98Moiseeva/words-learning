@@ -16,7 +16,7 @@ import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
 class ChooseSetFragment : Fragment() {
 
     private lateinit var router : Router
-    val name = "Learn set"
+    val name = "Choose set"
 
     val arrayOfItems : Array<String> = arrayOf(
         "Set1",

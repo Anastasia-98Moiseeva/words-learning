@@ -10,4 +10,5 @@
     <color name="buttonInBarPressed">#8989AD</color>
     <color name="text">#010614</color>
     <color name="text_title">#11128B</color>
+    <color name="checkMark">#5BBE5B</color>
 </resources>
