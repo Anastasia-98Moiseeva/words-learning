@@ -4,13 +4,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.TextView
 import com.example.words_learning.R
 import java.util.ArrayList
 
-
-private var listAdapter: DeletedListAdapter? = null
 
 class SpiritTeacher(var name: String?, val quote: String, val image: Int) {
     var isSelected: Boolean = false
@@ -18,10 +16,9 @@ class SpiritTeacher(var name: String?, val quote: String, val image: Int) {
 
 
 class DeletedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
-    var checkedTeachers = ArrayList<SpiritualTeacher>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.selected_item, null)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.deleted_item, null)
         return MyHolder(v)
     }
 
@@ -29,24 +26,16 @@ class DeletedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
         val teacher = teachers[position]
         holder.nameTxt.text = teacher.name
         holder.posTxt.text = teacher.quote
-        holder.myCheckBox.isChecked = teacher.isSelected
-        holder.myCheckBox.setText("")
+
 
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
-                val myCheckBox = v as CheckBox
                 val currentTeacher = teachers[pos]
 
-                if (myCheckBox.isChecked) {
-                    currentTeacher.isSelected = true
-                    teachers.remove(currentTeacher)
-                    //listAdapter!!.notifyItemChanged(position)
-                    notifyDataSetChanged()
+                teachers.remove(currentTeacher)
+                notifyDataSetChanged()
 
-                } else if (!myCheckBox.isChecked) {
-                    currentTeacher.isSelected = false
-                    }
             }
         })
     }
@@ -59,7 +48,7 @@ class DeletedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
 
         var nameTxt: TextView
         var posTxt: TextView
-        var myCheckBox: CheckBox
+        var img: ImageButton
 
         lateinit var myItemClickListener: ItemClickListener
 
@@ -67,8 +56,8 @@ class DeletedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
 
             nameTxt = itemView.findViewById(R.id.wordTextView)
             posTxt = itemView.findViewById(R.id.translationTextView)
-            myCheckBox = itemView.findViewById(R.id.myCheckBox)
-            myCheckBox.setOnClickListener(this)
+            img = itemView.findViewById(R.id.deleteBox)
+            img.setOnClickListener(this)
         }
 
         fun setItemClickListener(ic: ItemClickListener) {
