@@ -10,24 +10,27 @@ import com.example.words_learning.R
 import java.util.ArrayList
 
 
-class DeletedListAdapter(var array: ArrayList<SpiritualTeacher>, private val cur_layout: Int) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
+class DictionaryWords(var word: String?, val translate: String) {
+}
+
+class DeletedListAdapter(var words: ArrayList<DictionaryWords>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        val v = LayoutInflater.from(parent.context).inflate(cur_layout, null)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.deleted_item, null)
         return MyHolder(v)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val teacher = array[position]
-        holder.nameTxt.text = teacher.name
-        holder.posTxt.text = teacher.quote
+        val word = words[position]
+        holder.nameTxt.text = word.word
+        holder.posTxt.text = word.translate
 
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
-                val currentTeacher = array[pos]
+                val currentTeacher = words[pos]
 
-                array.remove(currentTeacher)
+                words.remove(currentTeacher)
                 notifyDataSetChanged()
 
             }
@@ -35,7 +38,7 @@ class DeletedListAdapter(var array: ArrayList<SpiritualTeacher>, private val cur
     }
 
     override fun getItemCount(): Int {
-        return array.size
+        return words.size
     }
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {

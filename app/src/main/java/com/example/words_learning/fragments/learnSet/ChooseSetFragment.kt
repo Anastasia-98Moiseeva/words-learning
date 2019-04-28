@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.DeletedListAdapter
-import com.example.words_learning.adapters.SpiritualTeacher
+import com.example.words_learning.adapters.LearnSetAdapter
+import com.example.words_learning.adapters.SpiritTeacher
 
 class ChooseSetFragment : Fragment() {
 
@@ -41,7 +41,7 @@ class ChooseSetFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = DeletedListAdapter(arrayOfItems, R.layout.fragment_choose_set)
+        recycler.adapter = LearnSetAdapter(arrayOfItems)
 
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
@@ -61,15 +61,15 @@ class ChooseSetFragment : Fragment() {
 
 
     companion object {
-        private val arrayOfItems: ArrayList<SpiritualTeacher>
+        private val arrayOfItems: ArrayList<SpiritTeacher>
             get() =
                 arrayListOf(
-                    SpiritualTeacher("Set1", "Set1"),
-                    SpiritualTeacher("Set2", "Set1"),
-                    SpiritualTeacher("Set3", "Set1"),
-                    SpiritualTeacher("Set4", "Set1"),
-                    SpiritualTeacher("Set5", "Set1"),
-                    SpiritualTeacher("Set6", "Set1")
+                    SpiritTeacher("Set1"),
+                    SpiritTeacher("Set2"),
+                    SpiritTeacher("Set3"),
+                    SpiritTeacher("Set4"),
+                    SpiritTeacher("Set5"),
+                    SpiritTeacher("Set6")
                 )
     }
 }

@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.DeletedListAdapter
+import com.example.words_learning.adapters.DictionaryWords
 import com.example.words_learning.adapters.SpiritualTeacher
 
 class DictionaryFragment : Fragment() {
@@ -39,7 +40,7 @@ class DictionaryFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = DeletedListAdapter(teachers, R.layout.deleted_item)
+        recycler.adapter = DeletedListAdapter(words)
 
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
@@ -59,25 +60,25 @@ class DictionaryFragment : Fragment() {
 
 
     companion object {
-        private val teachers: ArrayList<SpiritualTeacher>
+        private val words: ArrayList<DictionaryWords>
             get() =
                 arrayListOf(
-                    SpiritualTeacher("Girl", "Девушка"),
-                    SpiritualTeacher("Wine", "Вино"),
-                    SpiritualTeacher("Borsch", "Борщ"),
-                    SpiritualTeacher("Debauchery", "Разврат"),
-                    SpiritualTeacher("Money", "Деньги"),
-                    SpiritualTeacher("Science", "Наука"),
-                    SpiritualTeacher("Angel", "Ангел"),
-                    SpiritualTeacher("Laptop", "Ноутбук"),
-                    SpiritualTeacher("Vanity", "Тщеславие"),
-                    SpiritualTeacher("Stripper", "Стриптизерша"),
-                    SpiritualTeacher("Football", "Футбол"),
-                    SpiritualTeacher("Santa Claus", "Дед Мороз"),
-                    SpiritualTeacher("Marvel", "Чудо"),
-                    SpiritualTeacher("Nature", "Природа"),
-                    SpiritualTeacher("Love", "Любовь"),
-                    SpiritualTeacher("Hoverboard", "Гироскутер")
+                    DictionaryWords("Girl", "Девушка"),
+                    DictionaryWords("Wine", "Вино"),
+                    DictionaryWords("Borsch", "Борщ"),
+                    DictionaryWords("Debauchery", "Разврат"),
+                    DictionaryWords("Money", "Деньги"),
+                    DictionaryWords("Science", "Наука"),
+                    DictionaryWords("Angel", "Ангел"),
+                    DictionaryWords("Laptop", "Ноутбук"),
+                    DictionaryWords("Vanity", "Тщеславие"),
+                    DictionaryWords("Stripper", "Стриптизерша"),
+                    DictionaryWords("Football", "Футбол"),
+                    DictionaryWords("Santa Claus", "Дед Мороз"),
+                    DictionaryWords("Marvel", "Чудо"),
+                    DictionaryWords("Nature", "Природа"),
+                    DictionaryWords("Love", "Любовь"),
+                    DictionaryWords("Hoverboard", "Гироскутер")
                 )
     }
 }
