@@ -1,5 +1,6 @@
 package com.example.words_learning.fragments.dictionary
 
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -58,6 +59,13 @@ class DictionaryFragment : Fragment() {
         listView.setText(name)
     }
 
+    private fun getWords() {
+        var db: SQLiteDatabase
+
+
+//        val dbFile = context.getDatabasePath("$MyDataBase.db")
+//        val db = SQLiteDatabase.openDatabase("MyDataBase.db", SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
+    }
 
     companion object {
         private val words: ArrayList<DictionaryWords>
