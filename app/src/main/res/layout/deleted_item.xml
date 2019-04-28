@@ -49,7 +49,7 @@
                     android:layout_width="34dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/deleteBox"
-                    android:background="@color/button"
+                    android:background="@null"
                     android:layout_alignParentRight="true"
                     app:srcCompat="@android:drawable/ic_delete"
                     android:isScrollContainer="true"

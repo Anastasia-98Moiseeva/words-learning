@@ -39,7 +39,7 @@ class DictionaryFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = DeletedListAdapter(teachers)
+        recycler.adapter = DeletedListAdapter(teachers, R.layout.deleted_item)
 
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
@@ -62,22 +62,22 @@ class DictionaryFragment : Fragment() {
         private val teachers: ArrayList<SpiritualTeacher>
             get() =
                 arrayListOf(
-                    SpiritualTeacher("Girl", "Девушка", R.drawable.icon_loppa),
-                    SpiritualTeacher("Wine", "Вино", R.drawable.icon_loppa),
-                    SpiritualTeacher("Borsch", "Борщ", R.drawable.icon_loppa),
-                    SpiritualTeacher("Debauchery", "Разврат", R.drawable.icon_loppa),
-                    SpiritualTeacher("Money", "Деньги", R.drawable.icon_loppa),
-                    SpiritualTeacher("Science", "Наука", R.drawable.icon_loppa),
-                    SpiritualTeacher("Angel", "Ангел", R.drawable.icon_loppa),
-                    SpiritualTeacher("Laptop", "Ноутбук", R.drawable.icon_loppa),
-                    SpiritualTeacher("Vanity", "Тщеславие", R.drawable.icon_loppa),
-                    SpiritualTeacher("Stripper", "Стриптизерша", R.drawable.icon_loppa),
-                    SpiritualTeacher("Football", "Футбол", R.drawable.icon_loppa),
-                    SpiritualTeacher("Santa Claus", "Дед Мороз", R.drawable.icon_loppa),
-                    SpiritualTeacher("Marvel", "Чудо", R.drawable.icon_loppa),
-                    SpiritualTeacher("Nature", "Природа", R.drawable.icon_loppa),
-                    SpiritualTeacher("Love", "Любовь", R.drawable.icon_loppa),
-                    SpiritualTeacher("Hoverboard", "Гироскутер", R.drawable.icon_loppa)
+                    SpiritualTeacher("Girl", "Девушка"),
+                    SpiritualTeacher("Wine", "Вино"),
+                    SpiritualTeacher("Borsch", "Борщ"),
+                    SpiritualTeacher("Debauchery", "Разврат"),
+                    SpiritualTeacher("Money", "Деньги"),
+                    SpiritualTeacher("Science", "Наука"),
+                    SpiritualTeacher("Angel", "Ангел"),
+                    SpiritualTeacher("Laptop", "Ноутбук"),
+                    SpiritualTeacher("Vanity", "Тщеславие"),
+                    SpiritualTeacher("Stripper", "Стриптизерша"),
+                    SpiritualTeacher("Football", "Футбол"),
+                    SpiritualTeacher("Santa Claus", "Дед Мороз"),
+                    SpiritualTeacher("Marvel", "Чудо"),
+                    SpiritualTeacher("Nature", "Природа"),
+                    SpiritualTeacher("Love", "Любовь"),
+                    SpiritualTeacher("Hoverboard", "Гироскутер")
                 )
     }
 }
