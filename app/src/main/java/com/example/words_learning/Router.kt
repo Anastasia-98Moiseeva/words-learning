@@ -35,7 +35,7 @@ class Router(activity : FragmentActivity, container: Int) {
         val activity = weakActivity.get()
 
         activity?.run {
-            if (supportFragmentManager.backStackEntryCount > 0) {
+            if (supportFragmentManager.backStackEntryCount > 0 && num_stack > 0) {
                 num_stack --
 
                 supportFragmentManager.popBackStack()

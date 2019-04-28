@@ -32,8 +32,6 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
         holder.nameTxt.text = teacher.name
         holder.posTxt.text = teacher.quote
         holder.myCheckBox.isChecked = teacher.isSelected
-        holder.myCheckBox.setText("")
-
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
@@ -41,7 +39,6 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
                 val currentTeacher = teachers[pos]
 
                 if (myCheckBox.isChecked) {
-                    myCheckBox.setText("added")
                     currentTeacher.isSelected = true
                     checkedTeachers.add(currentTeacher)
 
@@ -49,7 +46,6 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
                 } else if (!myCheckBox.isChecked) {
                     currentTeacher.isSelected = false
                     checkedTeachers.remove(currentTeacher)
-                    myCheckBox.setText("removed")
                 }
             }
         })
