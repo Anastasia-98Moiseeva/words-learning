@@ -37,17 +37,20 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/guideline8" card_view:layout_constraintGuide_percent="0.30"/>
+                android:id="@+id/guideline8"
+                card_view:layout_constraintGuide_percent="0.30"/>
         <android.support.constraint.Guideline
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/guideline9" card_view:layout_constraintGuide_percent="0.15"/>
+                android:id="@+id/guideline9"
+                card_view:layout_constraintGuide_percent="0.15"/>
         <android.support.constraint.Guideline
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/guideline10" card_view:layout_constraintGuide_percent="0.85"/>
+                android:id="@+id/guideline10"
+                card_view:layout_constraintGuide_percent="0.85"/>
 
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
