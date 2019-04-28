@@ -22,7 +22,7 @@ class EditSetFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_learn_set, container, false)
+        var layout = inflater.inflate(R.layout.fragment_edit_set, container, false)
 
         layout = createButtons(layout)
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
