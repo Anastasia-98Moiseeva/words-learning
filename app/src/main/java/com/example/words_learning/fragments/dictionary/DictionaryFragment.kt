@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.CheckedListAdapter
+import com.example.words_learning.adapters.DeletedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
 
 class DictionaryFragment : Fragment() {
@@ -39,7 +39,8 @@ class DictionaryFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = CheckedListAdapter(teachers)
+        recycler.adapter = DeletedListAdapter(teachers)
+
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
