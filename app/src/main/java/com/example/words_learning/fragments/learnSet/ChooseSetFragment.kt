@@ -44,7 +44,7 @@ class ChooseSetFragment : Fragment() {
         R.drawable.ic_body1
     )
 
-    val textSize : Float = 20F
+    val textSize : Float = 15F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,8 +66,8 @@ class ChooseSetFragment : Fragment() {
             false
         )
         recycler.adapter = ClickableButtonAdapter(createButtons(),
-            R.layout.button_layout, textSize,
-            arrayOfImages, false, ::onButtonClick)
+            R.layout.button_layout, textSize, arrayOfImages,
+            false, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

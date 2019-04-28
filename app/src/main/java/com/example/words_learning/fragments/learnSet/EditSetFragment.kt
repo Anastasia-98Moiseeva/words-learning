@@ -21,15 +21,16 @@ class EditSetFragment : Fragment() {
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_edit_set, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        var layout = inflater.inflate(R.layout.button_layout, container,
+            false)
 
         layout = createButtons(layout)
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
 
         return layout
-
     }
 
 
