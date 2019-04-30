@@ -63,21 +63,21 @@ class DictionaryFragment : Fragment() {
         private val words: ArrayList<DictionaryWords>
             get() =
                 arrayListOf(
-                    DictionaryWords("Girl", "Девушка"),
-                    DictionaryWords("Wine", "Вино"),
+                    DictionaryWords("Prose", "Проза"),
+                    DictionaryWords("Tulip", "Тюльпан"),
+                    DictionaryWords("Dew", "Роса"),
+                    DictionaryWords("Luxury", "Роскошь"),
+                    DictionaryWords("Baroque", "Барокко"),
+                    DictionaryWords("Introvert", "Интроверт"),
                     DictionaryWords("Borsch", "Борщ"),
-                    DictionaryWords("Debauchery", "Разврат"),
                     DictionaryWords("Money", "Деньги"),
                     DictionaryWords("Science", "Наука"),
                     DictionaryWords("Angel", "Ангел"),
                     DictionaryWords("Laptop", "Ноутбук"),
                     DictionaryWords("Vanity", "Тщеславие"),
-                    DictionaryWords("Stripper", "Стриптизерша"),
                     DictionaryWords("Football", "Футбол"),
-                    DictionaryWords("Santa Claus", "Дед Мороз"),
                     DictionaryWords("Marvel", "Чудо"),
                     DictionaryWords("Nature", "Природа"),
-                    DictionaryWords("Love", "Любовь"),
                     DictionaryWords("Hoverboard", "Гироскутер")
                 )
     }
