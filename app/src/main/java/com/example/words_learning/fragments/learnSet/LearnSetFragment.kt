@@ -54,7 +54,7 @@ class LearnSetFragment : Fragment() {
             requireContext(),
             2,
             RecyclerView.VERTICAL,
-false
+            false
         )
 
         recycler.adapter = ClickableButtonAdapter(createButtons(),

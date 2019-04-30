@@ -16,12 +16,13 @@ class SpiritTeacher(var name: String?) {
 }
 
 
-class LearnSetAdapter(var teachers: ArrayList<SpiritTeacher>) : RecyclerView.Adapter<LearnSetAdapter.MyHolder>() {
+class ChooseSetAdapter(var teachers: ArrayList<SpiritTeacher>,
+                       private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ChooseSetAdapter.MyHolder>() {
     var checkedTeachers = ArrayList<SpiritTeacher>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.fragment_choose_set, null)
-        return MyHolder(v)
+        return MyHolder(v, onClick)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
@@ -57,7 +58,7 @@ class LearnSetAdapter(var teachers: ArrayList<SpiritTeacher>) : RecyclerView.Ada
         return teachers.size
     }
 
-    class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class MyHolder(itemView: View, val onClick : (Int) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         var nameTxt: TextView
         var myCheckBox: CheckBox
@@ -71,7 +72,9 @@ class LearnSetAdapter(var teachers: ArrayList<SpiritTeacher>) : RecyclerView.Ada
             nameTxt = itemView.findViewById(R.id.set)
             imgBut = itemView.findViewById(R.id.imageButton)
             myCheckBox = itemView.findViewById(R.id.myCheckBox)
-            myCheckBox.setOnClickListener(this)
+            myCheckBox.setOnClickListener{
+                onClick(adapterPosition)
+            }
             imgBut.setOnClickListener {nameTxt.setText("hm")}
         }
 

@@ -61,21 +61,21 @@ class WordsOnTopicListFragment : Fragment() {
         private val teachers: ArrayList<SpiritualTeacher>
             get() =
                 arrayListOf(
-                    SpiritualTeacher("Girl", "Девушка"),
-                    SpiritualTeacher("Wine", "Вино"),
+                    SpiritualTeacher("Prose", "Проза"),
+                    SpiritualTeacher("Tulip", "Тюльпан"),
+                    SpiritualTeacher("Dew", "Роса"),
+                    SpiritualTeacher("Luxury", "Роскошь"),
+                    SpiritualTeacher("Baroque", "Барокко"),
+                    SpiritualTeacher("Introvert", "Интроверт"),
                     SpiritualTeacher("Borsch", "Борщ"),
-                    SpiritualTeacher("Debauchery", "Разврат"),
                     SpiritualTeacher("Money", "Деньги"),
                     SpiritualTeacher("Science", "Наука"),
                     SpiritualTeacher("Angel", "Ангел"),
                     SpiritualTeacher("Laptop", "Ноутбук"),
                     SpiritualTeacher("Vanity", "Тщеславие"),
-                    SpiritualTeacher("Stripper", "Стриптизерша"),
                     SpiritualTeacher("Football", "Футбол"),
-                    SpiritualTeacher("Santa Claus", "Дед Мороз"),
                     SpiritualTeacher("Marvel", "Чудо"),
                     SpiritualTeacher("Nature", "Природа"),
-                    SpiritualTeacher("Love", "Любовь"),
                     SpiritualTeacher("Hoverboard", "Гироскутер")
                 )
     }
