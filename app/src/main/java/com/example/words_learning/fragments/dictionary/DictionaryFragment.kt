@@ -50,8 +50,6 @@ class DictionaryFragment : Fragment() {
         return layout
     }
 
-    private fun onButtonClick(position: Int) {
-    }
 
     override fun onResume() {
         super.onResume()
@@ -63,8 +61,6 @@ class DictionaryFragment : Fragment() {
         var db: SQLiteDatabase
 
 
-//        val dbFile = context.getDatabasePath("$MyDataBase.db")
-//        val db = SQLiteDatabase.openDatabase("MyDataBase.db", SQLiteDatabase.ENABLE_WRITE_AHEAD_LOGGING)
     }
 
     companion object {
