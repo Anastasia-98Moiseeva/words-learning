@@ -57,6 +57,7 @@
             android:layout_height="46dp"
             android:inputType="textPersonName"
             android:hint="Enter a set name"
+            android:background="@android:color/transparent"
             android:ems="10"
             android:id="@+id/editText2"
             app:layout_constraintTop_toTopOf="@+id/guideline2"

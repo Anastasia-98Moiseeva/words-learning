@@ -63,6 +63,8 @@
                     android:layout_height="0dp"
                     android:inputType="textPersonName"
                     android:gravity="fill_vertical"
+                    android:hint="Enter a word"
+                    android:textColorHint="@color/text"
                     android:textColor="@color/text"
                     android:ems="10"
                     android:background="@android:color/transparent"
