@@ -13,7 +13,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/guideline1"
             card_view:cardCornerRadius="5dp"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" app:layout_constraintEnd_toStartOf="@+id/guideline3">
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3">
         <Button
                 android:text="Create"
                 android:background="@drawable/button_style"
@@ -56,6 +57,7 @@
             android:layout_height="46dp"
             android:inputType="textPersonName"
             android:hint="Enter a set name"
+            android:background="@android:color/transparent"
             android:ems="10"
             android:id="@+id/editText2"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
