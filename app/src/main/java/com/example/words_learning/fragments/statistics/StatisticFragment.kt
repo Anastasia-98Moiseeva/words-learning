@@ -55,11 +55,11 @@ class StatisticFragment : Fragment() {
         //findViewById<View>(R.id.add).setOnClickListener(this)
         //findViewById<View>(R.id.delete).setOnClickListener(this)
 
-        layout.add.setOnClickListener(addNewValue())
+//        layout.add.setOnClickListener(addNewValue())
 
         return layout
     }
-
+/*
     private fun addNewValue() {
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.setTitle(resources.getString(R.string.enter_text))
@@ -77,7 +77,7 @@ class StatisticFragment : Fragment() {
 
         alertDialog.show()
     }
-
+*/
     override fun onResume() {
         super.onResume()
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
