@@ -42,7 +42,7 @@ class MainApplication : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        //model = Model(this) //тут падает, не понимаю почему, помогите, пожалуйста
+        model = Model(this) //тут падает, не понимаю почему, помогите, пожалуйста
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_application)
