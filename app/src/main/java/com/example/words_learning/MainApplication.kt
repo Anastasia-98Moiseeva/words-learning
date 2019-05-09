@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
+import com.example.words_learning.database.Model
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.SearchWord
 
@@ -11,6 +13,7 @@ import com.example.words_learning.fragments.search.SearchWord
 class MainApplication : AppCompatActivity() {
 
     lateinit var router  : Router
+    private lateinit var model: Model
 
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -20,8 +23,12 @@ class MainApplication : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_book -> {
-                router.navigateTo(false, ::DictionaryFragment, true)
-                return@OnNavigationItemSelectedListener true
+                //router.navigateTo(false, ::DictionaryFragment, true)
+                //return@OnNavigationItemSelectedListener true
+                model.addValue("adsa")
+                val listView = this.findViewById<TextView>(R.id.textView2)
+                listView.setText(model.text(0))
+
             }
             R.id.navigation_search -> {
                 router.navigateTo(false, ::SearchWord, true)
@@ -34,6 +41,8 @@ class MainApplication : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //model = Model(this) //тут падает, не понимаю почему, помогите, пожалуйста
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_application)
@@ -75,4 +84,7 @@ class MainApplication : AppCompatActivity() {
 
 
     }
+
+
+
 }
