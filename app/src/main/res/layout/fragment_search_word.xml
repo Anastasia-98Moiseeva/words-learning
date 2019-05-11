@@ -87,7 +87,6 @@
                 android:background="@color/textViewColor"
                 android:id="@+id/constraintLayout">
             <TextView
-                    android:text="рмпмп"
                     android:textColor="@color/text"
                     android:textSize="@dimen/translation"
                     android:layout_width="match_parent"
