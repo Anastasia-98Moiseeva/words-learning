@@ -2,6 +2,8 @@ package com.example.words_learning.fragments.search
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +17,10 @@ import okhttp3.*
 class SearchWord : Fragment() {
 
     private lateinit var router : Router
-    val name = "Search"
+    /*val name = "Search"*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
@@ -30,8 +31,8 @@ class SearchWord : Fragment() {
             Thread(BackgroundFetcher()).start()
         }
 
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        /*val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)*/
 
         return layout
     }
@@ -67,10 +68,12 @@ class SearchWord : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        /*val listView = activity!!.findViewById<TextView>(R.id.textView2)
+        listView.setText(name)*/
     }
 
 }
 
+
 class HomeFeed(val text: ArrayList<String>)
+

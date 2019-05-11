@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.example.words_learning.database.Model
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.SearchWord
+import com.example.words_learning.fragments.search.TabFragment
 
 
 class MainApplication : AppCompatActivity() {
@@ -31,7 +32,7 @@ class MainApplication : AppCompatActivity() {
 
             }
             R.id.navigation_search -> {
-                router.navigateTo(false, ::SearchWord, true)
+                router.navigateTo(false, ::TabFragment, true)
                 return@OnNavigationItemSelectedListener true
             }
         }
