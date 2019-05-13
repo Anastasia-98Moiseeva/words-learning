@@ -48,7 +48,7 @@ class DBHelper(context: Context,
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, j: Int) {
-        val db = writableDatabase
+        //val db = writableDatabase
         //db.execSQL("DROP TABLE IF EXISTS " + TABLE_DICTIONARY)
     }
 
@@ -60,13 +60,23 @@ class DBHelper(context: Context,
         val db = this.writableDatabase
 
         db.insert(TABLE_DICTIONARY, null, values)
+
         db.close()
     }
 
-    fun removeElement(word: Words) {
+    fun createTable() {
+
+    }
+
+    fun removeElementID(word: Words) {
         val db = writableDatabase
-        val selectQuery = "DELETE  * FROM " + TABLE_DICTIONARY + " WHERE " + COLUMN_ID + " = " + word.id
         db.delete(TABLE_DICTIONARY, COLUMN_ID + "=?", arrayOf((word.id).toString())).toLong()
+    }
+
+    fun removeElementWord(word: Words) {
+        val db = writableDatabase
+        db.delete(TABLE_DICTIONARY, COLUMN_WORD + "=?", arrayOf((word.word))).toLong()
+
     }
 
 
@@ -108,7 +118,7 @@ class DBHelper(context: Context,
                 TABLE_DICTIONARY + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_WORD
-                + " TEXT," + COLUMN_TRANSLATION + " TEXT" + ")")
+                + " TEXT," + COLUMN_TRANSLATION + " TEXT" + ");")
     }
 
 }

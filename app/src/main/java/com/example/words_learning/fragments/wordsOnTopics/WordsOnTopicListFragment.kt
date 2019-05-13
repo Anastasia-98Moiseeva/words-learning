@@ -64,22 +64,22 @@ class WordsOnTopicListFragment : Fragment() {
         private val teachers: ArrayList<SpiritualTeacher>
             get() =
                 arrayListOf(
-                    SpiritualTeacher("Prose", "Проза"),
-                    SpiritualTeacher("Tulip", "Тюльпан"),
-                    SpiritualTeacher("Dew", "Роса"),
-                    SpiritualTeacher("Luxury", "Роскошь"),
-                    SpiritualTeacher("Baroque", "Барокко"),
-                    SpiritualTeacher("Introvert", "Интроверт"),
-                    SpiritualTeacher("Borsch", "Борщ"),
-                    SpiritualTeacher("Money", "Деньги"),
-                    SpiritualTeacher("Science", "Наука"),
-                    SpiritualTeacher("Angel", "Ангел"),
-                    SpiritualTeacher("Laptop", "Ноутбук"),
-                    SpiritualTeacher("Vanity", "Тщеславие"),
-                    SpiritualTeacher("Football", "Футбол"),
-                    SpiritualTeacher("Marvel", "Чудо"),
-                    SpiritualTeacher("Nature", "Природа"),
-                    SpiritualTeacher("Hoverboard", "Гироскутер")
+                    SpiritualTeacher(-1, "Prose", "Проза"),
+                    SpiritualTeacher(-1, "Tulip", "Тюльпан"),
+                    SpiritualTeacher(-1, "Dew", "Роса"),
+                    SpiritualTeacher(-1, "Luxury", "Роскошь"),
+                    SpiritualTeacher(-1, "Baroque", "Барокко"),
+                    SpiritualTeacher(-1, "Introvert", "Интроверт"),
+                    SpiritualTeacher(-1, "Borsch", "Борщ"),
+                    SpiritualTeacher(-1, "Money", "Деньги"),
+                    SpiritualTeacher(-1, "Science", "Наука"),
+                    SpiritualTeacher(-1, "Angel", "Ангел"),
+                    SpiritualTeacher(-1, "Laptop", "Ноутбук"),
+                    SpiritualTeacher(-1, "Vanity", "Тщеславие"),
+                    SpiritualTeacher(-1, "Football", "Футбол"),
+                    SpiritualTeacher(-1, "Marvel", "Чудо"),
+                    SpiritualTeacher(-1, "Nature", "Природа"),
+                    SpiritualTeacher(-1, "Hoverboard", "Гироскутер")
                 )
     }
 }

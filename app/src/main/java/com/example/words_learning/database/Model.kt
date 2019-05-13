@@ -19,12 +19,16 @@ class Model(context : Context, val roomModel : Boolean = false) {
     }
 
     fun remove(word : Words) {
-        dbHelper.removeElement(word)
+        dbHelper.removeElementID(word)
     }
 
+    fun removeByWord(word: Words) {
+        dbHelper.removeElementWord(word)
+    }
 
     fun addValue(words: Words) {
         dbHelper.addElement(words)
     }
+
 
 }

@@ -13,7 +13,7 @@ import com.example.words_learning.database.Words
 import java.util.ArrayList
 
 
-class SpiritualTeacher(var name: String, val quote: String) {
+class SpiritualTeacher(var id: Int, var name: String, val quote: String) {
     var isSelected: Boolean = false
 }
 
@@ -45,6 +45,7 @@ class CheckedListAdapter(val model : Model, var teachers: ArrayList<SpiritualTea
 
                 } else if (!myCheckBox.isChecked) {
                     currentTeacher.isSelected = false
+                    model.removeByWord(Words(-1, currentTeacher.name, currentTeacher.quote))
                     checkedTeachers.remove(currentTeacher)
                 }
             }
