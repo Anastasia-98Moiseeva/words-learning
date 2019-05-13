@@ -9,8 +9,10 @@
     <color name="buttonPressed">#C9CFFA</color>
     <color name="buttonInBarPressed">#8989AD</color>
     <color name="text">#010614</color>
+    <color name="defaultText">#7C7C7C</color>
     <color name="text_title">#11128B</color>
     <color name="checkMark">#5BBE5B</color>
-    <color name="tabs">#7272C4</color>
-    <color name="textViewColor">#DAE0FF</color>
+    <color name="tabs">#7777CE</color>
+    <color name="textViewColor">#C6D7FD</color>
+    <color name="indicator">#F7EC37</color>
 </resources>
