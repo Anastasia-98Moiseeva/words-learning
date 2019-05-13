@@ -24,18 +24,18 @@ class MainApplication : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                router.navigateTo(false, :: MainFragment, true)
+                router.navifatebase()
                 return@OnNavigationItemSelectedListener true
 
             }
             R.id.navigation_book -> {
-                router.navigateTo(false, ::DictionaryFragment, true)
+                router.navigateTo(true, ::DictionaryFragment, 1)
                 return@OnNavigationItemSelectedListener true
 
 
             }
             R.id.navigation_search -> {
-                router.navigateTo(false, ::TabFragment, true)
+                router.navigateTo(true, ::TabFragment, 2)
                 return@OnNavigationItemSelectedListener true
             }
         }
