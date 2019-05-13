@@ -2,10 +2,12 @@ package com.example.words_learning
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.provider.UserDictionary
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.example.words_learning.database.Model
+import com.example.words_learning.database.Words
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.SearchWord
 import com.example.words_learning.fragments.search.TabFragment
@@ -22,13 +24,12 @@ class MainApplication : AppCompatActivity() {
             R.id.navigation_home -> {
                 router.navigateTo(false, :: MainFragment, true)
                 return@OnNavigationItemSelectedListener true
+
             }
             R.id.navigation_book -> {
-                //router.navigateTo(false, ::DictionaryFragment, true)
-                //return@OnNavigationItemSelectedListener true
-                model.addValue("adsa")
-                val listView = this.findViewById<TextView>(R.id.textView2)
-                listView.setText(model.text(0))
+                router.navigateTo(false, ::DictionaryFragment, true)
+                return@OnNavigationItemSelectedListener true
+
 
             }
             R.id.navigation_search -> {
@@ -43,10 +44,12 @@ class MainApplication : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        model = Model(this) //тут падает, не понимаю почему, помогите, пожалуйста
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_application)
+
+
+        //model = Model(this)
+        //model.addValue(Words("rat", "Крыса"))
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.selectedItemId = R.id.navigation_home

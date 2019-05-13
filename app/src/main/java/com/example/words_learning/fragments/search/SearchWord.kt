@@ -10,18 +10,22 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
+import com.example.words_learning.database.Model
+import com.example.words_learning.database.Words
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
 import okhttp3.*
 
-class SearchWord : Fragment() {
+class   SearchWord : Fragment() {
 
     private lateinit var router : Router
+
     /*val name = "Search"*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

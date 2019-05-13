@@ -1,6 +1,7 @@
 package com.example.words_learning.database
 
 
+import android.arch.persistence.room.Database
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -10,10 +11,16 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQuery
 
+class Words (id1 : Int, word1: String, translation1: String){
+    var id : Int = id1
+    var word: String = word1
+    var traslation: String = translation1
+}
+
 class DBHelper(context: Context,
-               name: String = DB_NAME,
+               name: String = DATABASE_NAME,
                factory: SQLiteDatabase.CursorFactory = Factory(),
-               version: Int = DB_VER) : SQLiteOpenHelper(context, name, factory, version) {
+               version: Int = DATABASE_VERSION) : SQLiteOpenHelper(context, name, factory, version) {
 
     val count: Long
         get() {
@@ -37,60 +44,71 @@ class DBHelper(context: Context,
     }
 
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
-        sqLiteDatabase.execSQL(CREATE_DB)
+        sqLiteDatabase.execSQL(CREATE_WORDS_TABLE)
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, j: Int) {
-
-    }
-
-    fun addValue(value: String) {
         val db = writableDatabase
-        db?.use {
-            val v = ContentValues()
-            v.put("value", value)
-            it.insert("test", null, v)
-        }
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_DICTIONARY)
     }
 
-    fun editValue(pos: Int, value: String) {
+    fun addElement(words: Words) {
+        val values = ContentValues()
+        values.put(COLUMN_WORD, words.word)
+        values.put(COLUMN_TRANSLATION, words.traslation)
+
+        val db = this.writableDatabase
+
+        db.insert(TABLE_DICTIONARY, null, values)
+        db.close()
+    }
+
+    fun removeElement(word: Words) {
         val db = writableDatabase
-        db?.use {
-            val v = ContentValues()
-            v.put("value", value)
-            it.update("test", v, "id = ?", arrayOf(pos.toString()))
-        }
+        val selectQuery = "DELETE  * FROM " + TABLE_DICTIONARY + " WHERE " + COLUMN_ID + " = " + word.id
+        db.delete(TABLE_DICTIONARY, COLUMN_ID + "=?", arrayOf((word.id).toString())).toLong()
     }
 
-    fun getValue(pos: Int): String? {
+
+    fun getDictionary() : ArrayList<Words>? {
         val db = readableDatabase
-        var value: String? = null
-        db?.use {
-            val cur = it.query("test", arrayOf("id", "value"), "id=?", arrayOf(pos.toString()), null, null, null)
-            cur?.use {
-                it.moveToFirst()
-                if (it.count > 0) {
-                    value = it.getString(cur.getColumnIndexOrThrow("value"))
-                }
+        var words = ArrayList<Words>()
+        val selectQuery = "SELECT  * FROM " + TABLE_DICTIONARY
+        val cursor = db.rawQuery(selectQuery, null)
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst()
+            while (cursor.moveToNext()) {
+                val id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
+                val word = cursor.getString(cursor.getColumnIndex(COLUMN_WORD))
+                val translate = cursor.getString(cursor.getColumnIndex(COLUMN_TRANSLATION))
+                val wordTranslate = Words(id, word, translate)
+                words.add(wordTranslate)
             }
+
+            cursor.close()
+            return words
         }
-        return value
+        cursor.close()
+
+        return null
     }
 
-    fun removeLast() {
-        val size = count
-        if (size >= 0) {
-            val db = writableDatabase
-            db.use {
-                it.delete("test", "id=?", arrayOf(size.toString()))
-            }
-        }
-    }
 
     companion object {
-        val DB_NAME = "values"
-        val DB_VER = 1
+        private val DATABASE_VERSION = 1
+        private val DATABASE_NAME = "productDB.db"
 
-        private val CREATE_DB = "CREATE TABLE test (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, value TEXT NOT NULL);"
+        val TABLE_DICTIONARY = "dictionary"
+
+        val COLUMN_ID = "_id"
+        val COLUMN_WORD = "word"
+        val COLUMN_TRANSLATION = "translation"
+
+        val CREATE_WORDS_TABLE = ("CREATE TABLE " +
+                TABLE_DICTIONARY + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY," +
+                COLUMN_WORD
+                + " TEXT," + COLUMN_TRANSLATION + " TEXT" + ")")
     }
+
 }

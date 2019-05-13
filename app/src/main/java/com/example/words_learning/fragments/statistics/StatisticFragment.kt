@@ -20,13 +20,11 @@ import kotlinx.android.synthetic.main.fragment_statistic.view.*
 class StatisticFragment : Fragment() {
 
     private lateinit var router : Router
-    private lateinit var model: Model
 
     val name = "Statistics"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        model = Model(activity!!)
 
         router = Router(requireActivity(), R.id.fragment_container)
     }
@@ -49,7 +47,7 @@ class StatisticFragment : Fragment() {
 
 
         val listView : ListView = layout.list
-        listView.adapter = model.createAdapter()
+        //listView.adapter = model.createAdapter()
         //listView.onItemClickListener = this
 
         //findViewById<View>(R.id.add).setOnClickListener(this)

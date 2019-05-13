@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.words_learning.R
+import com.example.words_learning.database.Model
+import com.example.words_learning.database.Words
 import java.util.ArrayList
 
 
 class DictionaryWords(var word: String?, val translate: String) {
 }
 
-class DeletedListAdapter(var words: ArrayList<DictionaryWords>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
+class DeletedListAdapter(val model1: Model, var words: ArrayList<Words>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
+
         val v = LayoutInflater.from(parent.context).inflate(R.layout.deleted_item, null)
         return MyHolder(v)
     }
@@ -23,13 +26,14 @@ class DeletedListAdapter(var words: ArrayList<DictionaryWords>) : RecyclerView.A
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val word = words[position]
         holder.nameTxt.text = word.word
-        holder.posTxt.text = word.translate
+        holder.posTxt.text = word.traslation
 
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
                 val currentTeacher = words[pos]
 
+                model1.remove(words[pos])
                 words.remove(currentTeacher)
                 notifyDataSetChanged()
 

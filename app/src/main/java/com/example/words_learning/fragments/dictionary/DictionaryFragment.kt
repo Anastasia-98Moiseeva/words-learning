@@ -13,17 +13,21 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.DeletedListAdapter
 import com.example.words_learning.adapters.DictionaryWords
-import com.example.words_learning.adapters.SpiritualTeacher
+import com.example.words_learning.database.Model
+import com.example.words_learning.database.Words
 
 class DictionaryFragment : Fragment() {
 
+    private lateinit var model: Model
+    private var wordsTranslation = ArrayList<Words>()
     private lateinit var router : Router
     val name = "Words On Topic"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
-
+        model = Model(activity!!)
+        wordsTranslation = model.select()!!
     }
 
 
@@ -41,7 +45,7 @@ class DictionaryFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = DeletedListAdapter(words)
+        recycler.adapter = DeletedListAdapter(model, wordsTranslation)
 
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)

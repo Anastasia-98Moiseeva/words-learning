@@ -12,15 +12,18 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.CheckedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
+import com.example.words_learning.database.Model
 
 class WordsOnTopicListFragment : Fragment() {
 
+    private lateinit var model : Model
     private lateinit var router : Router
     val name = "Words On Topic"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
+        model = Model(activity!!)
 
     }
 
@@ -39,7 +42,7 @@ class WordsOnTopicListFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = CheckedListAdapter(teachers)
+        recycler.adapter = CheckedListAdapter(model, teachers)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

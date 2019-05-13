@@ -8,15 +8,17 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import com.example.words_learning.R
+import com.example.words_learning.database.Model
+import com.example.words_learning.database.Words
 import java.util.ArrayList
 
 
-class SpiritualTeacher(var name: String?, val quote: String) {
+class SpiritualTeacher(var name: String, val quote: String) {
     var isSelected: Boolean = false
 }
 
 
-class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
+class CheckedListAdapter(val model : Model, var teachers: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
     var checkedTeachers = ArrayList<SpiritualTeacher>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -37,6 +39,7 @@ class CheckedListAdapter(var teachers: ArrayList<SpiritualTeacher>) : RecyclerVi
 
                 if (myCheckBox.isChecked) {
                     currentTeacher.isSelected = true
+                    model.addValue(Words(-1, currentTeacher.name, currentTeacher.quote))
                     checkedTeachers.add(currentTeacher)
 
 
