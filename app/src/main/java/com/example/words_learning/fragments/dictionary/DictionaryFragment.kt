@@ -2,6 +2,7 @@ package com.example.words_learning.fragments.dictionary
 
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -27,7 +28,9 @@ class DictionaryFragment : Fragment() {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
         model = Model(activity!!)
-        wordsTranslation = model.select()!!
+        if (model.select() != null) {
+            wordsTranslation = model.select()!!
+        }
     }
 
 
@@ -45,8 +48,10 @@ class DictionaryFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = DeletedListAdapter(model, wordsTranslation)
 
+        if (wordsTranslation.size > 0) {
+            recycler.adapter = DeletedListAdapter(layout, model, wordsTranslation)
+        }
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

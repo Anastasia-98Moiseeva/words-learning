@@ -85,20 +85,22 @@ class DBHelper(context: Context,
         var words = ArrayList<Words>()
         val selectQuery = "SELECT  * FROM " + TABLE_DICTIONARY
         val cursor = db.rawQuery(selectQuery, null)
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst()
-            while (cursor.moveToNext()) {
-                val id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
-                val word = cursor.getString(cursor.getColumnIndex(COLUMN_WORD))
-                val translate = cursor.getString(cursor.getColumnIndex(COLUMN_TRANSLATION))
-                val wordTranslate = Words(id, word, translate)
-                words.add(wordTranslate)
-            }
+        cursor?.let {
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst()
+                while (cursor.moveToNext()) {
+                    val id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
+                    val word = cursor.getString(cursor.getColumnIndex(COLUMN_WORD))
+                    val translate = cursor.getString(cursor.getColumnIndex(COLUMN_TRANSLATION))
+                    val wordTranslate = Words(id, word, translate)
+                    words.add(wordTranslate)
+                }
 
+                cursor.close()
+                return words
+            }
             cursor.close()
-            return words
         }
-        cursor.close()
 
         return null
     }
