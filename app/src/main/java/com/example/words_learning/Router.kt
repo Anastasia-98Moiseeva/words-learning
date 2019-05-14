@@ -38,6 +38,9 @@ class Router(activity : FragmentActivity, container: Int) {
     }
 
     fun navifatebase() : Boolean {
+        if (id_window == 0)
+            return true
+
         val activity = weakActivity.get()
         activity?.run {
             if (((supportFragmentManager.backStackEntryCount == 0) && (id_window == 0))

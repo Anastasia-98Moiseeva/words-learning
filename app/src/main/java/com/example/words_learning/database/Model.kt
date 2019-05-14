@@ -22,6 +22,10 @@ class Model(context : Context, val roomModel : Boolean = false) {
         dbHelper.removeElementID(word)
     }
 
+    fun findWord(word : Words) : Boolean {
+        return dbHelper.findWord(word)
+    }
+
     fun removeByWord(word: Words) {
         dbHelper.removeElementWord(word)
     }

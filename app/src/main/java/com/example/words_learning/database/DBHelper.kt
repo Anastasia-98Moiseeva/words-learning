@@ -64,10 +64,6 @@ class DBHelper(context: Context,
         db.close()
     }
 
-    fun createTable() {
-
-    }
-
     fun removeElementID(word: Words) {
         val db = writableDatabase
         db.delete(TABLE_DICTIONARY, COLUMN_ID + "=?", arrayOf((word.id).toString())).toLong()
@@ -77,6 +73,18 @@ class DBHelper(context: Context,
         val db = writableDatabase
         db.delete(TABLE_DICTIONARY, COLUMN_WORD + "=?", arrayOf((word.word))).toLong()
 
+    }
+
+    fun findWord(word: Words) : Boolean {
+        val db = readableDatabase
+
+        val selectQuery = "SELECT * FROM " + TABLE_DICTIONARY + " WHERE " + COLUMN_WORD + " = "+ "'" + word.word + "'"
+        val cursor = db.rawQuery(selectQuery, null)
+
+        cursor?.let {
+                return (cursor.getCount() > 0)
+            }
+        return false
     }
 
 

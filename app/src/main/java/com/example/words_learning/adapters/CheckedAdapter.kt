@@ -18,7 +18,7 @@ class SpiritualTeacher(var id: Int, var name: String, val quote: String) {
 }
 
 
-class CheckedListAdapter(val model : Model, var teachers: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
+class CheckedListAdapter(val model : Model, var wordsBase: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
     var checkedTeachers = ArrayList<SpiritualTeacher>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -27,7 +27,7 @@ class CheckedListAdapter(val model : Model, var teachers: ArrayList<SpiritualTea
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val teacher = teachers[position]
+        val teacher = wordsBase[position]
         holder.nameTxt.text = teacher.name
         holder.posTxt.text = teacher.quote
         holder.myCheckBox.isChecked = teacher.isSelected
@@ -35,7 +35,7 @@ class CheckedListAdapter(val model : Model, var teachers: ArrayList<SpiritualTea
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
                 val myCheckBox = v as CheckBox
-                val currentTeacher = teachers[pos]
+                val currentTeacher = wordsBase[pos]
 
                 if (myCheckBox.isChecked) {
                     currentTeacher.isSelected = true
@@ -53,7 +53,7 @@ class CheckedListAdapter(val model : Model, var teachers: ArrayList<SpiritualTea
     }
 
     override fun getItemCount(): Int {
-        return teachers.size
+        return wordsBase.size
     }
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {

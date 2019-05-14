@@ -13,11 +13,13 @@ import com.example.words_learning.Router
 import com.example.words_learning.adapters.CheckedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
 import com.example.words_learning.database.Model
+import com.example.words_learning.database.Words
 
 class WordsOnTopicListFragment : Fragment() {
 
     private lateinit var model : Model
     private lateinit var router : Router
+    private var words : ArrayList<SpiritualTeacher> = arrayListOf()
     val name = "Words On Topic"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +44,18 @@ class WordsOnTopicListFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = CheckedListAdapter(model, teachers)
+
+
+
+        words.clear()
+
+        for (word in teachers) {
+            if (!model.findWord(Words(-1, word.name, word.quote))) {
+                    words.add(word)
+                }
+        }
+
+        recycler.adapter = CheckedListAdapter(model, words)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
