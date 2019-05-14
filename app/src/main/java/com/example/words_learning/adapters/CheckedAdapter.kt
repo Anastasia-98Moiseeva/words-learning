@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import com.example.words_learning.R
-import com.example.words_learning.database.Model
-import com.example.words_learning.database.Words
+import com.example.words_learning.database.dictionarybase.Model
+import com.example.words_learning.database.dictionarybase.Words
 import java.util.ArrayList
 
 
@@ -39,13 +39,25 @@ class CheckedListAdapter(val model : Model, var wordsBase: ArrayList<SpiritualTe
 
                 if (myCheckBox.isChecked) {
                     currentTeacher.isSelected = true
-                    model.addValue(Words(-1, currentTeacher.name, currentTeacher.quote))
+                    model.addValue(
+                        Words(
+                            -1,
+                            currentTeacher.name,
+                            currentTeacher.quote
+                        )
+                    )
                     checkedTeachers.add(currentTeacher)
 
 
                 } else if (!myCheckBox.isChecked) {
                     currentTeacher.isSelected = false
-                    model.removeByWord(Words(-1, currentTeacher.name, currentTeacher.quote))
+                    model.removeByWord(
+                        Words(
+                            -1,
+                            currentTeacher.name,
+                            currentTeacher.quote
+                        )
+                    )
                     checkedTeachers.remove(currentTeacher)
                 }
             }

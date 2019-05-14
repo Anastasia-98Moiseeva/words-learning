@@ -12,8 +12,8 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.CheckedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
-import com.example.words_learning.database.Model
-import com.example.words_learning.database.Words
+import com.example.words_learning.database.dictionarybase.Model
+import com.example.words_learning.database.dictionarybase.Words
 
 class WordsOnTopicListFragment : Fragment() {
 

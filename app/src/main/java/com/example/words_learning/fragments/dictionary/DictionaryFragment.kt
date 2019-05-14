@@ -2,7 +2,6 @@ package com.example.words_learning.fragments.dictionary
 
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -14,8 +13,8 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.DeletedListAdapter
 import com.example.words_learning.adapters.DictionaryWords
-import com.example.words_learning.database.Model
-import com.example.words_learning.database.Words
+import com.example.words_learning.database.dictionarybase.Model
+import com.example.words_learning.database.dictionarybase.Words
 
 class DictionaryFragment : Fragment() {
 

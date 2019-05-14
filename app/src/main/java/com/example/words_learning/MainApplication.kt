@@ -1,17 +1,12 @@
 package com.example.words_learning
 
 import android.annotation.SuppressLint
-import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.provider.UserDictionary
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
-import com.example.words_learning.database.DBHelper
-import com.example.words_learning.database.Model
-import com.example.words_learning.database.Words
+import com.example.words_learning.database.dictionarybase.DBHelper
+import com.example.words_learning.database.dictionarybase.Model
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
-import com.example.words_learning.fragments.search.SearchWord
 import com.example.words_learning.fragments.search.TabFragment
 
 

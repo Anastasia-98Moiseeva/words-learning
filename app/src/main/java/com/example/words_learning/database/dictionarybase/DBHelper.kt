@@ -1,4 +1,4 @@
-package com.example.words_learning.database
+package com.example.words_learning.database.dictionarybase
 
 
 import android.content.ContentValues
@@ -19,7 +19,8 @@ class Words (id1 : Int, word1: String, translation1: String){
 class DBHelper(context: Context,
                name: String = DATABASE_NAME,
                factory: SQLiteDatabase.CursorFactory = Factory(),
-               version: Int = DATABASE_VERSION) : SQLiteOpenHelper(context, name, factory, version) {
+               version: Int = DATABASE_VERSION
+) : SQLiteOpenHelper(context, name, factory, version) {
 
     val count: Long
         get() {

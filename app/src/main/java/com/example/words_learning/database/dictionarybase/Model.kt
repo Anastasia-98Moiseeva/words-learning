@@ -1,8 +1,9 @@
-package com.example.words_learning.database
+package com.example.words_learning.database.dictionarybase
 
 
 import android.content.Context
-import android.widget.BaseAdapter
+import com.example.words_learning.database.dictionarybase.DBHelper
+import com.example.words_learning.database.dictionarybase.Words
 
 class Model(context : Context, val roomModel : Boolean = false) {
 

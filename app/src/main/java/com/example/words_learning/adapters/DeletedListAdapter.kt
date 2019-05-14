@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.words_learning.R
-import com.example.words_learning.database.Model
-import com.example.words_learning.database.Words
+import com.example.words_learning.database.dictionarybase.Model
+import com.example.words_learning.database.dictionarybase.Words
 import java.util.ArrayList
 
 

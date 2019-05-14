@@ -2,16 +2,12 @@ package com.example.words_learning.fragments.search
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.database.Model
-import com.example.words_learning.database.Words
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
 import okhttp3.*
