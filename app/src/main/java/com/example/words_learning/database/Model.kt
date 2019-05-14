@@ -7,8 +7,6 @@ import android.widget.BaseAdapter
 class Model(context : Context, val roomModel : Boolean = false) {
 
     private val dbHelper = DBHelper(context)
-    private val room = ValuesDatabase.getAppDataBase(context)
-
 
     fun size(): Long {
         return dbHelper.count

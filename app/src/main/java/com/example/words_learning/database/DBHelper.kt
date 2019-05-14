@@ -1,7 +1,6 @@
 package com.example.words_learning.database
 
 
-import android.arch.persistence.room.Database
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
