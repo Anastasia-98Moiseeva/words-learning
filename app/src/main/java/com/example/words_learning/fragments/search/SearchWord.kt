@@ -10,6 +10,7 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
+import kotlinx.android.synthetic.main.list_item.*
 import okhttp3.*
 
 class   SearchWord : Fragment() {
@@ -59,10 +60,14 @@ class   SearchWord : Fragment() {
                 val gson = GsonBuilder().create()
                 val homeFeed = gson.fromJson(translation, HomeFeed::class.java)
 
-                val text = homeFeed.text.toString().substring(1, homeFeed.text.toString().length - 1)
-                val listView = activity!!.findViewById<TextView>(R.id.textView)
-                listView.setText(text)
+                if (homeFeed != null) {
+                    val textHomeFeed = homeFeed.text.toString()
+                    val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
+                    val listView = activity!!.findViewById<TextView>(R.id.textView)
+                    listView.setText(text)
+                }
             })
+
         }
     }
 

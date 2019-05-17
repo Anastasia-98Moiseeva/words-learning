@@ -10,8 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-
-import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
+import com.example.words_learning.adapters.ClickableButtonAdapter
 
 
 class LearnSetFragment : Fragment() {

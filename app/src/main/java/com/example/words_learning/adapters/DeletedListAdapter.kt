@@ -48,12 +48,12 @@ class DeletedListAdapter(val layout: View, val model1: Model, var words: ArrayLi
                 snack.view.setBackgroundColor(Color.parseColor("#310DD6"))
 
                 snack.setAction(
-                    "cancel deletion",
-                    {
-                        model1.addValue(currentTeacher)
-                        words.add(currentTeacher)
-                        notifyDataSetChanged()
-                    }).show()
+                    "cancel deletion"
+                ) {
+                    model1.addValue(currentTeacher)
+                    words.add(currentTeacher)
+                    notifyDataSetChanged()
+                }.show()
 
 
 

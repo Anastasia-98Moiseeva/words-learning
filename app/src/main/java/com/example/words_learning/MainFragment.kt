@@ -8,11 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.words_learning.adapters.ClickableButtonAdapter
 import com.example.words_learning.fragments.dictionary.ChooseSetFragment
 import com.example.words_learning.fragments.statistics.StatisticFragment
 import com.example.words_learning.fragments.makeSet.MakeSetFragment
 import com.example.words_learning.fragments.wordsOnTopics.WordsOnTopicFragment
-import ru.mail.technotrack.recyclerview.adapters.ClickableButtonAdapter
 import java.lang.IllegalStateException
 
 class MainFragment : Fragment() {

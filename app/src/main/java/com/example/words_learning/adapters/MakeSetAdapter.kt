@@ -1,6 +1,7 @@
 package com.example.words_learning.adapters
 
 
+
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,18 +9,11 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import com.example.words_learning.R
-import com.example.words_learning.database.dictionarybase.Model
-import com.example.words_learning.database.dictionarybase.Words
 import java.util.ArrayList
 
 
-class SpiritualTeacher(var id: Int, var name: String, val quote: String) {
-    var isSelected: Boolean = false
-}
 
-
-class CheckedListAdapter(val model : Model, var wordsBase: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<CheckedListAdapter.MyHolder>() {
-    var checkedTeachers = ArrayList<SpiritualTeacher>()
+class MakeSetAdapter(var checkedTeachers: ArrayList<SpiritualTeacher>, var wordsBase: ArrayList<SpiritualTeacher>) : RecyclerView.Adapter<MakeSetAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.selected_item, null)
@@ -27,10 +21,10 @@ class CheckedListAdapter(val model : Model, var wordsBase: ArrayList<SpiritualTe
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val teacher = wordsBase[position]
-        holder.nameTxt.text = teacher.name
-        holder.posTxt.text = teacher.quote
-        holder.myCheckBox.isChecked = teacher.isSelected
+        val word = wordsBase[position]
+        holder.nameTxt.text = word.name
+        holder.posTxt.text = word.quote
+        holder.myCheckBox.isChecked = word.isSelected
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
@@ -39,26 +33,8 @@ class CheckedListAdapter(val model : Model, var wordsBase: ArrayList<SpiritualTe
 
                 if (myCheckBox.isChecked) {
                     currentTeacher.isSelected = true
-                    model.addValue(
-                        Words(
-
-                            -1,
-                            currentTeacher.name,
-                            currentTeacher.quote
-                        )
-                    )
                     checkedTeachers.add(currentTeacher)
 
-
-                } else if (!myCheckBox.isChecked) {
-                    currentTeacher.isSelected = false
-                    model.removeByWord(
-                        Words(
-                            -1,
-                            currentTeacher.name,
-                            currentTeacher.quote
-                        )
-                    )
                     checkedTeachers.remove(currentTeacher)
                 }
             }

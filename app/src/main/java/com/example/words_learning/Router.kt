@@ -68,10 +68,7 @@ class Router(activity : FragmentActivity, container: Int) {
 
         activity?.run {
             if (id_window != 0) {
-                while (num_stack > 0) {
-                    supportFragmentManager.popBackStack()
-                    num_stack--
-                }
+                activity.finish()
             }
             if (supportFragmentManager.backStackEntryCount > 0 && num_stack > 0) {
                 num_stack --
