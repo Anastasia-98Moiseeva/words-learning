@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import com.example.words_learning.database.dictionarybase.DBHelper
-import com.example.words_learning.database.dictionarybase.Model
+import com.example.words_learning.database.DBHelper
+import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.TabFragment
 
@@ -13,7 +13,7 @@ import com.example.words_learning.fragments.search.TabFragment
 class MainApplication : AppCompatActivity() {
 
     lateinit var router  : Router
-    private lateinit var model: Model
+    private lateinit var model: Dictionary
     private val dbHelper = DBHelper(this)
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->

@@ -9,15 +9,13 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.words_learning.R
-import com.example.words_learning.database.dictionarybase.Model
-import com.example.words_learning.database.dictionarybase.Words
+import com.example.words_learning.database.dictionary.Dictionary
+import com.example.words_learning.database.dictionary.Words
 import java.util.ArrayList
 
 
-class DictionaryWords(var word: String?, val translate: String) {
-}
 
-class DeletedListAdapter(val layout: View, val model1: Model, var words: ArrayList<Words>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
+class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: ArrayList<Words>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
 

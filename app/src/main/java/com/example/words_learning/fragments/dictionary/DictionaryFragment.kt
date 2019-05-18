@@ -12,23 +12,22 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.DeletedListAdapter
-import com.example.words_learning.adapters.DictionaryWords
-import com.example.words_learning.database.dictionarybase.Model
-import com.example.words_learning.database.dictionarybase.Words
+import com.example.words_learning.database.dictionary.Dictionary
+import com.example.words_learning.database.dictionary.Words
 
 class DictionaryFragment : Fragment() {
 
-    private lateinit var model: Model
+    private lateinit var model: Dictionary
     private var wordsTranslation = ArrayList<Words>()
     private lateinit var router : Router
-    val name = "Words On Topic"
+    val name = "Dictionary"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
-        model = Model(activity!!)
-        if (model.select() != null) {
-            wordsTranslation = model.select()!!
+        model = Dictionary(activity!!)
+        if (model.getAllElements() != null) {
+            wordsTranslation = model.getAllElements()!!
         }
     }
 
@@ -71,27 +70,5 @@ class DictionaryFragment : Fragment() {
 
     }
 
-    companion object {
-        private val words: ArrayList<DictionaryWords>
-            get() =
-                arrayListOf(
-                    DictionaryWords("Prose", "Проза"),
-                    DictionaryWords("Tulip", "Тюльпан"),
-                    DictionaryWords("Dew", "Роса"),
-                    DictionaryWords("Luxury", "Роскошь"),
-                    DictionaryWords("Baroque", "Барокко"),
-                    DictionaryWords("Introvert", "Интроверт"),
-                    DictionaryWords("Borsch", "Борщ"),
-                    DictionaryWords("Money", "Деньги"),
-                    DictionaryWords("Science", "Наука"),
-                    DictionaryWords("Angel", "Ангел"),
-                    DictionaryWords("Laptop", "Ноутбук"),
-                    DictionaryWords("Vanity", "Тщеславие"),
-                    DictionaryWords("Football", "Футбол"),
-                    DictionaryWords("Marvel", "Чудо"),
-                    DictionaryWords("Nature", "Природа"),
-                    DictionaryWords("Hoverboard", "Гироскутер")
-                )
-    }
 }
 

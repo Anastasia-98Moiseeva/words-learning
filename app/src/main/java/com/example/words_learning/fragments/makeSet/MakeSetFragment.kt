@@ -10,11 +10,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.DeletedListAdapter
 import com.example.words_learning.adapters.MakeSetAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
-import com.example.words_learning.database.dictionarybase.Model
-import com.example.words_learning.database.dictionarybase.Words
+import com.example.words_learning.database.dictionary.Dictionary
+import com.example.words_learning.database.dictionary.Words
 
 
 class MakeSetFragment : Fragment() {
@@ -24,16 +23,16 @@ class MakeSetFragment : Fragment() {
     private var wordsAll : ArrayList<SpiritualTeacher> = arrayListOf()
     private  var checkedWords : ArrayList<SpiritualTeacher> = arrayListOf()
 
-    private lateinit var model: Model
+    private lateinit var model: Dictionary
     private var wordsTranslation = ArrayList<Words>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
 
-        model = Model(activity!!)
-        if (model.select() != null) {
-            wordsTranslation = model.select()!!
+        model = Dictionary(activity!!)
+        if (model.getAllElements() != null) {
+            wordsTranslation = model.getAllElements()!!
         }
     }
 
@@ -54,6 +53,9 @@ class MakeSetFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
+
+        wordsAll.clear()
+        checkedWords.clear()
 
         for (word in wordsTranslation) {
             wordsAll.add(SpiritualTeacher(0, word.word, word.traslation ))

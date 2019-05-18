@@ -12,12 +12,12 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.CheckedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
-import com.example.words_learning.database.dictionarybase.Model
-import com.example.words_learning.database.dictionarybase.Words
+import com.example.words_learning.database.dictionary.Dictionary
+import com.example.words_learning.database.dictionary.Words
 
 class WordsOnTopicListFragment : Fragment() {
 
-    private lateinit var model : Model
+    private lateinit var model : Dictionary
     private lateinit var router : Router
     private var words : ArrayList<SpiritualTeacher> = arrayListOf()
     val name = "Words On Topic"
@@ -25,7 +25,7 @@ class WordsOnTopicListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
-        model = Model(activity!!)
+        model = Dictionary(activity!!)
 
     }
 
