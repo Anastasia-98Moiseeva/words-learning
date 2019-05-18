@@ -21,7 +21,7 @@
                 android:textColor="@color/text"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:id="@+id/button"/>
+                android:id="@+id/buttonMakeSet"/>
     </android.support.v7.widget.CardView>
     <android.support.constraint.Guideline
             android:id="@+id/guideline"

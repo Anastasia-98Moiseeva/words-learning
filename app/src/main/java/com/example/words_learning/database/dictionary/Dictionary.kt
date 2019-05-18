@@ -36,8 +36,8 @@ class Dictionary(context : Context) {
 
     fun addValue(words: Words) {
         val values = ContentValues()
-        values.put(DBHelper.COLUMN_WORD, words.word)
-        values.put(DBHelper.COLUMN_TRANSLATION, words.traslation)
+        values.put(DBHelper.COLUMN_TABLE_WORD, words.word)
+        values.put(DBHelper.COLUMN_TABLE_TRANSLATION, words.traslation)
 
         dbHelper.addElement(TABLE_DICTIONARY, values)
     }

@@ -37,9 +37,9 @@ class Sets(context : Context) {
 
     fun addValue(set: Set) {
         val values = ContentValues()
-        values.put(DBHelper.COLUMN_SET, set.set)
-        values.put(DBHelper.COLUMN_WORD, set.word)
-        values.put(DBHelper.COLUMN_TRANSLATION, set.traslation)
+        values.put(DBHelper.COLUMN_SET_SET, set.set)
+        values.put(DBHelper.COLUMN_SET_WORD, set.word)
+        values.put(DBHelper.COLUMN_SET_TRANSLATION, set.traslation)
 
         dbHelper.addElement(TABLE_SETS, values)
     }

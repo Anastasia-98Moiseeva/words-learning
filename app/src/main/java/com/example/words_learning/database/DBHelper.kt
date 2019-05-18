@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteCursorDriver
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQuery
-import com.example.words_learning.database.dictionary.Words
 
 
 class DBHelper(context: Context,
@@ -49,12 +48,12 @@ class DBHelper(context: Context,
 
     fun removeElementID(table : String, id: Int) {
         val db = writableDatabase
-        db.delete(table, "$COLUMN_ID=?", arrayOf((id).toString())).toLong()
+        db.delete(table, "$COLUMN_TABLE_ID=?", arrayOf((id).toString())).toLong()
     }
 
     fun removeElementWord(table: String, name: String) {
         val db = writableDatabase
-        db.delete(table, "$COLUMN_WORD=?", arrayOf((name))).toLong()
+        db.delete(table, "$COLUMN_TABLE_WORD=?", arrayOf((name))).toLong()
 
     }
 
@@ -62,7 +61,7 @@ class DBHelper(context: Context,
     fun findWord(table: String, name : String) : Boolean {
         val db = readableDatabase
 
-        val selectQuery = "SELECT * FROM $table WHERE $COLUMN_WORD = '$name'"
+        val selectQuery = "SELECT * FROM $table WHERE $COLUMN_TABLE_WORD = '$name'"
         val cursor = db.rawQuery(selectQuery, null)
 
         cursor?.let {
@@ -117,32 +116,30 @@ class DBHelper(context: Context,
         private const val DATABASE_NAME = "MyDB.db"
 
         const val TABLE_DICTIONARY = "dictionary"
-        const val TABLE_SETS = "sets"
 
-        const val COLUMN_ID = "id"
-        const val COLUMN_WORD = "word"
-        const val COLUMN_TRANSLATION = "translation"
-        const val COLUMN_SET = "set"
+        const val COLUMN_TABLE_ID = "table_id"
+        const val COLUMN_TABLE_WORD = "table_word"
+        const val COLUMN_TABLE_TRANSLATION = "table_translation"
+
+        const val TABLE_SETS = "sets"
+        const val COLUMN_SET_ID = "set_id"
+        const val COLUMN_SET_SET = "set_set"
+        const val COLUMN_SET_WORD = "set_word"
+        const val COLUMN_SET_TRANSLATION = "set_translation"
 
         const val CREATE_WORDS_TABLE = ("CREATE TABLE "
                 + TABLE_DICTIONARY + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_WORD + " TEXT,"
-                + COLUMN_TRANSLATION + " TEXT" + ");")
-
-        const val CREATE_WORDS_TABLA = ("CREATE TABLE "
-                + TABLE_SETS + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_WORD + " TEXT,"
-                + COLUMN_TRANSLATION + " TEXT" + ");")
+                + COLUMN_TABLE_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_TABLE_WORD + " TEXT,"
+                + COLUMN_TABLE_TRANSLATION + " TEXT" + ");")
 
 
         const val CREATE_SETS_TABLE = ("CREATE TABLE "
                 + TABLE_SETS + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_SET + " TEXT,"
-                + COLUMN_WORD + " TEXT,"
-                + COLUMN_TRANSLATION + " TEXT" + ");")
+                + COLUMN_SET_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_SET_SET + " TEXT,"
+                + COLUMN_SET_WORD + " TEXT,"
+                + COLUMN_SET_TRANSLATION + " TEXT" + ");")
     }
 
 }

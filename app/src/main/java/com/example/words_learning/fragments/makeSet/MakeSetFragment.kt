@@ -14,6 +14,8 @@ import com.example.words_learning.adapters.MakeSetAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.database.dictionary.Words
+import kotlinx.android.synthetic.main.button_layout.view.*
+import kotlinx.android.synthetic.main.fragments_make_set.view.*
 
 
 class MakeSetFragment : Fragment() {
@@ -22,6 +24,7 @@ class MakeSetFragment : Fragment() {
     val name = "Make set"
     private var wordsAll : ArrayList<SpiritualTeacher> = arrayListOf()
     private  var checkedWords : ArrayList<SpiritualTeacher> = arrayListOf()
+    //private lateinit val
 
     private lateinit var model: Dictionary
     private var wordsTranslation = ArrayList<Words>()
@@ -63,6 +66,10 @@ class MakeSetFragment : Fragment() {
 
         if (wordsTranslation.size > 0) {
             recycler.adapter = MakeSetAdapter(checkedWords, wordsAll)
+        }
+
+        layout.buttonMakeSet.setOnClickListener {
+
         }
 
         return layout
