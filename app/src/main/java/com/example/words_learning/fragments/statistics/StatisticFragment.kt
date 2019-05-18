@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import kotlinx.android.synthetic.main.fragment_statistic.view.*
+import kotlinx.android.synthetic.main.main_application.view.*
 
 
 class StatisticFragment : Fragment() {
@@ -29,7 +30,14 @@ class StatisticFragment : Fragment() {
 
         layout = createButtons(layout)
 
+        val text1 = layout.textView1
+        text1.setText("Столько слов вы выучили за последний месяц: ")
 
+        val text2 = layout.textView3
+        text2.setText("Столько слов вы выучили за последние две недели: ")
+
+        val text3 = layout.textView4
+        text3.setText("Столько слов вы выучили за последнюю неделю: ")
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
@@ -41,7 +49,6 @@ class StatisticFragment : Fragment() {
     private fun createButtons(layout: View) : View{
 
 
-        val listView : ListView = layout.list
         //listView.adapter = model.createAdapter()
         //listView.onItemClickListener = this
 
