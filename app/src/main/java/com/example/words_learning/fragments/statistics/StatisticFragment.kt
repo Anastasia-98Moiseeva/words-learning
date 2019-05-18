@@ -31,13 +31,13 @@ class StatisticFragment : Fragment() {
         layout = createButtons(layout)
 
         val text1 = layout.textView1
-        text1.setText("Столько слов вы выучили за последний месяц: ")
+        text1.setText("Столько слов вы выучили за последний месяц: 30")
 
         val text2 = layout.textView3
-        text2.setText("Столько слов вы выучили за последние две недели: ")
+        text2.setText("Столько слов вы выучили за последние две недели: 30")
 
         val text3 = layout.textView4
-        text3.setText("Столько слов вы выучили за последнюю неделю: ")
+        text3.setText("Столько слов вы выучили за последнюю неделю: 15")
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)

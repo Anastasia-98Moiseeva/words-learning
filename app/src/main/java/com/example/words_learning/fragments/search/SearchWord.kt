@@ -39,13 +39,16 @@ class   SearchWord : Fragment() {
     }
 
     private fun fetchTranslation(word : String, language : String) : String {
-        val resource : String = "https://translate.yandex.net/api/v1.5/tr.json/translate"
-        val apiKey : String = "trnsl.1.1.20190501T234428Z.90b60f7583e9d7b6.ad52ed8f1fb7aa585056ed65c1f9ba9552bc4fd5"
-        var url : String = resource + "?key=" + apiKey + "&text=" + word + "&lang=" + language + "&format=plain"
+        val resource = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+        val apiKey = "trnsl.1.1.20190501T234428Z.90b60f7583e9d7b6.ad52ed8f1fb7aa585056ed65c1f9ba9552bc4fd5"
+        val url : String = resource + "?key=" + apiKey + "&text=" + word + "&lang=" + language + "&format=plain"
 
         val client = OkHttpClient()
-        val request = Request.Builder().url(url).build()
-        val response = client.newCall(request).execute()
+        val requestBuild = Request.Builder()
+        val requestUrl = requestBuild.url(url) ?: return "Сервер не доступен"
+        val request = requestUrl.build() ?: return "Сервер не доступен"
+        val response1 = client.newCall(request) ?: return "Сервер не доступен"
+        val response = response1.execute() ?: return "Сервер не доступен"
         return response.body()!!.string()
     }
 
@@ -61,10 +64,13 @@ class   SearchWord : Fragment() {
                 val homeFeed = gson.fromJson(translation, HomeFeed::class.java)
 
                 if (homeFeed != null) {
-                    val textHomeFeed = homeFeed.text.toString()
-                    val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
-                    val listView = activity!!.findViewById<TextView>(R.id.textView)
-                    listView.setText(text)
+                    val textHomeFeed1 = homeFeed.text
+                    if (textHomeFeed1 != null) {
+                        val textHomeFeed = textHomeFeed1.toString()
+                        val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
+                        val listView = activity!!.findViewById<TextView>(R.id.textView)
+                        listView.setText(text)
+                    }
                 }
             })
 
