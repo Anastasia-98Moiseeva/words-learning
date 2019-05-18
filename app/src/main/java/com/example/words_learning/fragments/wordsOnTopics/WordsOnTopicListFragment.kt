@@ -45,8 +45,6 @@ class WordsOnTopicListFragment : Fragment() {
             false
         )
 
-
-
         words.clear()
 
         for (word in teachers) {
