@@ -11,7 +11,7 @@ class Dictionary(context : Context) {
 
     fun getAllElements(): ArrayList<Words>? {
         val words = ArrayList<Words>()
-        val data = dbHelper.getDictionary()
+        val data = dbHelper.getDictionary(TABLE_DICTIONARY)
         return if (data != null) {
             for (array in data) {
                 words.add(Words(array[0].toInt(), array[1], array[2]))

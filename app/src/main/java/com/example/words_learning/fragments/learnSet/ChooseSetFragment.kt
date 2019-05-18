@@ -1,4 +1,4 @@
-package com.example.words_learning.fragments.dictionary
+package com.example.words_learning.fragments.learnSet
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,18 +11,21 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.ChooseSetAdapter
-import com.example.words_learning.adapters.SpiritTeacher
-import com.example.words_learning.fragments.learnSet.LearnSetFragment
+//import com.example.words_learning.adapters.AllSets
+import com.example.words_learning.database.set.Sets
 import java.lang.IllegalStateException
 
 class ChooseSetFragment : Fragment() {
 
     private lateinit var router : Router
     val name = "Choose set"
+    private lateinit var set: Sets
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
+        set = Sets(activity!!)
 
     }
 
@@ -43,11 +46,16 @@ class ChooseSetFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ChooseSetAdapter(arrayOfItems, ::onButtonClick)
 
+
+        val setsNames = set.getSetsNames()
+
+        if (setsNames != null) {
+            recycler.adapter = ChooseSetAdapter(set, setsNames, ::onButtonClick)
+        }
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
 
         return layout
     }
@@ -71,17 +79,18 @@ class ChooseSetFragment : Fragment() {
     }
 
 
-    companion object {
-        private val arrayOfItems: ArrayList<SpiritTeacher>
+ /*   companion object {
+        private val arrayOfItems: ArrayList<AllSets>
             get() =
                 arrayListOf(
-                    SpiritTeacher("Set1"),
-                    SpiritTeacher("Set2"),
-                    SpiritTeacher("Set3"),
-                    SpiritTeacher("Set4"),
-                    SpiritTeacher("Set5"),
-                    SpiritTeacher("Set6")
+                    AllSets("Set1"),
+                    AllSets("Set2"),
+                    AllSets("Set3"),
+                    AllSets("Set4"),
+                    AllSets("Set5"),
+                    AllSets("Set6")
                 )
     }
+    */
 }
 

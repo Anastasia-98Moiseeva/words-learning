@@ -8,42 +8,31 @@ import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.words_learning.R
+import com.example.words_learning.database.set.Sets
 import java.util.ArrayList
 
 
-class SpiritTeacher(var name: String?) {
-    var isSelected: Boolean = false
-}
 
-
-class ChooseSetAdapter(var teachers: ArrayList<SpiritTeacher>,
+class ChooseSetAdapter(set1: Sets, var teachers: ArrayList<String>,
                        private val onClick : (Int) -> Unit) : RecyclerView.Adapter<ChooseSetAdapter.MyHolder>() {
-    var checkedTeachers = ArrayList<SpiritTeacher>()
+    var checkedTeachers = ArrayList<String>()
+    var set = set1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.fragment_choose_set, null)
-        return MyHolder(v, onClick)
+        return MyHolder(set, teachers, v, onClick)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val teacher = teachers[position]
-        holder.nameTxt.text = teacher.name
-        holder.myCheckBox.isChecked = teacher.isSelected
+        holder.nameTxt.text = teacher
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
-                val myCheckBox = v as CheckBox
-                val currentTeacher = teachers[pos]
 
-                if (myCheckBox.isChecked) {
-                    currentTeacher.isSelected = true
-                    checkedTeachers.add(currentTeacher)
-
-
-                } else if (!myCheckBox.isChecked) {
-                    currentTeacher.isSelected = false
-                    checkedTeachers.remove(currentTeacher)
-                }
+                //set.removeSet(teachers[pos])
+                //teachers.removeAt(pos)
+                //notifyDataSetChanged()
             }
         })
 
@@ -58,7 +47,7 @@ class ChooseSetAdapter(var teachers: ArrayList<SpiritTeacher>,
         return teachers.size
     }
 
-    class MyHolder(itemView: View, val onClick : (Int) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class MyHolder(set : Sets, namesSets : ArrayList<String>, itemView: View, val onClick : (Int) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         var nameTxt: TextView
         var myCheckBox: CheckBox
@@ -75,7 +64,12 @@ class ChooseSetAdapter(var teachers: ArrayList<SpiritTeacher>,
             myCheckBox.setOnClickListener{
                 onClick(adapterPosition)
             }
-            imgBut.setOnClickListener {nameTxt.setText("hm")}
+            /*imgBut.setOnClickListener {
+                set.removeSet(nameTxt.text.toString())
+                namesSets.remove(nameTxt.text.toString())
+
+            }*/
+            imgBut.setOnClickListener(this)
         }
 
         fun setItemImageButtonClickListener() {

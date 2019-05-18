@@ -57,6 +57,20 @@ class DBHelper(context: Context,
 
     }
 
+    fun removeElementsByName(table: String, column : String, name: String) {
+        val db = readableDatabase
+        val selectQuery = "SELECT * FROM $table WHERE $column = '$name'"
+        val cursor = db.rawQuery(selectQuery, null)
+
+        cursor?.let {
+            if (cursor.count > 0) {
+                do {
+                    db.delete(table, "$COLUMN_TABLE_ID=?", arrayOf((cursor.getString(0)))).toLong()
+                } while (cursor.moveToNext())
+            }
+        }
+    }
+
     @SuppressLint("Recycle")
     fun findWord(table: String, name : String) : Boolean {
         val db = readableDatabase
@@ -71,10 +85,10 @@ class DBHelper(context: Context,
     }
 
 
-    fun getDictionary() : ArrayList<ArrayList<String>>? {
+    fun getDictionary(table: String) : ArrayList<ArrayList<String>>? {
         val db = readableDatabase
 
-        val selectQuery = "SELECT  * FROM $TABLE_DICTIONARY"
+        val selectQuery = "SELECT  * FROM $table"
         val allData = ArrayList<ArrayList<String>>()
 
         val cursor = db.rawQuery(selectQuery, null)
@@ -103,17 +117,33 @@ class DBHelper(context: Context,
         return null
     }
 
-    fun getCursor(table: String) : Cursor? {
+    fun getDiffNames (table: String, num : Int) : ArrayList<String>?{
         val db = readableDatabase
+
         val selectQuery = "SELECT  * FROM $table"
+        val allData = ArrayList<String>()
+
         val cursor = db.rawQuery(selectQuery, null)
-        return cursor
+        cursor?.let {
+            if (cursor.count > 0) {
+                cursor.moveToFirst()
+                do {
+                    val name = cursor.getString(num)
+                    if (!allData.contains(name))
+                    allData.add(name)
+                } while (cursor.moveToNext())
+                cursor.close()
+                return allData
+            }
+            cursor.close()
+        }
+
+        return null
     }
 
-
     companion object {
-        private const val DATABASE_VERSION = 2
-        private const val DATABASE_NAME = "MyDB.db"
+        private const val DATABASE_VERSION = 3
+        private const val DATABASE_NAME = "MyDB3.db"
 
         const val TABLE_DICTIONARY = "dictionary"
 

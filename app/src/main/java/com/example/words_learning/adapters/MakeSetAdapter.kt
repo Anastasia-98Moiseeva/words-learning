@@ -33,8 +33,12 @@ class MakeSetAdapter(var checkedTeachers: ArrayList<SpiritualTeacher>, var words
 
                 if (myCheckBox.isChecked) {
                     currentTeacher.isSelected = true
+                    //wordsBase[pos].isSelected = true
                     checkedTeachers.add(currentTeacher)
 
+
+                } else {
+                    currentTeacher.isSelected = false
                     checkedTeachers.remove(currentTeacher)
                 }
             }
