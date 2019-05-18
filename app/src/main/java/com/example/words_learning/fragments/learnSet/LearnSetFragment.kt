@@ -70,7 +70,12 @@ class LearnSetFragment : Fragment() {
         return arrayOfItems
     }
 
-    private fun onButtonClick(position: Int) {
+    private fun onButtonClick(position: Int) = when (position) {
+        0 -> router.navigateTo(true, ::Cards)
+        1 -> router.navigateTo(true, ::Matching)
+        2 -> router.navigateTo(true, ::Test)
+        3 -> router.navigateTo(true, ::Writing)
+        else -> throw IllegalStateException()
     }
 
     override fun onResume() {
