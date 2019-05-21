@@ -27,6 +27,7 @@ class DBHelper(context: Context,
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_WORDS_TABLE)
         sqLiteDatabase.execSQL(CREATE_SETS_TABLE)
+        sqLiteDatabase.execSQL(CREATE_STATISTIC_TABLE)
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, j: Int) {
@@ -34,7 +35,7 @@ class DBHelper(context: Context,
         //db.execSQL("DROP TABLE IF EXISTS " + TABLE_DICTIONARY)
     }
 
-    fun clearElement() {
+    fun clearTables() {
         val db = writableDatabase
         db.execSQL("DROP TABLE IF EXISTS $TABLE_DICTIONARY")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_SETS")
@@ -142,20 +143,24 @@ class DBHelper(context: Context,
     }
 
     companion object {
-        private const val DATABASE_VERSION = 3
-        private const val DATABASE_NAME = "MyDB3.db"
+        private const val DATABASE_VERSION = 4
+        private const val DATABASE_NAME = "MyDB4.db"
 
         const val TABLE_DICTIONARY = "dictionary"
-
-        const val COLUMN_TABLE_ID = "table_id"
+        private const val COLUMN_TABLE_ID = "table_id"
         const val COLUMN_TABLE_WORD = "table_word"
         const val COLUMN_TABLE_TRANSLATION = "table_translation"
 
         const val TABLE_SETS = "sets"
-        const val COLUMN_SET_ID = "set_id"
+        private const val COLUMN_SET_ID = "set_id"
         const val COLUMN_SET_SET = "set_set"
         const val COLUMN_SET_WORD = "set_word"
         const val COLUMN_SET_TRANSLATION = "set_translation"
+
+        const val TABLE_STATISTIC = "statistic"
+        private const val COLUMN_STATISTIC_ID = "statistic_id"
+        const val COLUMN_STATISTIC_WORD = "statistic_word"
+        const val COLUMN_STATISTIC_TIME = "statistic_time"
 
         const val CREATE_WORDS_TABLE = ("CREATE TABLE "
                 + TABLE_DICTIONARY + "("
@@ -170,6 +175,13 @@ class DBHelper(context: Context,
                 + COLUMN_SET_SET + " TEXT,"
                 + COLUMN_SET_WORD + " TEXT,"
                 + COLUMN_SET_TRANSLATION + " TEXT" + ");")
+
+
+        const val CREATE_STATISTIC_TABLE = ("CREATE TABLE "
+                + TABLE_STATISTIC + "("
+                + COLUMN_STATISTIC_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_STATISTIC_WORD + " TEXT,"
+                + COLUMN_STATISTIC_TIME + " INTEGER" + ");")
     }
 
 }

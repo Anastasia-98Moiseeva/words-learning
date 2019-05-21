@@ -22,8 +22,6 @@ class Writing : Fragment() {
     private lateinit var router: Router
     val name = "Learn set"
 
-    val arrWords : Array<String> = arrayOf("cat", "dog", "rat", "giraffe", "elephant", "cow")
-    val arrOfTranslations : Array<String> = arrayOf( "кошка", "собака", "крыса", "жираф", "слон", "корова")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +35,7 @@ class Writing : Fragment() {
             false)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
 
         val word_number = 0
 
@@ -60,15 +58,18 @@ class Writing : Fragment() {
 
     fun printAnswerAndSwich(word_number : Int, translation: TextView, editText: EditText,
                             check: Button, answer : TextView, next : ImageButton){
-        translation.setText(arrOfTranslations[word_number])
+        translation.text = arrOfTranslations[word_number]
 
         val word: String = editText.text.toString()
 
-        editText.setText("")
-        answer.setText("")
+        editText.run {
+
+            setText("")
+        }
+        answer.text = ""
 
         check.setOnClickListener {
-            answer.setText(arrWords[word_number])
+            answer.text = arrWords[word_number]
         }
 
         if (word_number < arrWords.size) {
@@ -78,5 +79,21 @@ class Writing : Fragment() {
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    val arrWords : Array<String> = arrayOf("cat", "dog", "rat", "giraffe", "elephant", "cow")
+    val arrOfTranslations : Array<String> = arrayOf( "кошка", "собака", "крыса", "жираф", "слон", "корова")
+
 
 }
