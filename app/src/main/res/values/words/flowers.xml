@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="flowers">
+        <item>cornflower, василёк</item>
+        <item>chamomile, ромашка</item>
+        <item>carnation, гвоздика</item>
+        <item>chrysanthemum, хризантема</item>
+        <item>dahlia, георгин</item>
+        <item>dandelion, одуванчик</item>
+        <item>forget-me-not, незабудка</item>
+        <item>gladiolus, гладиолус</item>
+        <item>hydrangea, гортензия</item>
+        <item>iris, ирис</item>
+        <item>lily, лилия</item>
+        <item>lily of the valley, ландыш</item>
+        <item>mimosa, мимоза</item>
+        <item>narcissus, нарцисс</item>
+        <item>orchid, орхидея</item>
+        <item>pansy, анютины, глазки</item>
+        <item>poppy, мак</item>
+        <item>peony, пион</item>
+        <item>rose, роза</item>
+        <item>snowdrop, подснежник</item>
+        <item>sunflower, подсолнечник</item>
+        <item>tulip, тюльпан</item>
+        <item>verbena,  вербена</item>
+        <item>violet, фиалка</item>
+    </string-array>
+</resources>

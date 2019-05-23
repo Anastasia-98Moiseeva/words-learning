@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="furniture">
+        <item>armchair, кресло</item>
+        <item>bed, кровать</item>
+        <item>sofa, диван</item>
+        <item>bookcase, книжный, шкаф</item>
+        <item>bookshelf, книжная, полка</item>
+        <item>chair, стул</item>
+        <item>wardrobe, гардероб</item>
+        <item>mirror, зеркало</item>
+        <item>cupboard, шкаф</item>
+        <item>desk, письменный, стол</item>
+        <item>stool, табурет</item>
+        <item>table, стол</item>
+
+    </string-array>
+</resources>

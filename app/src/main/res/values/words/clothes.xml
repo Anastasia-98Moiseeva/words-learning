@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="clothes">
+        <item>shirt, футболка</item>
+        <item>bathrobe, халат</item>
+        <item>stockings, чулки</item>
+        <item>scarf, шарф</item>
+        <item>hat, шляпа</item>
+        <item>shorts, шорты</item>
+        <item>skirt, юбка</item>
+        <item>sweatshirt, толстовка</item>
+        <item>sweater, свитер</item>
+        <item>shirt, рубашка</item>
+        <item>dress, платье</item>
+        <item>coat, пальто</item>
+        <item>gloves, перчатки</item>
+        <item>pajamas, пижама</item>
+        <item>swimsuit, купальник</item>
+        <item>vest, жилет</item>
+        <item>jeans, джинсы</item>
+        <item>tie, галстук</item>
+        <item>blouse, блузка</item>
+    </string-array>
+</resources>

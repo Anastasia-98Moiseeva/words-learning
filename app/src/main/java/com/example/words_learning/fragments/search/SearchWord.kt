@@ -41,7 +41,7 @@ class   SearchWord : Fragment() {
     private fun fetchTranslation(word : String, language : String) : String {
         val resource = "https://translate.yandex.net/api/v1.5/tr.json/translate"
         val apiKey = "trnsl.1.1.20190501T234428Z.90b60f7583e9d7b6.ad52ed8f1fb7aa585056ed65c1f9ba9552bc4fd5"
-        val url : String = resource + "?key=" + apiKey + "&text=" + word + "&lang=" + language + "&format=plain"
+        val url : String = "$resource?key=$apiKey&text=$word&lang=$language&format=plain"
 
         val client = OkHttpClient()
         val requestBuild = Request.Builder()
@@ -54,6 +54,7 @@ class   SearchWord : Fragment() {
 
     inner class BackgroundFetcher : Runnable {
         override fun run() {
+            //Thread.sleep(5000) fail
             val textView = activity!!.findViewById<TextView>(R.id.editText)
 
             val translation = fetchTranslation(textView.text.toString(), "en-ru")
@@ -69,7 +70,7 @@ class   SearchWord : Fragment() {
                         val textHomeFeed = textHomeFeed1.toString()
                         val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
                         val listView = activity!!.findViewById<TextView>(R.id.textView)
-                        listView.setText(text)
+                        listView.text = text
                     }
                 }
             })

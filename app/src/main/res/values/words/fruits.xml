@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fruit">
+        <item>apricot, абрикос</item>
+        <item>pineapple, ананас</item>
+        <item>banana, банан</item>
+        <item>grape, виноград</item>
+        <item>pear, груша</item>
+        <item>melon, дыня</item>
+        <item>lemon, лимон</item>
+        <item>peach, персик</item>
+        <item>plum, слива</item>
+        <item>apple, яблоко</item>
+        <item>mandarin, мандарин</item>
+        <item>persimmon, хурма</item>
+    </string-array>
+</resources>

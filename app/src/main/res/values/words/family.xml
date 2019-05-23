@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="family">
+        <item>relative, родственник</item>
+        <item>parents, родители</item>
+        <item>mother, мать</item>
+        <item>father, отец</item>
+        <item>wife, жена</item>
+        <item>husband, муж</item>
+        <item>child, ребенок</item>
+        <item>daughter, дочь</item>
+        <item>son, сын</item>
+        <item>sister, сестра</item>
+        <item>brother, брат</item>
+        <item>twins, близнецы</item>
+        <item>triplets, тройняшки</item>
+        <item>grandparents, бабушка и дедушка</item>
+        <item>grandmother, бабушка</item>
+        <item>grandfather, дедушка</item>
+        <item>grandchildren, внуки</item>
+        <item>granddaughter, внучка</item>
+        <item>grandson, внук</item>
+        <item>aunt, тётя</item>
+        <item>uncle, дядя</item>
+        <item>stepfather, отчим</item>
+        <item>stepmother, мачеха</item>
+        <item>stepbrother, сводный брат</item>
+        <item>stepsister, сводная сестра</item>
+        <item>niece, племянница</item>
+        <item>nephew, племянник</item>
+        <item>cousin, двоюродный брат или сестра</item>
+    </string-array>
+</resources>

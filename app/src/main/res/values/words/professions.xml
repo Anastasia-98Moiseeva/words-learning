@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="professions">
+        <item>accountant, бухгалтер</item>
+        <item>actor, актер</item>
+        <item>designer, дизайнер</item>
+        <item>doctor, врач</item>
+        <item>engineer, инженер</item>
+        <item>fireman, пожарный</item>
+        <item>fisherman, рыбак</item>
+        <item>florist, флорист</item>
+        <item>gardener, садовник</item>
+        <item>hairdresser, парикмахер</item>
+        <item>journalist, журналист</item>
+        <item>judge, судья</item>
+        <item>lawyer, адвокат</item>
+        <item>lecturer, преподаватель</item>
+        <item>librarian, библиотекарь</item>
+        <item>politician, политик</item>
+        <item>policeman, полицейский</item>
+        <item>postman, почтальон</item>
+        <item>scientist, ученый</item>
+    </string-array>
+</resources>

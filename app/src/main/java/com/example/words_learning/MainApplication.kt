@@ -9,8 +9,10 @@ import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.TabFragment
 
+const val massege = "Message"
 
 class MainApplication : AppCompatActivity() {
+
 
     lateinit var router  : Router
     private lateinit var model: Dictionary

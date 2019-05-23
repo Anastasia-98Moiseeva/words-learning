@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="face">
+        <item>forehead, лоб</item>
+        <item>nose, нос</item>
+        <item>nostril, ноздря</item>
+        <item>eye, глаз</item>
+        <item>eyelash, ресница</item>
+        <item>eyebrow, бровь</item>
+        <item>mouth, рот</item>
+        <item>lip, губа</item>
+        <item>cheek, щека</item>
+        <item>cheekbones, скулы</item>
+        <item>tooth, зуб</item>
+        <item>tongue, язык</item>
+        <item>chin, подбородок</item>
+        <item>skin, кожа</item>
+        <item>mole, родинка</item>
+        <item>freckles, веснушки</item>
+        <item>beard, борода</item>
+        <item>moustache, усы</item>
+        <item>whiskers, бакенбарды</item>
+    </string-array>
+</resources>

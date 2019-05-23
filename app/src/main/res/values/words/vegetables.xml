@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="vegetables">
+            <item>cabbage, капуста</item>
+            <item>potato, картофель</item>
+            <item>onion, лук</item>
+            <item>carrot, морковь</item>
+            <item>cucumber, огурец</item>
+            <item>pepper, перец</item>
+            <item>tomato, помидор</item>
+            <item>radish, редис</item>
+            <item>beet, свекла</item>
+            <item>pumpkin, тыква</item>
+            <item>haricot, фасоль</item>
+            <item>garlic, чеснок</item>
+        </string-array>
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+

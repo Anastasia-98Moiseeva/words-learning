@@ -3,4 +3,309 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="names">
+        <item>vegetables</item>
+        <item>dishes</item>
+        <item>fruits</item>
+        <item>family</item>
+        <item>flowers</item>
+    </string-array>
+
+    <string-array name="berries">
+        <item>blueberry, голубика</item>
+        <item>blackberry, ежевика</item>
+        <item>cherry, вишня</item>
+        <item>currant, смородина</item>
+        <item>cranberry, клюква</item>
+        <item>gooseberry, крыжовник</item>
+        <item>raspberry, малина</item>
+        <item>strawberry, клубника</item>
+    </string-array>
+
+    <string-array name="animals">
+        <item>ram, баран</item>
+        <item>squirrel, белка</item>
+        <item>bull, бык</item>
+        <item>wolf, волк</item>
+        <item>hedgehog, ёж</item>
+        <item>giraffe, жираф</item>
+        <item>hare, заяц</item>
+        <item>zebra, зебра</item>
+        <item>boar, кабан</item>
+        <item>kangaroo, кенгуру</item>
+        <item>goat, козёл</item>
+        <item>cow, корова</item>
+        <item>cat, кот</item>
+        <item>crocodile, крокодил</item>
+        <item>rat, крыса</item>
+        <item>lion, лев</item>
+        <item>fox, лисица</item>
+        <item>elk, лось</item>
+        <item>frog, лягушка</item>
+        <item>bear, медведь</item>
+        <item>mouse, мышь</item>
+        <item>rhino, носорог</item>
+        <item>monkey, обезьяна</item>
+        <item>sheep, овца</item>
+        <item>deer, олень</item>
+        <item>donkey, осел</item>
+        <item>pig, поросенок</item>
+        <item>elephant, слон</item>
+        <item>dog, собака</item>
+        <item>tiger, тигр</item>
+    </string-array>
+
+    <string-array name="body_parts">
+        <item>body, тело</item>
+        <item>hand, рука</item>
+        <item>head, голова</item>
+        <item>neck, шея</item>
+        <item>elbow, локоть</item>
+        <item>shoulder, плечо</item>
+        <item>chest, грудная, клетка</item>
+        <item>armpit, подмышка</item>
+        <item>arm, рука</item>
+        <item>stomach, живот</item>
+        <item>waist, талия</item>
+        <item>thigh, бедро</item>
+        <item>knee, колено</item>
+        <item>calf, икра</item>
+        <item>shin, голень</item>
+        <item>leg, нога</item>
+        <item>foot, ступня</item>
+    </string-array>
+
+    <string-array name="clothes">
+        <item>shirt, футболка</item>
+        <item>bathrobe, халат</item>
+        <item>stockings, чулки</item>
+        <item>scarf, шарф</item>
+        <item>hat, шляпа</item>
+        <item>shorts, шорты</item>
+        <item>skirt, юбка</item>
+        <item>sweatshirt, толстовка</item>
+        <item>sweater, свитер</item>
+        <item>shirt, рубашка</item>
+        <item>dress, платье</item>
+        <item>coat, пальто</item>
+        <item>gloves, перчатки</item>
+        <item>pajamas, пижама</item>
+        <item>swimsuit, купальник</item>
+        <item>vest, жилет</item>
+        <item>jeans, джинсы</item>
+        <item>tie, галстук</item>
+        <item>blouse, блузка</item>
+    </string-array>
+
+    <string-array name="dishes">
+        <item>plate, тарелка</item>
+        <item>bowl, миска</item>
+        <item>cup, чашка</item>
+        <item>mug, кружка</item>
+        <item>spoon, ложка</item>
+        <item>fork, вилка</item>
+        <item>knife, нож</item>
+        <item>glass, стакан</item>
+        <item>saucepan, кастрюля</item>
+        <item>lid, крышка</item>
+        <item>kettle, чайник</item>
+        <item>bottle, бутылка</item>
+    </string-array>
+
+    <string-array name="face">
+        <item>forehead, лоб</item>
+        <item>nose, нос</item>
+        <item>nostril, ноздря</item>
+        <item>eye, глаз</item>
+        <item>eyelash, ресница</item>
+        <item>eyebrow, бровь</item>
+        <item>mouth, рот</item>
+        <item>lip, губа</item>
+        <item>cheek, щека</item>
+        <item>cheekbones, скулы</item>
+        <item>tooth, зуб</item>
+        <item>tongue, язык</item>
+        <item>chin, подбородок</item>
+        <item>skin, кожа</item>
+        <item>mole, родинка</item>
+        <item>freckles, веснушки</item>
+        <item>beard, борода</item>
+        <item>moustache, усы</item>
+        <item>whiskers, бакенбарды</item>
+    </string-array>
+
+    <string-array name="family">
+        <item>relative, родственник</item>
+        <item>parents, родители</item>
+        <item>mother, мать</item>
+        <item>father, отец</item>
+        <item>wife, жена</item>
+        <item>husband, муж</item>
+        <item>child, ребенок</item>
+        <item>daughter, дочь</item>
+        <item>son, сын</item>
+        <item>sister, сестра</item>
+        <item>brother, брат</item>
+        <item>twins, близнецы</item>
+        <item>triplets, тройняшки</item>
+        <item>grandparents, бабушка и дедушка</item>
+        <item>grandmother, бабушка</item>
+        <item>grandfather, дедушка</item>
+        <item>grandchildren, внуки</item>
+        <item>granddaughter, внучка</item>
+        <item>grandson, внук</item>
+        <item>aunt, тётя</item>
+        <item>uncle, дядя</item>
+        <item>stepfather, отчим</item>
+        <item>stepmother, мачеха</item>
+        <item>stepbrother, сводный брат</item>
+        <item>stepsister, сводная сестра</item>
+        <item>niece, племянница</item>
+        <item>nephew, племянник</item>
+        <item>cousin, двоюродный брат или сестра</item>
+    </string-array>
+
+    <string-array name="flowers">
+        <item>cornflower, василёк</item>
+        <item>chamomile, ромашка</item>
+        <item>carnation, гвоздика</item>
+        <item>chrysanthemum, хризантема</item>
+        <item>dahlia, георгин</item>
+        <item>dandelion, одуванчик</item>
+        <item>forget-me-not, незабудка</item>
+        <item>gladiolus, гладиолус</item>
+        <item>hydrangea, гортензия</item>
+        <item>iris, ирис</item>
+        <item>lily, лилия</item>
+        <item>lily of the valley, ландыш</item>
+        <item>mimosa, мимоза</item>
+        <item>narcissus, нарцисс</item>
+        <item>orchid, орхидея</item>
+        <item>pansy, анютины, глазки</item>
+        <item>poppy, мак</item>
+        <item>peony, пион</item>
+        <item>rose, роза</item>
+        <item>snowdrop, подснежник</item>
+        <item>sunflower, подсолнечник</item>
+        <item>tulip, тюльпан</item>
+        <item>verbena,  вербена</item>
+        <item>violet, фиалка</item>
+    </string-array>
+
+    <string-array name="footwear">
+        <item>shoes, туфли</item>
+        <item>ankle, boots, ботинки</item>
+        <item>trainers, кроссовки</item>
+        <item>sandals, босоножки</item>
+        <item>boots, сапоги</item>
+        <item>slippers, тапочки</item>
+        <item>heel, каблук</item>
+        <item>sole, подошва</item>
+        <item>insole, стелька</item>
+        <item>laces, шнурки</item>
+    </string-array>
+
+    <string-array name="fruit">
+        <item>apricot, абрикос</item>
+        <item>pineapple, ананас</item>
+        <item>banana, банан</item>
+        <item>grape, виноград</item>
+        <item>pear, груша</item>
+        <item>melon, дыня</item>
+        <item>lemon, лимон</item>
+        <item>peach, персик</item>
+        <item>plum, слива</item>
+        <item>apple, яблоко</item>
+        <item>mandarin, мандарин</item>
+        <item>persimmon, хурма</item>
+    </string-array>
+
+    <string-array name="furniture">
+        <item>armchair, кресло</item>
+        <item>bed, кровать</item>
+        <item>sofa, диван</item>
+        <item>bookcase, книжный, шкаф</item>
+        <item>bookshelf, книжная, полка</item>
+        <item>chair, стул</item>
+        <item>wardrobe, гардероб</item>
+        <item>mirror, зеркало</item>
+        <item>cupboard, шкаф</item>
+        <item>desk, письменный, стол</item>
+        <item>stool, табурет</item>
+        <item>table, стол</item>
+    </string-array>
+
+    <string-array name="house">
+        <item>flat, квартира</item>
+        <item>front door, входная дверь</item>
+        <item>staircase, лестница</item>
+        <item>roof, крыша</item>
+        <item>garden, сад</item>
+        <item>garage, гараж</item>
+        <item>nursery, детская</item>
+        <item>bedroom, спальня</item>
+        <item>bathroom, ванная</item>
+        <item>kitchen, кухня</item>
+        <item>living room, гостиная</item>
+        <item>study, кабинет</item>
+        <item>toilet, туалет</item>
+    </string-array>
+
+    <string-array name="professions">
+        <item>accountant, бухгалтер</item>
+        <item>actor, актер</item>
+        <item>designer, дизайнер</item>
+        <item>doctor, врач</item>
+        <item>engineer, инженер</item>
+        <item>fireman, пожарный</item>
+        <item>fisherman, рыбак</item>
+        <item>florist, флорист</item>
+        <item>gardener, садовник</item>
+        <item>hairdresser, парикмахер</item>
+        <item>journalist, журналист</item>
+        <item>judge, судья</item>
+        <item>lawyer, адвокат</item>
+        <item>lecturer, преподаватель</item>
+        <item>librarian, библиотекарь</item>
+        <item>politician, политик</item>
+        <item>policeman, полицейский</item>
+        <item>postman, почтальон</item>
+        <item>scientist, ученый</item>
+    </string-array>
+
+    <string-array name="stationary">
+        <item>pen, ручка</item>
+        <item>pencil, box, пенал</item>
+        <item>note, book, тетрадка</item>
+        <item>crayons, мелки для рисования</item>
+        <item>paintbrush, кисточка</item>
+        <item>rubber, ластик</item>
+        <item>marker, маркер</item>
+        <item>paperclip, скрепка</item>
+        <item>ruler, линейка</item>
+        <item>chalk, мел</item>
+        <item>calculator, калькулятор</item>
+        <item>desk, парта</item>
+        <item>sharpener, точилка</item>
+        <item>felt, tip pen, фломастер</item>
+        <item>glue, клей</item>
+        <item>scissors, ножницы</item>
+    </string-array>
+
+    <string-array name="vegetables">
+        <item>cabbage, капуста</item>
+        <item>potato, картофель</item>
+        <item>onion, лук</item>
+        <item>carrot, морковь</item>
+        <item>cucumber, огурец</item>
+        <item>pepper, перец</item>
+        <item>tomato, помидор</item>
+        <item>radish, редис</item>
+        <item>beet, свекла</item>
+        <item>pumpkin, тыква</item>
+        <item>haricot, фасоль</item>
+        <item>garlic, чеснок</item>
+    </string-array>
+
 </resources>

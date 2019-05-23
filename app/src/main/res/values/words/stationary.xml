@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="stationary">
+        <item>pen, ручка</item>
+        <item>pencil, box, пенал</item>
+        <item>note, book, тетрадка</item>
+        <item>crayons, мелки для рисования</item>
+        <item>paintbrush, кисточка</item>
+        <item>rubber, ластик</item>
+        <item>marker, маркер</item>
+        <item>paperclip, скрепка</item>
+        <item>ruler, линейка</item>
+        <item>chalk, мел</item>
+        <item>calculator, калькулятор</item>
+        <item>desk, парта</item>
+        <item>sharpener, точилка</item>
+        <item>felt, tip pen, фломастер</item>
+        <item>glue, клей</item>
+        <item>scissors, ножницы</item>
+    </string-array>
+</resources>

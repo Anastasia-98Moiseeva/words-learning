@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="body_parts">
+        <item>body, тело</item>
+        <item>hand, рука</item>
+        <item>head, голова</item>
+        <item>neck, шея</item>
+        <item>elbow, локоть</item>
+        <item>shoulder, плечо</item>
+        <item>chest, грудная, клетка</item>
+        <item>armpit, подмышка</item>
+        <item>arm, рука</item>
+        <item>stomach, живот</item>
+        <item>waist, талия</item>
+        <item>thigh, бедро</item>
+        <item>knee, колено</item>
+        <item>calf, икра</item>
+        <item>shin, голень</item>
+        <item>leg, нога</item>
+        <item>foot, ступня</item>
+    </string-array>
+</resources>

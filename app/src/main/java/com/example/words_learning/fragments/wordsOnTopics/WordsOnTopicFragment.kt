@@ -12,7 +12,8 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.ClickableButtonAdapter
-import java.lang.IllegalStateException
+import com.example.words_learning.adapters.WordsAdapter
+
 
 class WordsOnTopicFragment : Fragment() {
 
@@ -37,26 +38,25 @@ class WordsOnTopicFragment : Fragment() {
         "Body parts"
     )
 
-    val arrayOfImages : Array<Int> = arrayOf(
-        R.drawable.ic_vegetable1,
-        R.drawable.ic_cutlery1,
-        R.drawable.ic_fruit1,
-        R.drawable.ic_family1,
-        R.drawable.ic_flower1,
-        R.drawable.ic_footwear1,
-        R.drawable.ic_animal1,
-        R.drawable.ic_clothes1,
-        R.drawable.ic_face1,
-        R.drawable.ic_home1,
-        R.drawable.ic_berry1,
-        R.drawable.ic_furniture1,
-        R.drawable.ic_profession1,
-        R.drawable.ic_stationery1,
-        R.drawable.ic_body1
-
+    private val arrayOfWords : Array<Pair<Int, Int>> = arrayOf(
+        Pair(R.drawable.ic_vegetable1, R.array.vegetables),
+        Pair(R.drawable.ic_cutlery1, R.array.dishes),
+        Pair(R.drawable.ic_fruit1, R.array.fruit),
+        Pair(R.drawable.ic_family1, R.array.family),
+        Pair(R.drawable.ic_flower1, R.array.flowers),
+        Pair(R.drawable.ic_footwear1, R.array.footwear),
+        Pair(R.drawable.ic_animal1, R.array.animals),
+        Pair(R.drawable.ic_clothes1, R.array.clothes),
+        Pair(R.drawable.ic_face1, R.array.face),
+        Pair(R.drawable.ic_home1, R.array.house),
+        Pair(R.drawable.ic_berry1, R.array.berries),
+        Pair(R.drawable.ic_furniture1, R.array.furniture),
+        Pair(R.drawable.ic_profession1, R.array.professions),
+        Pair(R.drawable.ic_stationery1, R.array.stationary),
+        Pair(R.drawable.ic_body1, R.array.body_parts)
     )
 
-    val textSize : Float = 12F
+    private val textSize : Float = 12F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,9 +79,9 @@ class WordsOnTopicFragment : Fragment() {
             RecyclerView.VERTICAL,
             false
         )
-        recycler.adapter = ClickableButtonAdapter(createButtons(),
+        recycler.adapter = WordsAdapter(createButtons(),
             R.layout.words_image_button_layout, textSize,
-            arrayOfImages, true, ::onButtonClick)
+            arrayOfWords, true, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)
@@ -95,29 +95,21 @@ class WordsOnTopicFragment : Fragment() {
         return arrayOfItems
     }
 
-    private fun onButtonClick(position: Int) = when (position){
-        0 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        1 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        2 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        3 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        4 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        5 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        6 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        7 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        8 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        9 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        10 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        11 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        12 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        13 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        14 -> router.navigateTo(true, ::WordsOnTopicListFragment)
-        else -> throw IllegalStateException()
+    private fun setFragment(pos : Int, name : Int) {
+
+
     }
+
+
+    private fun onButtonClick(position: Int) {
+        val msg = arrayOfWords[position].second
+        router.navigateTo(true, ::WordsOnTopicListFragment, massege1 = msg)
+          }
 
     override fun onResume() {
         super.onResume()
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
     }
 
 }

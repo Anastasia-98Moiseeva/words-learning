@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="footwear">
+        <item>shoes, туфли</item>
+        <item>ankle, boots, ботинки</item>
+        <item>trainers, кроссовки</item>
+        <item>sandals, босоножки</item>
+        <item>boots, сапоги</item>
+        <item>slippers, тапочки</item>
+        <item>heel, каблук</item>
+        <item>sole, подошва</item>
+        <item>insole, стелька</item>
+        <item>laces, шнурки</item>
+    </string-array>
+</resources>

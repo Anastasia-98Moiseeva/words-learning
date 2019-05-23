@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="house">
+        <item>flat, квартира</item>
+        <item>front door, входная дверь</item>
+        <item>staircase, лестница</item>
+        <item>roof, крыша</item>
+        <item>garden, сад</item>
+        <item>garage, гараж</item>
+        <item>nursery, детская</item>
+        <item>bedroom, спальня</item>
+        <item>bathroom, ванная</item>
+        <item>kitchen, кухня</item>
+        <item>living room, гостиная</item>
+        <item>study, кабинет</item>
+        <item>toilet, туалет</item>
+    </string-array>
+</resources>

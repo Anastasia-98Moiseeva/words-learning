@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="berries">
+        <item>blueberry, голубика</item>
+        <item>blackberry, ежевика</item>
+        <item>cherry, вишня</item>
+        <item>currant, смородина</item>
+        <item>cranberry, клюква</item>
+        <item>gooseberry, крыжовник</item>
+        <item>raspberry, малина</item>
+        <item>strawberry, клубника</item>
+    </string-array>
+</resources>

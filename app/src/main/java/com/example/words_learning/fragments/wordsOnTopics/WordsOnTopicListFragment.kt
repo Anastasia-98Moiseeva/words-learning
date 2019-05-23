@@ -14,7 +14,10 @@ import com.example.words_learning.adapters.CheckedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.database.dictionary.Words
+import com.example.words_learning.massege
 
+
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class WordsOnTopicListFragment : Fragment() {
 
     private lateinit var model : Dictionary
@@ -45,9 +48,20 @@ class WordsOnTopicListFragment : Fragment() {
             false
         )
 
+        val idTopic = this.arguments!!.getInt(massege, 0)
+
+
+        val wordsAndTranslation = (resources.getStringArray(idTopic))
+
+
+
         words.clear()
 
-        for (word in teachers) {
+        for (wordTranslation in wordsAndTranslation) {
+
+            val listWords = wordTranslation.split(",")
+            val word = SpiritualTeacher(-1, listWords[0], listWords[1])
+
             if (!model.findWord(Words(-1, word.name, word.quote))) {
                     words.add(word)
                 }
@@ -70,28 +84,9 @@ class WordsOnTopicListFragment : Fragment() {
         listView.setText(name)
     }
 
+    private fun parse(word : String) {
 
-    companion object {
-        private val teachers: ArrayList<SpiritualTeacher>
-            get() =
-                arrayListOf(
-                    SpiritualTeacher(-1, "Prose", "Проза"),
-                    SpiritualTeacher(-1, "Tulip", "Тюльпан"),
-                    SpiritualTeacher(-1, "Dew", "Роса"),
-                    SpiritualTeacher(-1, "Luxury", "Роскошь"),
-                    SpiritualTeacher(-1, "Baroque", "Барокко"),
-                    SpiritualTeacher(-1, "Introvert", "Интроверт"),
-                    SpiritualTeacher(-1, "Borsch", "Борщ"),
-                    SpiritualTeacher(-1, "Money", "Деньги"),
-                    SpiritualTeacher(-1, "Science", "Наука"),
-                    SpiritualTeacher(-1, "Angel", "Ангел"),
-                    SpiritualTeacher(-1, "Laptop", "Ноутбук"),
-                    SpiritualTeacher(-1, "Vanity", "Тщеславие"),
-                    SpiritualTeacher(-1, "Football", "Футбол"),
-                    SpiritualTeacher(-1, "Marvel", "Чудо"),
-                    SpiritualTeacher(-1, "Nature", "Природа"),
-                    SpiritualTeacher(-1, "Hoverboard", "Гироскутер")
-                )
     }
+
 }
 

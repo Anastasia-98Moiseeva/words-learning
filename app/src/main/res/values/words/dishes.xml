@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dishes">
+        <item>plate, тарелка</item>
+        <item>bowl, миска</item>
+        <item>cup, чашка</item>
+        <item>mug, кружка</item>
+        <item>spoon, ложка</item>
+        <item>fork, вилка</item>
+        <item>knife, нож</item>
+        <item>glass, стакан</item>
+        <item>saucepan, кастрюля</item>
+        <item>lid, крышка</item>
+        <item>kettle, чайник</item>
+        <item>bottle, бутылка</item>
+    </string-array>
+</resources>
