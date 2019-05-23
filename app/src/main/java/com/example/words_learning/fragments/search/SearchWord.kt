@@ -66,12 +66,10 @@ class   SearchWord : Fragment() {
 
                 if (homeFeed != null) {
                     val textHomeFeed1 = homeFeed.text
-                    if (textHomeFeed1 != null) {
-                        val textHomeFeed = textHomeFeed1.toString()
-                        val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
-                        val listView = activity!!.findViewById<TextView>(R.id.textView)
-                        listView.text = text
-                    }
+                    val textHomeFeed = textHomeFeed1.toString()
+                    val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
+                    val listView = activity!!.findViewById<TextView>(R.id.textView)
+                    listView.text = text
                 }
             })
 

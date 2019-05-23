@@ -1,5 +1,6 @@
 package com.example.words_learning.fragments.search
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -56,7 +57,9 @@ class TabFragment : Fragment() {
     }
 
     companion object {
+        @SuppressLint("StaticFieldLeak")
         lateinit var tabLayout: TabLayout
+        @SuppressLint("StaticFieldLeak")
         lateinit var viewPager: ViewPager
 
         var items = 2
