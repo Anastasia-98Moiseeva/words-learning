@@ -4,12 +4,16 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import com.example.words_learning.database.DBHelper
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.TabFragment
 
 const val massege = "Message"
+var enterWord = ""
+var searchWord = ""
+
 
 class MainApplication : AppCompatActivity() {
 

@@ -1,5 +1,6 @@
 package com.example.words_learning.fragments.search
 
+import android.app.Activity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,18 +9,25 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
+import com.example.words_learning.enterWord
+import com.example.words_learning.searchWord
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
 import kotlinx.android.synthetic.main.list_item.*
 import okhttp3.*
+import org.w3c.dom.Text
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 class   SearchWord : Fragment() {
 
     private lateinit var router : Router
-
+    private lateinit var textView: TextView
+    /*private lateinit var enterWord : String
+    private lateinit var searchWord : String*/
     /*val name = "Search"*/
+
+    private lateinit var myActivity : Activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,33 +89,52 @@ class   SearchWord : Fragment() {
 
     inner class BackgroundFetcher : Runnable {
         override fun run() {
-            //Thread.sleep(5000) fail
-            val textView = activity!!.findViewById<TextView>(R.id.editText)
+            //Thread.sleep(5000)
+            myActivity.let {
+                val translation = fetchTranslation(enterWord, "en-ru")
 
-            val translation = fetchTranslation(textView.text.toString(), "en-ru")
+                myActivity.runOnUiThread(Runnable {
 
-            activity!!.runOnUiThread(Runnable {
+                    val gson = GsonBuilder().create()
+                    val homeFeed = gson.fromJson(translation, HomeFeed::class.java)
 
-                val gson = GsonBuilder().create()
-                val homeFeed = gson.fromJson(translation, HomeFeed::class.java)
-
-                if (homeFeed != null) {
-                    val textHomeFeed1 = homeFeed.text
-                    val textHomeFeed = textHomeFeed1.toString()
-                    val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
-                    val listView = activity!!.findViewById<TextView>(R.id.textView)
-                    listView.text = text
-                }
-            })
+                    if (homeFeed != null) {
+                        val textHomeFeed1 = homeFeed.text
+                        val textHomeFeed = textHomeFeed1.toString()
+                        val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
+                        searchWord = text
+                        textView.text = searchWord
+                    }
+                })
+            }
 
         }
     }
 
     override fun onResume() {
         super.onResume()
+        myActivity = activity!!
+        textView = activity!!.findViewById(R.id.textView)
+        if (enterWord != "") {
+            myActivity.findViewById<TextView>(R.id.editText).text = enterWord
+            myActivity.findViewById<TextView>(R.id.textView).text = searchWord
+            if (searchWord != "") {
+                textView.text = searchWord
+            }
+        } else {
+            enterWord = activity!!.findViewById<TextView>(R.id.editText).text.toString()
+            searchWord = activity!!.findViewById<TextView>(R.id.textView).text.toString()
+        }
         /*val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.setText(name)*/
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        enterWord = activity!!.findViewById<TextView>(R.id.editText).text.toString()
+        searchWord = activity!!.findViewById<TextView>(R.id.textView).text.toString()
+    }
+
 
 }
 
