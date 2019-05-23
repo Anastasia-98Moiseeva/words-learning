@@ -12,6 +12,8 @@ import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
 import kotlinx.android.synthetic.main.list_item.*
 import okhttp3.*
+import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 class   SearchWord : Fragment() {
 
@@ -38,18 +40,43 @@ class   SearchWord : Fragment() {
         return layout
     }
 
-    private fun fetchTranslation(word : String, language : String) : String {
-        val resource = "https://translate.yandex.net/api/v1.5/tr.json/translate"
-        val apiKey = "trnsl.1.1.20190501T234428Z.90b60f7583e9d7b6.ad52ed8f1fb7aa585056ed65c1f9ba9552bc4fd5"
-        val url : String = "$resource?key=$apiKey&text=$word&lang=$language&format=plain"
+    fun createClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+            .build()
 
-        val client = OkHttpClient()
-        val requestBuild = Request.Builder()
-        val requestUrl = requestBuild.url(url) ?: return "Сервер не доступен"
-        val request = requestUrl.build() ?: return "Сервер не доступен"
-        val response1 = client.newCall(request) ?: return "Сервер не доступен"
-        val response = response1.execute() ?: return "Сервер не доступен"
-        return response.body()!!.string()
+    }
+
+    private fun fetchTranslation(word : String, language : String) : String {
+
+        try {
+            val resource = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+            val apiKey = "trnsl.1.1.20190501T234428Z.90b60f7583e9d7b6.ad52ed8f1fb7aa585056ed65c1f9ba9552bc4fd5"
+            val url: String = "$resource?key=$apiKey&text=$word&lang=$language&format=plain"
+
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url(url)
+                .build()
+
+            val response = createClient().newCall(request).execute()
+            if(response.isSuccessful){
+                return response.body()!!.string()
+            }
+
+           /* val requestBuild = Request.Builder()
+            val requestUrl = requestBuild.url(url)
+            val request = requestUrl.build()*/
+            /*val response1 = client.newCall(request)
+            val response = response1.execute()*/
+            /*return response.body()!!.string()*/
+        }
+        catch (e: IOException){
+            return "404"
+        }
+        return ""
     }
 
     inner class BackgroundFetcher : Runnable {
