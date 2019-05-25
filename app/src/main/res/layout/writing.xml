@@ -42,7 +42,7 @@
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/textViewColor"
+                android:background="@color/writing"
                 android:id="@+id/constraintLayout"
                 tools:layout_editor_absoluteY="8dp">
 
@@ -93,7 +93,7 @@
                 <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/textViewColor"
+                        android:background="@color/writingText"
                         android:id="@+id/constraintLayout2"
                         tools:layout_editor_absoluteY="8dp">
 
@@ -129,7 +129,7 @@
 
             <TextView
                     android:text="TextView"
-                    android:textColor="@color/checkMark"
+                    android:textColor="@color/writingtxt"
                     android:layout_width="wrap_content"
                     android:textSize="18dp"
                     android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:background="@null"
                     android:layout_height="wrap_content"
-                    card_view:srcCompat="@drawable/next"
+                    app:srcCompat="@drawable/next"
                     android:id="@+id/imageButton3"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="20dp"
