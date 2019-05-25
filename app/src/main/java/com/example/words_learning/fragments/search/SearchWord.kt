@@ -91,10 +91,10 @@ class SearchWord() : Fragment() {
     inner class BackgroundFetcher : Runnable {
         override fun run() {
             //Thread.sleep(5000)
-            myActivity.let {
-                val translation = fetchTranslation(enterWord, "en-ru")
+            activity.let {
+                val translation = fetchTranslation(activity!!.findViewById<TextView>(R.id.editText).text.toString(), "en-ru")
 
-                myActivity.runOnUiThread(Runnable {
+                activity!!.runOnUiThread(Runnable {
 
                     val gson = GsonBuilder().create()
                     val homeFeed = gson.fromJson(translation, HomeFeed::class.java)
@@ -103,10 +103,11 @@ class SearchWord() : Fragment() {
                         val textHomeFeed1 = homeFeed.text
                         val textHomeFeed = textHomeFeed1.toString()
                         val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
-                        val hm = getActivity()
+                        val hm = activity
                         if (hm != null) {
-                        searchWord = text
-                        textView.text = searchWord
+                            hm.findViewById<TextView>(R.id.textView).text = text
+                        //searchWord = text
+                        //textView.text = searchWord
                         }
                     }
                 })
