@@ -85,7 +85,7 @@ class Writing : Fragment() {
 
     }
 
-
+/*
     override fun onResume() {
 
     }
@@ -95,10 +95,10 @@ class Writing : Fragment() {
         outState.putInt("iteratorWords", word_number)
     }
 
-   // override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-   //     word_number = savedInstanceState?.getInt("iteratorWords")!!
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        word_number = savedInstanceState?.getInt("iteratorWords")!!
         //cnt = savedInstanceState.getInt("count")
-    //}
+    }*/
 
 
 
