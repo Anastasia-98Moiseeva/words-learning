@@ -14,7 +14,7 @@ class Sets(context : Context) {
 
     fun getAllElements(): ArrayList<Set>? {
         val sets = ArrayList<Set>()
-        val data = dbHelper.getDictionary(TABLE_SETS)
+        val data = dbHelper.getElements(TABLE_SETS)
         return if (data != null) {
             for (array in data) {
                 sets.add(Set(array[0].toInt(), array[1], array[2], array[3]))

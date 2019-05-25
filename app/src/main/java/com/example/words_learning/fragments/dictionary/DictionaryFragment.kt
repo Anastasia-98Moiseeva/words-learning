@@ -14,10 +14,12 @@ import com.example.words_learning.Router
 import com.example.words_learning.adapters.DeletedListAdapter
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.database.dictionary.Words
+import com.example.words_learning.database.statistic.Statistic
 
 class DictionaryFragment : Fragment() {
 
-    private lateinit var model: Dictionary
+    private lateinit var dictionary: Dictionary
+    private lateinit var statistic: Statistic
     private var wordsTranslation = ArrayList<Words>()
     private lateinit var router : Router
     val name = "Dictionary"
@@ -25,9 +27,11 @@ class DictionaryFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
-        model = Dictionary(activity!!)
-        if (model.getAllElements() != null) {
-            wordsTranslation = model.getAllElements()!!
+        dictionary = Dictionary(activity!!)
+        statistic = Statistic(activity!!)
+
+        if (dictionary.getAllElements() != null) {
+            wordsTranslation = dictionary.getAllElements()!!
         }
     }
 
@@ -48,11 +52,11 @@ class DictionaryFragment : Fragment() {
         )
 
         if (wordsTranslation.size > 0) {
-            recycler.adapter = DeletedListAdapter(layout, model, wordsTranslation)
+            recycler.adapter = DeletedListAdapter(layout, dictionary, wordsTranslation, statistic)
         }
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
 
         return layout
     }

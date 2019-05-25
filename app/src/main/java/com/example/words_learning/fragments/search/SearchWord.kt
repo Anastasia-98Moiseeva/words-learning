@@ -3,6 +3,7 @@ package com.example.words_learning.fragments.search
 import android.app.Activity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +28,7 @@ class   SearchWord : Fragment() {
     private lateinit var searchWord : String*/
     /*val name = "Search"*/
 
-    private lateinit var myActivity : Activity
+    private lateinit var myActivity : FragmentActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,8 +103,11 @@ class   SearchWord : Fragment() {
                         val textHomeFeed1 = homeFeed.text
                         val textHomeFeed = textHomeFeed1.toString()
                         val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
+                        val hm = getActivity()
+                        if (hm != null) {
                         searchWord = text
                         textView.text = searchWord
+                        }
                     }
                 })
             }

@@ -11,11 +11,12 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.database.dictionary.Words
+import com.example.words_learning.database.statistic.Statistic
 import java.util.ArrayList
 
 
 
-class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: ArrayList<Words>) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
+class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: ArrayList<Words>, val statistic: Statistic) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
 
@@ -36,6 +37,7 @@ class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: Ar
                 model1.remove(words[pos])
                 words.remove(currentTeacher)
                 notifyDataSetChanged()
+                statistic.addValue(words[pos].word)
 
                 val snack = Snackbar.make(
                     layout,

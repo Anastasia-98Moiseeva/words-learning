@@ -86,7 +86,7 @@ class DBHelper(context: Context,
     }
 
 
-    fun getDictionary(table: String) : ArrayList<ArrayList<String>>? {
+    fun getElements(table: String) : ArrayList<ArrayList<String>>? {
         val db = readableDatabase
 
         val selectQuery = "SELECT  * FROM $table"
@@ -181,7 +181,7 @@ class DBHelper(context: Context,
                 + TABLE_STATISTIC + "("
                 + COLUMN_STATISTIC_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_STATISTIC_WORD + " TEXT,"
-                + COLUMN_STATISTIC_TIME + " INTEGER" + ");")
+                + COLUMN_STATISTIC_TIME + " DATA" + ");")
     }
 
 }
