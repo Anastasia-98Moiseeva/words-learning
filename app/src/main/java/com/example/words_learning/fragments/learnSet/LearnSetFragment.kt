@@ -26,10 +26,10 @@ class LearnSetFragment : Fragment() {
     )
 
     val arrayOfImages : Array<Int> = arrayOf(
-        R.drawable.ic_test4,
         R.drawable.ic_test1,
         R.drawable.ic_test2,
-        R.drawable.ic_test3
+        R.drawable.ic_test3,
+        R.drawable.ic_test4
 
     )
 

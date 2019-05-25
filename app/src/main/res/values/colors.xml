@@ -15,9 +15,4 @@
     <color name="tabs">#7777CE</color>
     <color name="textViewColor">#C6D7FD</color>
     <color name="indicator">#F7EC37</color>
-    <color name="frontCardSide">#C2DDF1</color>
-    <color name="backCardSide">#D0C6E7</color>
-    <color name="writing">#C7CDF3</color>
-    <color name="writingText">#D3EDF1</color>
-    <color name="writingtxt">#260F50</color>
 </resources>
