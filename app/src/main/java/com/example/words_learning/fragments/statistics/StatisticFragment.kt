@@ -1,5 +1,6 @@
 package com.example.words_learning.fragments.statistics
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.ListView
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
+import com.example.words_learning.database.statistic.Statistic
 import kotlinx.android.synthetic.main.fragment_statistic.view.*
 import kotlinx.android.synthetic.main.main_application.view.*
 
@@ -16,8 +18,17 @@ import kotlinx.android.synthetic.main.main_application.view.*
 class StatisticFragment : Fragment() {
 
     private lateinit var router : Router
+    private lateinit var statistic : Statistic
 
     val name = "Statistics"
+    private val numWordsLearned = "Столько слов вы выучили за "
+    private val day = "день: "
+    private val month = "месяц: "
+
+    val data = Array<Pair<Int, String>>(3) {
+        Pair(1, "Месяц")
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,63 +36,30 @@ class StatisticFragment : Fragment() {
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.fragment_statistic, container, false)
+        val layout = inflater.inflate(R.layout.fragment_statistic, container, false)
 
-        layout = createButtons(layout)
 
-        val text1 = layout.textView1
-        text1.setText("Столько слов вы выучили за последний месяц: 30")
 
-        val text2 = layout.textView3
-        text2.setText("Столько слов вы выучили за последние две недели: 30")
-
-        val text3 = layout.textView4
-        text3.setText("Столько слов вы выучили за последнюю неделю: 15")
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
 
         return layout
 
     }
 
-    private fun createButtons(layout: View) : View{
-
-
-        //listView.adapter = model.createAdapter()
-        //listView.onItemClickListener = this
-
-        //findViewById<View>(R.id.add).setOnClickListener(this)
-        //findViewById<View>(R.id.delete).setOnClickListener(this)
-
-//        layout.add.setOnClickListener(addNewValue())
-
-        return layout
+    @SuppressLint("SetTextI18n")
+    fun viewStatistic(textView : TextView, numDays : Int) {
+        val num = statistic.getNumWordsDate(numDays)
+        textView.text =  numWordsLearned + month + num.toString()
     }
-/*
-    private fun addNewValue() {
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle(resources.getString(R.string.enter_text))
 
-        val l = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val v = l.inflate(R.layout.edit, null)
-        val text = v.findViewById<View>(R.id.edit_text) as EditText
-        alertDialog.setView(v)
-        text.setText("Hello, World!")
-
-        alertDialog.setPositiveButton(R.string.ok) { dialog, which ->
-            val value = text.text.toString()
-            model.addValue(value)
-        }
-
-        alertDialog.show()
-    }
-*/
     override fun onResume() {
         super.onResume()
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
     }
 
 }

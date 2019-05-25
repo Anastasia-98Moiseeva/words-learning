@@ -17,11 +17,14 @@ import kotlinx.android.synthetic.main.writing.*
 import kotlinx.android.synthetic.main.writing.view.*
 import java.util.zip.Inflater
 
+
 class Writing : Fragment() {
 
     private lateinit var router: Router
     val name = "Learn set"
 
+
+    var word_number = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +40,6 @@ class Writing : Fragment() {
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
 
-        val word_number = 0
 
         /*val translation = layout.textView1
         translation.setText(arrOfTranslations[word_number])*/
@@ -80,9 +82,23 @@ class Writing : Fragment() {
             router.navigateTo(true, ::LearnSetFragment)
         }
 
+
     }
 
 
+    override fun onResume() {
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("iteratorWords", word_number)
+    }
+
+   // override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+   //     word_number = savedInstanceState?.getInt("iteratorWords")!!
+        //cnt = savedInstanceState.getInt("count")
+    //}
 
 
 

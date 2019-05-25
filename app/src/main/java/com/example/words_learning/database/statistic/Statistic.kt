@@ -45,6 +45,10 @@ class Statistic(context : Context) {
         }
     }
 
+    fun getNumWordsDate(numDays : Int) : Int {
+        return 0
+    }
+
 
 
     //fun
