@@ -20,7 +20,7 @@ import org.w3c.dom.Text
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class   SearchWord : Fragment() {
+class SearchWord() : Fragment() {
 
     private lateinit var router : Router
     private lateinit var textView: TextView

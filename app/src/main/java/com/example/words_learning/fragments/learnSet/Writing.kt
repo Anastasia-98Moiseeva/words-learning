@@ -58,8 +58,8 @@ class Writing : Fragment() {
         return layout
     }
 
-    fun printAnswerAndSwich(word_number : Int, translation: TextView, editText: EditText,
-                            check: Button, answer : TextView, next : ImageButton){
+    private fun printAnswerAndSwich(word_number : Int, translation: TextView, editText: EditText,
+                                    check: Button, answer : TextView, next : ImageButton){
         translation.text = arrOfTranslations[word_number]
 
         val word: String = editText.text.toString()
