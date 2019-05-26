@@ -45,7 +45,7 @@ class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: Ar
                     Snackbar.LENGTH_LONG //
                 )
 
-                snack.view.setBackgroundColor(Color.parseColor("#310DD6"))
+                snack.view.setBackgroundColor(Color.parseColor("#7B338F"))
 
                 snack.setAction(
                     "cancel deletion"

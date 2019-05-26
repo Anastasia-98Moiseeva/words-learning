@@ -20,4 +20,5 @@
     <color name="writing">#C7CDF3</color>
     <color name="writingText">#D3EDF1</color>
     <color name="writingtxt">#260F50</color>
+    <color name="snackBar">#7B338F</color>
 </resources>
