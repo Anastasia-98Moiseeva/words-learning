@@ -44,7 +44,9 @@ class Cards : Fragment() {
 
         val next = activity!!.findViewById<ImageButton>(R.id.imageButton3)
 
-        switch(1, next)
+        val back = activity!!.findViewById<ImageButton>(R.id.imageButton4)
+
+        switch(1, next, back)
 
     }
 
@@ -55,14 +57,19 @@ class Cards : Fragment() {
         backText.setText(arrWords[i])
     }
 
-    fun switch(word_number : Int, next : ImageButton){
+    fun switch(word_number : Int, next : ImageButton, back : ImageButton){
+        if (word_number < arrWords.size - 1 && word_number > -1) {
 
-        setState(word_number)
+            setState(word_number)
 
-        if (word_number < arrWords.size - 1) {
             next.setOnClickListener {
-                switch(word_number + 1, next)
+                switch(word_number + 1, next, back)
             }
+
+            back.setOnClickListener {
+                switch(word_number - 1, next, back)
+            }
+
         } else {
             router.navigateTo(true, ::LearnSetFragment)
         }

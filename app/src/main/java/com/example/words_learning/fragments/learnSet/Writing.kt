@@ -53,36 +53,39 @@ class Writing : Fragment() {
 
         val next = layout.imageButton3
 
-        printAnswerAndSwich(word_number, translation, editText, check, answer, next)
+        val back = layout.imageButton4
+
+        printAnswerAndSwitch(word_number, translation, editText, check, answer, next, back)
 
         return layout
     }
 
-    private fun printAnswerAndSwich(word_number : Int, translation: TextView, editText: EditText,
-                                    check: Button, answer : TextView, next : ImageButton){
-        translation.text = arrOfTranslations[word_number]
+    private fun printAnswerAndSwitch(word_number : Int, translation: TextView, editText: EditText,
+                                    check: Button, answer : TextView, next : ImageButton, back : ImageButton) {
+        if (word_number < arrWords.size - 1 && word_number > -1) {
+            translation.text = arrOfTranslations[word_number]
 
-        val word: String = editText.text.toString()
+            val word: String = editText.text.toString()
 
-        editText.run {
+            editText.run {
 
-            setText("")
-        }
-        answer.text = ""
-
-        check.setOnClickListener {
-            answer.text = arrWords[word_number]
-        }
-
-        if (word_number < arrWords.size - 1) {
-            next.setOnClickListener {
-                printAnswerAndSwich(word_number + 1, translation, editText, check, answer, next)
+                setText("")
             }
+            answer.text = ""
+
+            check.setOnClickListener {
+                answer.text = arrWords[word_number]
+            }
+            next.setOnClickListener {
+                printAnswerAndSwitch(word_number + 1, translation, editText, check, answer, next, back)
+            }
+            back.setOnClickListener {
+                printAnswerAndSwitch(word_number - 1, translation, editText, check, answer, next, back)
+            }
+
         } else {
             router.navigateTo(true, ::LearnSetFragment)
         }
-
-
     }
 
 /*
