@@ -3,7 +3,6 @@ package com.example.words_learning.database.dictionary
 import android.content.ContentValues
 import android.content.Context
 import com.example.words_learning.database.DBHelper
-import com.example.words_learning.database.DBHelper.Companion.TABLE_DICTIONARY
 
 class Dictionary(context : Context) {
 
@@ -11,7 +10,7 @@ class Dictionary(context : Context) {
 
     fun getAllElements(): ArrayList<Words>? {
         val words = ArrayList<Words>()
-        val data = dbHelper.getElements(TABLE_DICTIONARY)
+        val data = dbHelper.getElements(DBHelper.TABLE_DICTIONARY)
         return if (data != null) {
             for (array in data) {
                 words.add(Words(array[0].toInt(), array[1], array[2]))
@@ -23,23 +22,23 @@ class Dictionary(context : Context) {
     }
 
     fun remove(word : Words) {
-        dbHelper.removeElementID(TABLE_DICTIONARY, word.id)
+        dbHelper.removeElementID(DBHelper.TABLE_DICTIONARY, word.id)
     }
 
     fun findWord(word : Words) : Boolean {
-        return dbHelper.findWord(TABLE_DICTIONARY, word.word)
+        return dbHelper.findWord(DBHelper.TABLE_DICTIONARY, DBHelper.COLUMN_DICTIONARY_WORD, word.word)
     }
 
     fun removeByWord(word: Words) {
-        dbHelper.removeElementWord(TABLE_DICTIONARY, word.word)
+        dbHelper.removeElementWord(DBHelper.TABLE_DICTIONARY, word.word)
     }
 
     fun addValue(words: Words) {
         val values = ContentValues()
-        values.put(DBHelper.COLUMN_TABLE_WORD, words.word)
-        values.put(DBHelper.COLUMN_TABLE_TRANSLATION, words.traslation)
+        values.put(DBHelper.COLUMN_DICTIONARY_WORD, words.word)
+        values.put(DBHelper.COLUMN_DICTIONARY_TRANSLATION, words.traslation)
 
-        dbHelper.addElement(TABLE_DICTIONARY, values)
+        dbHelper.addElement(DBHelper.TABLE_DICTIONARY, values)
     }
 
 

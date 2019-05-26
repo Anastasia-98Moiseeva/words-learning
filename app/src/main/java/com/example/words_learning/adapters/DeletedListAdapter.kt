@@ -34,10 +34,11 @@ class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: Ar
             override fun onItemClick(v: View, pos: Int) {
                 val currentTeacher = words[pos]
 
+                statistic.addWordInformation(words[pos].word)
                 model1.remove(words[pos])
                 words.remove(currentTeacher)
                 notifyDataSetChanged()
-                statistic.addValue(words[pos].word)
+
 
                 val snack = Snackbar.make(
                     layout,
@@ -68,17 +69,14 @@ class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: Ar
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        var nameTxt: TextView
-        var posTxt: TextView
-        var img: ImageButton
+        var nameTxt: TextView = itemView.findViewById(R.id.wordTextView)
+        var posTxt: TextView = itemView.findViewById(R.id.translationTextView)
+        var img: ImageButton = itemView.findViewById(R.id.deleteBox)
 
         lateinit var myItemClickListener: ItemClickListener
 
         init {
 
-            nameTxt = itemView.findViewById(R.id.wordTextView)
-            posTxt = itemView.findViewById(R.id.translationTextView)
-            img = itemView.findViewById(R.id.deleteBox)
             img.setOnClickListener(this)
         }
 

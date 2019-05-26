@@ -49,12 +49,12 @@ class DBHelper(context: Context,
 
     fun removeElementID(table : String, id: Int) {
         val db = writableDatabase
-        db.delete(table, "$COLUMN_TABLE_ID=?", arrayOf((id).toString())).toLong()
+        db.delete(table, "$COLUMN_DICTIONARY_ID=?", arrayOf((id).toString())).toLong()
     }
 
     fun removeElementWord(table: String, name: String) {
         val db = writableDatabase
-        db.delete(table, "$COLUMN_TABLE_WORD=?", arrayOf((name))).toLong()
+        db.delete(table, "$COLUMN_DICTIONARY_WORD=?", arrayOf((name))).toLong()
 
     }
 
@@ -66,23 +66,36 @@ class DBHelper(context: Context,
         cursor?.let {
             if (cursor.count > 0) {
                 do {
-                    db.delete(table, "$COLUMN_TABLE_ID=?", arrayOf((cursor.getString(0)))).toLong()
+                    db.delete(table, "$COLUMN_DICTIONARY_ID=?", arrayOf((cursor.getString(0)))).toLong()
                 } while (cursor.moveToNext())
             }
         }
     }
 
     @SuppressLint("Recycle")
-    fun findWord(table: String, name : String) : Boolean {
+    fun findWord(table: String, column: String, name : String) : Boolean {
         val db = readableDatabase
 
-        val selectQuery = "SELECT * FROM $table WHERE $COLUMN_TABLE_WORD = '$name'"
+        val selectQuery = "SELECT * FROM $table WHERE $column = '$name'"
         val cursor = db.rawQuery(selectQuery, null)
 
         cursor?.let {
                 return (cursor.count > 0)
             }
         return false
+    }
+
+    fun countWhereLessEqual(table: String, column: String, name: String) : Int {
+        val db = readableDatabase
+
+        val selectQuery = "SELECT * FROM $table WHERE $column <= '$name'"
+        val cursor = db.rawQuery(selectQuery, null)
+
+        cursor?.let {
+            return (cursor.count)
+        }
+
+        return 0
     }
 
 
@@ -147,9 +160,9 @@ class DBHelper(context: Context,
         private const val DATABASE_NAME = "MyDB4.db"
 
         const val TABLE_DICTIONARY = "dictionary"
-        private const val COLUMN_TABLE_ID = "table_id"
-        const val COLUMN_TABLE_WORD = "table_word"
-        const val COLUMN_TABLE_TRANSLATION = "table_translation"
+        private const val COLUMN_DICTIONARY_ID = "table_id"
+        const val COLUMN_DICTIONARY_WORD = "table_word"
+        const val COLUMN_DICTIONARY_TRANSLATION = "table_translation"
 
         const val TABLE_SETS = "sets"
         private const val COLUMN_SET_ID = "set_id"
@@ -162,14 +175,14 @@ class DBHelper(context: Context,
         const val COLUMN_STATISTIC_WORD = "statistic_word"
         const val COLUMN_STATISTIC_TIME = "statistic_time"
 
-        const val CREATE_WORDS_TABLE = ("CREATE TABLE "
+        private const val CREATE_WORDS_TABLE = ("CREATE TABLE "
                 + TABLE_DICTIONARY + "("
-                + COLUMN_TABLE_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_TABLE_WORD + " TEXT,"
-                + COLUMN_TABLE_TRANSLATION + " TEXT" + ");")
+                + COLUMN_DICTIONARY_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_DICTIONARY_WORD + " TEXT,"
+                + COLUMN_DICTIONARY_TRANSLATION + " TEXT" + ");")
 
 
-        const val CREATE_SETS_TABLE = ("CREATE TABLE "
+        private const val CREATE_SETS_TABLE = ("CREATE TABLE "
                 + TABLE_SETS + "("
                 + COLUMN_SET_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_SET_SET + " TEXT,"
@@ -177,7 +190,7 @@ class DBHelper(context: Context,
                 + COLUMN_SET_TRANSLATION + " TEXT" + ");")
 
 
-        const val CREATE_STATISTIC_TABLE = ("CREATE TABLE "
+        private const val CREATE_STATISTIC_TABLE = ("CREATE TABLE "
                 + TABLE_STATISTIC + "("
                 + COLUMN_STATISTIC_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_STATISTIC_WORD + " TEXT,"
@@ -186,7 +199,3 @@ class DBHelper(context: Context,
 
 }
 
-
-//for (name in cursor.getString(0)) {
-//    data.add(name)
-//}

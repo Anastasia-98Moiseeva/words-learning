@@ -32,7 +32,7 @@ class StatisticFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        statistic = Statistic(activity!!)
         router = Router(requireActivity(), R.id.fragment_container)
     }
 
@@ -42,7 +42,7 @@ class StatisticFragment : Fragment() {
 
 
 
-
+        val num = statistic.getNumWordsDate(0)
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
 
