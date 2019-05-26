@@ -74,10 +74,12 @@ class Writing : Fragment() {
             answer.text = arrWords[word_number]
         }
 
-        if (word_number < arrWords.size) {
+        if (word_number < arrWords.size - 1) {
             next.setOnClickListener {
                 printAnswerAndSwich(word_number + 1, translation, editText, check, answer, next)
             }
+        } else {
+            router.navigateTo(true, ::LearnSetFragment)
         }
 
 
