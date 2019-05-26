@@ -7,12 +7,14 @@ import android.support.v4.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.enterWord
 import com.example.words_learning.searchWord
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.fragment_dictionary.*
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
 import kotlinx.android.synthetic.main.list_item.*
 import okhttp3.*
@@ -39,7 +41,11 @@ class SearchWord() : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var layout = inflater.inflate(R.layout.fragment_search_word, container, false)
 
+        val checkBox = layout.findViewById<View>(R.id.myCheckBox)
+        checkBox.setVisibility(View.INVISIBLE)
+
         layout.imageButton2.setOnClickListener {
+            checkBox.setVisibility(View.VISIBLE)
             Thread(BackgroundFetcher()).start()
         }
 
