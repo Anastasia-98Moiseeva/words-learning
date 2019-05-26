@@ -42,7 +42,9 @@ class StatisticFragment : Fragment() {
 
 
 
-        val num = statistic.getNumWordsDate(0)
+        val num = statistic.getNumWordsDate(1) // выводит кол-во изученных слов за ласт дни, в скоб скок дней.
+
+
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
 

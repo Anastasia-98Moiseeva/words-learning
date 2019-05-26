@@ -31,27 +31,31 @@ class Statistic(context : Context) {
         }
 
         val values = ContentValues()
-        val sdf = SimpleDateFormat("dd/M/yyyy")
-        val currentDate = sdf.format(Date())
+        val currentDate = getCurrentDate()
 
         values.put(DBHelper.COLUMN_STATISTIC_WORD, word)
         values.put(DBHelper.COLUMN_STATISTIC_TIME, currentDate)
         dbHelper.addElement(DBHelper.TABLE_STATISTIC, values)
     }
 
+    private fun getCurrentDate(): String? {
+        val cal = Calendar.getInstance()
+        cal.add(Calendar.DATE, (-1 * 7))
+        return this.sdf.format(cal.time)
+    }
+
     fun getAllElements(): ArrayList<Information>? {
-        val words = ArrayList<Information>()
+        val information = ArrayList<Information>()
         val data = dbHelper.getElements(DBHelper.TABLE_STATISTIC)
         return if (data != null) {
             for (array in data) {
-                words.add(Information(array[0].toInt(), array[1], array[2]))
+                information.add(Information(array[0].toInt(), array[1], array[2]))
             }
-            words
+            information
         } else {
             null
         }
     }
-
 
 
     fun getNumWordsDate(numDays : Int) : Int {
@@ -59,7 +63,7 @@ class Statistic(context : Context) {
         cal.add(Calendar.DATE, (-1 * numDays))
         val sdf = sdf.format(cal.time)
 
-        return dbHelper.countWhereLessEqual(DBHelper.TABLE_STATISTIC, DBHelper.COLUMN_STATISTIC_WORD, sdf)
+        return dbHelper.countWhereLessEqual(DBHelper.TABLE_STATISTIC, DBHelper.COLUMN_STATISTIC_TIME, sdf)
     }
 
     @SuppressLint("SimpleDateFormat")

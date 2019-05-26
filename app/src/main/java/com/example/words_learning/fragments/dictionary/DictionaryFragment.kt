@@ -65,7 +65,7 @@ class DictionaryFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
     }
 
     private fun getWords() {

@@ -88,7 +88,7 @@ class DBHelper(context: Context,
     fun countWhereLessEqual(table: String, column: String, name: String) : Int {
         val db = readableDatabase
 
-        val selectQuery = "SELECT * FROM $table WHERE $column <= '$name'"
+        val selectQuery = "SELECT * FROM $table WHERE $column >= '$name'"
         val cursor = db.rawQuery(selectQuery, null)
 
         cursor?.let {
