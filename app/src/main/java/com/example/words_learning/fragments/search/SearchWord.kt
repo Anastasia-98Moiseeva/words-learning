@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
+import com.beust.klaxon.Klaxon
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.enterWord
@@ -21,6 +22,7 @@ import okhttp3.*
 import org.w3c.dom.Text
 import java.io.IOException
 import java.util.concurrent.TimeUnit
+
 
 class SearchWord() : Fragment() {
 
@@ -102,8 +104,11 @@ class SearchWord() : Fragment() {
 
                 activity!!.runOnUiThread(Runnable {
 
-                    val gson = GsonBuilder().create()
-                    val homeFeed = gson.fromJson(translation, HomeFeed::class.java)
+                   /* val gson = GsonBuilder().create()
+                    val homeFeed = gson.fromJson(translation, HomeFeed::class.java)*/
+
+                    val klaxon = Klaxon()
+                    val homeFeed = klaxon.parse<HomeFeed>(translation)
 
                     if (homeFeed != null) {
                         val textHomeFeed1 = homeFeed.text
@@ -145,10 +150,8 @@ class SearchWord() : Fragment() {
         enterWord = activity!!.findViewById<TextView>(R.id.editText).text.toString()
         searchWord = activity!!.findViewById<TextView>(R.id.textView).text.toString()
     }
-
-
 }
 
 
-class HomeFeed(val text: ArrayList<String>)
+class HomeFeed(val code : Int, val lang : String, val text: ArrayList<String>)
 
