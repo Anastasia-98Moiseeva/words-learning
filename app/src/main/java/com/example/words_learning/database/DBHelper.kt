@@ -73,7 +73,7 @@ class DBHelper(context: Context,
     }
 
     @SuppressLint("Recycle")
-    fun findWord(table: String, column: String, name : String) : Boolean {
+    fun isElement(table: String, column: String, name : String) : Boolean {
         val db = readableDatabase
 
         val selectQuery = "SELECT * FROM $table WHERE $column = '$name'"
@@ -83,6 +83,15 @@ class DBHelper(context: Context,
                 return (cursor.count > 0)
             }
         return false
+    }
+
+    fun findElements(table: String, column: String, name: String) : ArrayList<ArrayList<String>>? {
+        val db = readableDatabase
+
+        val selectQuery = "SELECT * FROM $table WHERE $column = '$name'"
+        val cursor = db.rawQuery(selectQuery, null)
+
+        return takeElementsFromCursor(cursor)
     }
 
     fun countWhereLessEqual(table: String, column: String, name: String) : Int {
@@ -103,15 +112,21 @@ class DBHelper(context: Context,
         val db = readableDatabase
 
         val selectQuery = "SELECT  * FROM $table"
-        val allData = ArrayList<ArrayList<String>>()
 
         val cursor = db.rawQuery(selectQuery, null)
+
+        return takeElementsFromCursor(cursor)
+    }
+
+    private fun takeElementsFromCursor(cursor: Cursor?) : ArrayList<ArrayList<String>>? {
+        val allData = ArrayList<ArrayList<String>>()
+
         cursor?.let {
             if (cursor.count > 0) {
                 cursor.moveToFirst()
                 var numRole = 0
 
-                    do {
+                do {
                     val data = ArrayList<String>()
                     var i = 0
                     while ( i < cursor.columnCount) {

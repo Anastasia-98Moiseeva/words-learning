@@ -5,8 +5,6 @@ import android.support.v4.app.FragmentActivity
 
 import java.lang.ref.WeakReference
 import android.os.Bundle
-import android.R.id
-import android.os.Message
 
 
 class Router(activity : FragmentActivity, container: Int) {
@@ -15,7 +13,7 @@ class Router(activity : FragmentActivity, container: Int) {
     private val fragmentContainer = container
     private var id_window = 0
 
-    fun navigateTo(addToBack : Boolean = true, fragmentNew: () -> Fragment, changeStack : Int = 0, massege1: Int = 0) {
+    fun navigateTo(addToBack : Boolean = true, fragmentNew: () -> Fragment, changeStack : Int = 0, transportedMessage: Any? = null) {
         val activity = weakActivity.get()
 
         activity?.run {
@@ -34,10 +32,14 @@ class Router(activity : FragmentActivity, container: Int) {
             }
 
             val fragment = fragmentNew()
-            if (massege1 != 0) {
+            if (transportedMessage != null) {
                 val args = Bundle()
-                //args.putString(message, msg)
-                args.putInt(massege, massege1)
+                if (transportedMessage is Int) {
+                    args.putInt(message, transportedMessage)
+                }
+                if (transportedMessage is String) {
+                    args.putString(message, transportedMessage)
+                }
                 fragment.arguments = args
             }
 

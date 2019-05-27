@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
-import com.example.words_learning.adapters.ClickableButtonAdapter
 import com.example.words_learning.adapters.WordsAdapter
 
 
@@ -84,7 +83,7 @@ class WordsOnTopicFragment : Fragment() {
             arrayOfWords, true, ::onButtonClick)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
 
 
         return layout
@@ -103,7 +102,7 @@ class WordsOnTopicFragment : Fragment() {
 
     private fun onButtonClick(position: Int) {
         val msg = arrayOfWords[position].second
-        router.navigateTo(true, ::WordsOnTopicListFragment, massege1 = msg)
+        router.navigateTo(true, ::WordsOnTopicListFragment, transportedMessage = msg)
           }
 
     override fun onResume() {

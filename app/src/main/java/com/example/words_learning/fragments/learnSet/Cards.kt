@@ -9,11 +9,23 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
+import com.example.words_learning.database.set.Sets
+import com.example.words_learning.message
+import kotlinx.android.synthetic.main.fragment_choose_set.*
 
 class Cards : Fragment() {
 
-    val arrWords : Array<String> = arrayOf("cat", "dog", "rat", "giraffe", "elephant", "cow")
-    val arrOfTranslations : Array<String> = arrayOf( "кошка", "собака", "крыса", "жираф", "слон", "корова")
+    //val arrWords : Array<String> = arrayOf("cat", "dog", "rat", "giraffe", "elephant", "cow")
+    //val arrOfTranslations : Array<String> = arrayOf( "кошка", "собака", "крыса", "жираф", "слон", "корова")
+    /*private val arrayWordsTranslations : Array<Pair<String, String> > = arrayOf(
+        Pair("cat", "кошка"),
+        Pair("dog", "собака"),
+        Pair("rat", "крыса"),
+        Pair("giraffe", "жираф"),
+        Pair("elephant", "слон"),
+        Pair("cow", "корова")
+    )*/
+    private val arrayWordsTranslations = ArrayList<Pair<String, String>>()
 
     private lateinit var router: Router
     val name = "Learn set"
@@ -22,27 +34,44 @@ class Cards : Fragment() {
     private var savedState : Bundle? = null
     private var createdStateInDestroyView: Boolean = false
     private var saved : String = "saved_bundle"
+    private var msg : String? = null
+    private lateinit var sets : Sets
+    //private var sets : Se
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        router = Router(requireActivity(), R.id.fragment_container)
+        sets = Sets(activity!!)
 
         if (savedInstanceState != null) {
             savedState = savedInstanceState.getBundle(saved)
         }
 
-        router = Router(requireActivity(), R.id.fragment_container)
+
+        if (this.arguments!= null) {
+            msg = this.arguments!!.getString(message)
+            if (msg != null) {
+                val getSet = sets.getSet(msg.toString())
+                if (getSet != null) {
+                    for (set in getSet) {
+                        arrayWordsTranslations.add(Pair(set.word, set.traslation))
+                    }
+                }
+            }
+        }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        var layout = inflater.inflate(R.layout.cards, container, false)
+        val layout = inflater.inflate(R.layout.cards, container, false)
 
         if (savedState != null) {
             word_number = savedState!!.getInt(saved)
         }
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
 
         return layout
     }
@@ -51,9 +80,9 @@ class Cards : Fragment() {
         super.onStart()
 
         val frontText = activity!!.findViewById<TextView>(R.id.front)
-        frontText.setText(arrOfTranslations[0])
+        frontText.text = arrayWordsTranslations[0].first
         val backText = activity!!.findViewById<TextView>(R.id.back)
-        backText.setText(arrWords[0])
+        backText.text = arrayWordsTranslations[0].second
 
         val next = activity!!.findViewById<ImageButton>(R.id.imageButton3)
 
@@ -63,16 +92,16 @@ class Cards : Fragment() {
 
     }
 
-    fun setState(i : Int) {
+    private fun setState(i : Int) {
         val frontText = activity!!.findViewById<TextView>(R.id.front)
-        frontText.setText(arrOfTranslations[i])
+        frontText.text = arrayWordsTranslations[i].first
         val backText = activity!!.findViewById<TextView>(R.id.back)
-        backText.setText(arrWords[i])
+        backText.text = arrayWordsTranslations[i].second
     }
 
-    fun switch(next : ImageButton, back : ImageButton){
+    private fun switch(next : ImageButton, back : ImageButton){
 
-        if (word_number < arrWords.size - 1 && word_number > -1) {
+        if (word_number < arrayWordsTranslations.size - 1 && word_number > -1) {
             setState(word_number)
             next.setOnClickListener {
                 word_number += 1
@@ -84,7 +113,7 @@ class Cards : Fragment() {
             }
 
         } else {
-            router.navigateTo(true, ::LearnSetFragment)
+            router.navigateTo(true, ::LearnSetFragment, transportedMessage = msg)
         }
     }
 

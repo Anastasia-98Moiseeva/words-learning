@@ -11,12 +11,14 @@ import android.widget.TextView
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.adapters.ClickableButtonAdapter
+import com.example.words_learning.message
 
 
 class LearnSetFragment : Fragment() {
 
     private lateinit var router : Router
     val name = "Learn set"
+    private var msg : String? = null
 
     val arrayOfItems : Array<String> = arrayOf(
         "Cards",
@@ -37,7 +39,9 @@ class LearnSetFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        if (this.arguments!= null) {
+            msg = this.arguments!!.getString(message)
+        }
         router = Router(requireActivity(), R.id.fragment_container)
     }
 //paging library overview for ip
@@ -71,17 +75,17 @@ class LearnSetFragment : Fragment() {
     }
 
     private fun onButtonClick(position: Int) = when (position) {
-        0 -> router.navigateTo(true, ::Cards)
-        1 -> router.navigateTo(true, ::Matching)
-        2 -> router.navigateTo(true, ::Test)
-        3 -> router.navigateTo(true, ::Writing)
+        0 -> router.navigateTo(true, ::Cards, transportedMessage = msg)
+        1 -> router.navigateTo(true, ::Matching, transportedMessage = msg)
+        2 -> router.navigateTo(true, ::Test, transportedMessage = msg)
+        3 -> router.navigateTo(true, ::Writing, transportedMessage = msg)
         else -> throw IllegalStateException()
     }
 
     override fun onResume() {
         super.onResume()
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
     }
 
 }

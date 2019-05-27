@@ -61,7 +61,7 @@ class Dictionary(context : Context) {
     }
 
     fun findWord(word : Words) : Boolean {
-        return dbHelper.findWord(DBHelper.TABLE_DICTIONARY, DBHelper.COLUMN_DICTIONARY_WORD, word.word)
+        return dbHelper.isElement(DBHelper.TABLE_DICTIONARY, DBHelper.COLUMN_DICTIONARY_WORD, word.word)
     }
 
     fun removeByWord(word: Words) {

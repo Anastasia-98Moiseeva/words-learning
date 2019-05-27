@@ -14,7 +14,7 @@ import com.example.words_learning.adapters.CheckedListAdapter
 import com.example.words_learning.adapters.SpiritualTeacher
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.database.dictionary.Words
-import com.example.words_learning.massege
+import com.example.words_learning.message
 
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -48,7 +48,10 @@ class WordsOnTopicListFragment : Fragment() {
             false
         )
 
-        val idTopic = this.arguments!!.getInt(massege, 0)
+        var idTopic = 0
+        if (this.arguments!= null) {
+            idTopic = this.arguments!!.getInt(message, 0)
+        }
 
 
         val wordsAndTranslation = (resources.getStringArray(idTopic))

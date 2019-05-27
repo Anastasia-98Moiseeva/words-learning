@@ -13,13 +13,13 @@ import com.example.words_learning.Router
 import com.example.words_learning.adapters.ChooseSetAdapter
 //import com.example.words_learning.adapters.AllSets
 import com.example.words_learning.database.set.Sets
-import java.lang.IllegalStateException
 
 class ChooseSetFragment : Fragment() {
 
     private lateinit var router : Router
     val name = "Choose set"
     private lateinit var set: Sets
+    private lateinit var setsNames : ArrayList<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,11 +48,12 @@ class ChooseSetFragment : Fragment() {
         )
 
 
-        val setsNames = set.getSetsNames()
-
-        if (setsNames != null) {
+        val setNamesValidate = set.getSetsNames()
+        if (setNamesValidate != null) {
+            setsNames = setNamesValidate
             recycler.adapter = ChooseSetAdapter(set, setsNames, ::onButtonClick)
         }
+
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
@@ -60,22 +61,15 @@ class ChooseSetFragment : Fragment() {
         return layout
     }
 
-    private fun onButtonClick(position: Int)  = when (position) {
-        0 -> router.navigateTo(true, ::LearnSetFragment)
-        1 -> router.navigateTo(true, ::LearnSetFragment)
-        2 -> router.navigateTo(true, ::LearnSetFragment)
-        3 -> router.navigateTo(true, ::LearnSetFragment)
-        4 -> router.navigateTo(true, ::LearnSetFragment)
-        5 -> router.navigateTo(true, ::LearnSetFragment)
-        6 -> router.navigateTo(true, ::LearnSetFragment)
-        else -> throw IllegalStateException()
-
+    private fun onButtonClick(position: Int) {
+        val msg = setsNames[position]
+        router.navigateTo(true, ::LearnSetFragment, transportedMessage = msg)
     }
 
     override fun onResume() {
         super.onResume()
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)
+        listView.text = name
     }
 
 

@@ -10,7 +10,7 @@ import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.fragments.dictionary.DictionaryFragment
 import com.example.words_learning.fragments.search.TabFragment
 
-const val massege = "Message"
+const val message = "Message"
 var enterWord = ""
 var searchWord = ""
 

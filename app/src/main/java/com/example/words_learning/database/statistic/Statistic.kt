@@ -21,7 +21,7 @@ class Statistic(context : Context) {
     }
 
     private fun findWord (word : String) : Boolean{
-        return dbHelper.findWord(DBHelper.TABLE_STATISTIC, DBHelper.COLUMN_STATISTIC_WORD, word)
+        return dbHelper.isElement(DBHelper.TABLE_STATISTIC, DBHelper.COLUMN_STATISTIC_WORD, word)
     }
 
     @SuppressLint("SimpleDateFormat")

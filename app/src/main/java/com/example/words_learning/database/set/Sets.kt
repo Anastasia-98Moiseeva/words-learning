@@ -13,6 +13,11 @@ class Sets(context : Context) {
     fun getAllElements(): ArrayList<Set>? {
         val sets = ArrayList<Set>()
         val data = dbHelper.getElements(DBHelper.TABLE_SETS)
+        return parseDbReturnElements(data)
+    }
+
+    private fun parseDbReturnElements(data : ArrayList<ArrayList<String>>?) : ArrayList<Set>?{
+        val sets = ArrayList<Set>()
         return if (data != null) {
             for (array in data) {
                 sets.add(Set(array[0].toInt(), array[1], array[2], array[3]))
@@ -28,7 +33,7 @@ class Sets(context : Context) {
     }
 
     fun findSet(set : Set) : Boolean {
-        return dbHelper.findWord(DBHelper.TABLE_SETS, DBHelper.COLUMN_SET_SET, set.set)
+        return dbHelper.isElement(DBHelper.TABLE_SETS, DBHelper.COLUMN_SET_SET, set.set)
     }
 
     fun removeSet(set: String) {
@@ -48,6 +53,11 @@ class Sets(context : Context) {
         for (set in sets) {
             addSet(Set(-1, name, set.name, set.quote))
         }
+    }
+
+    fun getSet(setName: String) : ArrayList<Set>? {
+        val data = dbHelper.findElements(DBHelper.TABLE_SETS, DBHelper.COLUMN_SET_SET, setName)
+        return parseDbReturnElements(data)
     }
 
 
