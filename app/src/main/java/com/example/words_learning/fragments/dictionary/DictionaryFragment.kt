@@ -20,7 +20,6 @@ class DictionaryFragment : Fragment() {
 
     private lateinit var dictionary: Dictionary
     private lateinit var statistic: Statistic
-    private var wordsTranslation = ArrayList<Words>()
     private lateinit var router : Router
     val name = "Dictionary"
 
@@ -30,9 +29,6 @@ class DictionaryFragment : Fragment() {
         dictionary = Dictionary(activity!!)
         statistic = Statistic(activity!!)
 
-        if (dictionary.getAllElements() != null) {
-            wordsTranslation = dictionary.getAllElements()!!
-        }
     }
 
 
@@ -51,9 +47,9 @@ class DictionaryFragment : Fragment() {
             false
         )
 
-        if (wordsTranslation.size > 0) {
-            recycler.adapter = DeletedListAdapter(layout, dictionary, wordsTranslation, statistic)
-        }
+
+        dictionary.fillWordsTranslation()
+        recycler.adapter = DeletedListAdapter(layout, dictionary, statistic)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name

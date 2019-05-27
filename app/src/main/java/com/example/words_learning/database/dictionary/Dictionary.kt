@@ -7,6 +7,41 @@ import com.example.words_learning.database.DBHelper
 class Dictionary(context : Context) {
 
     private val dbHelper = DBHelper(context)
+    private var wordsTranslation = ArrayList<Words>()
+
+    fun fillWordsTranslation() {
+        val words = getAllElements()
+        if (words != null) {
+            wordsTranslation = words
+        }
+    }
+
+    fun sizeWordsTranslation() : Int{
+        return wordsTranslation.size
+    }
+
+//    fun deleteElementWords(word : String) {
+//        wordsTranslation.remove()
+//    }
+
+    fun removeElementPos(pos : Int) {
+        remove(wordsTranslation[pos])
+        wordsTranslation.removeAt(pos)
+        //dictionary.remove(words[pos])
+    }
+
+    fun returnElement(word : Words) {
+        wordsTranslation.add(word)
+        addValue(word)
+    }
+
+    fun getElementPos(pos : Int) : Words?{
+        return if (wordsTranslation.size > pos) {
+            wordsTranslation[pos]
+        } else {
+            null
+        }
+    }
 
     fun getAllElements(): ArrayList<Words>? {
         val words = ArrayList<Words>()

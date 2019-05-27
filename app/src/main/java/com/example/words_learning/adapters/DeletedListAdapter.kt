@@ -16,7 +16,7 @@ import java.util.ArrayList
 
 
 
-class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: ArrayList<Words>, val statistic: Statistic) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
+class DeletedListAdapter(val layout: View, val dictionary: Dictionary, val statistic: Statistic) : RecyclerView.Adapter<DeletedListAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
 
@@ -25,38 +25,42 @@ class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: Ar
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val word = words[position]
-        holder.nameTxt.text = word.word
-        holder.posTxt.text = word.traslation
-
+        val word = dictionary.getElementPos(position)
+        if (word != null) {
+            holder.nameTxt.text = word.word
+            holder.posTxt.text = word.traslation
+        }
 
         holder.setItemClickListener(object : MyHolder.ItemClickListener {
             override fun onItemClick(v: View, pos: Int) {
-                val currentTeacher = words[pos]
+                val currentWord = dictionary.getElementPos(pos)
 
-                statistic.addWordInformation(words[pos].word)
-                model1.remove(words[pos])
-                words.remove(currentTeacher)
-                notifyDataSetChanged()
-
-
-                val snack = Snackbar.make(
-                    layout,
-                    currentTeacher.word + " has deleted",
-                    Snackbar.LENGTH_LONG //
-                )
-
-                snack.view.setBackgroundColor(Color.parseColor("#7B338F"))
-
-                snack.setAction(
-                    "cancel deletion"
-                ) {
-                    model1.addValue(currentTeacher)
-                    words.add(currentTeacher)
+                if (currentWord != null) {
+                    statistic.addWordInformation(currentWord.word)
+                    dictionary.removeElementPos(pos)
+                    //dictionary.remove(words[pos])
+                    //words.remove(currentWord)
                     notifyDataSetChanged()
-                }.show()
 
 
+                    val snack = Snackbar.make(
+                        layout,
+                        currentWord.word + " has deleted",
+                        Snackbar.LENGTH_LONG //
+                    )
+
+                    snack.view.setBackgroundColor(Color.parseColor("#7B338F"))
+
+                    snack.setAction(
+                        "cancel deletion"
+                    ) {
+                        dictionary.returnElement(currentWord)
+                        //dictionary.addValue(currentWord)
+                        //words.add(currentWord)
+                        notifyDataSetChanged()
+                    }.show()
+
+                }
 
 
             }
@@ -64,7 +68,7 @@ class DeletedListAdapter(val layout: View, val model1: Dictionary, var words: Ar
     }
 
     override fun getItemCount(): Int {
-        return words.size
+        return dictionary.sizeWordsTranslation()
     }
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
