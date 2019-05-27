@@ -21,4 +21,7 @@
     <color name="writingText">#D3EDF1</color>
     <color name="writingtxt">#260F50</color>
     <color name="snackBar">#7B338F</color>
+    <color name="buttonNew">#8E77CE</color>
+    <color name="buttonPressedNew">#655396</color>
+    <color name="textNew">#F0EFD0</color>
 </resources>

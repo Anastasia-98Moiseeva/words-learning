@@ -26,7 +26,7 @@
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.1"
+            app:layout_constraintGuide_percent="0.08"
             android:id="@+id/guideline11"/>
     <android.support.v7.widget.CardView
             android:layout_width="0dp"
@@ -96,20 +96,38 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="8dp" android:layout_marginEnd="2dp"
-                    app:layout_constraintEnd_toStartOf="@+id/myCheckBox"/>
-            <CheckBox
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"
+                    card_view:cardCornerRadius="5dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/myCheckBox"
-                    android:layout_alignParentRight="true"
-                    android:isScrollContainer="true"
-                    android:buttonTint="@color/checkMark"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="8dp"
+
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="17dp"/>
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp">
+                <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/textViewColor"
+                        android:id="@+id/constraintLayout1">
+                    <Button
+                            android:text="Add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/button2"
+                            android:background="@drawable/button_style_new"
+                            android:textColor="@color/textNew"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

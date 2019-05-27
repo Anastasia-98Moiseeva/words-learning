@@ -7,14 +7,12 @@ import android.support.v4.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.TextView
 import com.beust.klaxon.Klaxon
 import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.enterWord
 import com.example.words_learning.searchWord
-import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_dictionary.*
 import kotlinx.android.synthetic.main.fragment_search_word.view.*
 import kotlinx.android.synthetic.main.list_item.*
@@ -28,9 +26,6 @@ class SearchWord() : Fragment() {
 
     private lateinit var router : Router
     private lateinit var textView: TextView
-    /*private lateinit var enterWord : String
-    private lateinit var searchWord : String*/
-    /*val name = "Search"*/
 
     private lateinit var myActivity : FragmentActivity
 
@@ -43,16 +38,9 @@ class SearchWord() : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var layout = inflater.inflate(R.layout.fragment_search_word, container, false)
 
-        val checkBox = layout.findViewById<View>(R.id.myCheckBox)
-        checkBox.setVisibility(View.INVISIBLE)
-
         layout.imageButton2.setOnClickListener {
-            checkBox.setVisibility(View.VISIBLE)
             Thread(BackgroundFetcher()).start()
         }
-
-        /*val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)*/
 
         return layout
     }
@@ -82,13 +70,6 @@ class SearchWord() : Fragment() {
             if(response.isSuccessful){
                 return response.body()!!.string()
             }
-
-           /* val requestBuild = Request.Builder()
-            val requestUrl = requestBuild.url(url)
-            val request = requestUrl.build()*/
-            /*val response1 = client.newCall(request)
-            val response = response1.execute()*/
-            /*return response.body()!!.string()*/
         }
         catch (e: IOException){
             return "404"
@@ -98,14 +79,11 @@ class SearchWord() : Fragment() {
 
     inner class BackgroundFetcher : Runnable {
         override fun run() {
-            //Thread.sleep(5000)
-            activity.let {
-                val translation = fetchTranslation(activity!!.findViewById<TextView>(R.id.editText).text.toString(), "en-ru")
+            /*Thread.sleep(5000)*/
+            activity?.let {
+                val translation = fetchTranslation(it.findViewById<TextView>(R.id.editText).text.toString(), "en-ru")
 
-                activity!!.runOnUiThread(Runnable {
-
-                   /* val gson = GsonBuilder().create()
-                    val homeFeed = gson.fromJson(translation, HomeFeed::class.java)*/
+                it.runOnUiThread(Runnable {
 
                     val klaxon = Klaxon()
                     val homeFeed = klaxon.parse<HomeFeed>(translation)
@@ -114,11 +92,9 @@ class SearchWord() : Fragment() {
                         val textHomeFeed1 = homeFeed.text
                         val textHomeFeed = textHomeFeed1.toString()
                         val text = textHomeFeed.substring(1, homeFeed.text.toString().length - 1)
-                        val hm = activity
+                        val hm = it
                         if (hm != null) {
                             hm.findViewById<TextView>(R.id.textView).text = text
-                        //searchWord = text
-                        //textView.text = searchWord
                         }
                     }
                 })
@@ -141,8 +117,6 @@ class SearchWord() : Fragment() {
             enterWord = activity!!.findViewById<TextView>(R.id.editText).text.toString()
             searchWord = activity!!.findViewById<TextView>(R.id.textView).text.toString()
         }
-        /*val listView = activity!!.findViewById<TextView>(R.id.textView2)
-        listView.setText(name)*/
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
