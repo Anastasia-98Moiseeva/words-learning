@@ -1,17 +1,23 @@
 package com.example.words_learning
 
 import android.content.Intent
+import android.graphics.drawable.Animatable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        anim = AnimationUtils.loadAnimation(this,R.anim.display)
+        textView = findViewById(R.id.textView4)
+        textView.startAnimation(anim)
     }
 
     override fun onResume() {
@@ -39,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         }.start()
+
     }
 
     override fun onPause() {
@@ -57,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private var waitTime: Long = 2000
+    private lateinit var anim : Animation
     private val timeSave: String = ""
     private lateinit var timer: CountDownTimer
     lateinit var textView : TextView
