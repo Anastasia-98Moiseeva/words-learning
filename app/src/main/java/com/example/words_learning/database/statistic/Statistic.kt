@@ -40,7 +40,7 @@ class Statistic(context : Context) {
 
     private fun getCurrentDate(): String? {
         val cal = Calendar.getInstance()
-        cal.add(Calendar.DATE, (-1 * 7))
+        cal.add(Calendar.DATE, 0)
         return this.sdf.format(cal.time)
     }
 
@@ -59,6 +59,7 @@ class Statistic(context : Context) {
 
 
     fun getNumWordsDate(numDays : Int) : Int {
+        val hm = getAllElements()
         val cal = Calendar.getInstance()
         cal.add(Calendar.DATE, (-1 * numDays))
         val sdf = sdf.format(cal.time)

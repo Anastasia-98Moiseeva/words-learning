@@ -41,21 +41,21 @@ class StatisticFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.fragment_statistic, container, false)
 
-        val numInDay = statistic.getNumWordsDate(1) // выводит кол-во изученных слов за ласт дни, в скоб скок дней.
-        val numInWeek = statistic.getNumWordsDate(7)
-        val numInTwoWeek = statistic.getNumWordsDate(14)
+        val numInDay = statistic.getNumWordsDate(0) // выводит кол-во изученных слов за ласт дни, в скоб скок дней.
+        val numInWeek = statistic.getNumWordsDate(6)
+        val numInTwoWeek = statistic.getNumWordsDate(13K)
 
         val textView = layout.findViewById<TextView>(R.id.textView6)
-        textView.setText(numWordsLearned)
+        textView.text = numWordsLearned
 
         val textViewDay = layout.findViewById<TextView>(R.id.textView1)
-        textViewDay.setText(makeStr(day, numInDay))
+        textViewDay.text = makeStr(day, numInDay)
 
         val textViewWeek = layout.findViewById<TextView>(R.id.textView3)
-        textViewWeek.setText(makeStr(week, numInWeek))
+        textViewWeek.text = makeStr(week, numInWeek)
 
         val textViewMonth = layout.findViewById<TextView>(R.id.textView4)
-        textViewMonth.setText(makeStr(twoWeek, numInTwoWeek))
+        textViewMonth.text = makeStr(twoWeek, numInTwoWeek)
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
@@ -63,11 +63,11 @@ class StatisticFragment : Fragment() {
         return layout
     }
 
-    fun makeStr (str : String, num : Int) : String {
-        if (num != 1) {
-            return " " + num.toString() + " words" + str
+    private fun makeStr (str : String, num : Int) : String {
+        return if (num != 1) {
+            " $num words$str"
         } else {
-            return " " + num.toString() + " word" + str
+            " $num word$str"
         }
     }
 
