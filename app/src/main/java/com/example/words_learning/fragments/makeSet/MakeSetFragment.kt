@@ -1,6 +1,8 @@
 package com.example.words_learning.fragments.makeSet
 
+import android.graphics.Color
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -15,7 +17,6 @@ import com.example.words_learning.adapters.SpiritualTeacher
 import com.example.words_learning.database.dictionary.Dictionary
 import com.example.words_learning.database.dictionary.Words
 import com.example.words_learning.database.set.Sets
-import kotlinx.android.synthetic.main.button_layout.view.*
 import kotlinx.android.synthetic.main.fragments_make_set.view.*
 
 
@@ -72,7 +73,29 @@ class MakeSetFragment : Fragment() {
         }
 
         layout.buttonMakeSet.setOnClickListener {
-            set.newSet(layout.editTextMakeSet.text.toString(), checkedWords)
+            var created = false
+            val setText = layout.editTextMakeSet.text.toString()
+            if (!set.isSet(setText)) {
+                set.newSet(setText, checkedWords)
+                created = true
+            }
+
+            var snackText = ""
+
+            snackText = if (created) {
+                "Set $setText was created."
+            } else {
+                "Set $setText is already there."
+            }
+
+            val snack = Snackbar.make(
+                layout,
+                snackText,
+                Snackbar.LENGTH_LONG //
+            )
+
+            snack.view.setBackgroundColor(Color.parseColor("#7B338F"))
+            snack.show()
         }
 
         return layout

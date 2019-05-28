@@ -32,8 +32,8 @@ class Sets(context : Context) {
         dbHelper.removeElementID(DBHelper.TABLE_SETS, set.id)
     }
 
-    fun findSet(set : Set) : Boolean {
-        return dbHelper.isElement(DBHelper.TABLE_SETS, DBHelper.COLUMN_SET_SET, set.set)
+    fun isSet(set : String) : Boolean {
+        return dbHelper.isElement(DBHelper.TABLE_SETS, DBHelper.COLUMN_SET_SET, set)
     }
 
     fun removeSet(set: String) {
