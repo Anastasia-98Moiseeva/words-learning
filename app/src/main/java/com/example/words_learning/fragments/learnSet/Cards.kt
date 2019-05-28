@@ -11,25 +11,17 @@ import com.example.words_learning.R
 import com.example.words_learning.Router
 import com.example.words_learning.database.set.Sets
 import com.example.words_learning.message
-import kotlinx.android.synthetic.main.fragment_choose_set.*
+import eu.davidea.flipview.FlipView
+import kotlinx.android.synthetic.main.selected_item.view.*
 
 class Cards : Fragment() {
 
-    //val arrWords : Array<String> = arrayOf("cat", "dog", "rat", "giraffe", "elephant", "cow")
-    //val arrOfTranslations : Array<String> = arrayOf( "кошка", "собака", "крыса", "жираф", "слон", "корова")
-    /*private val arrayWordsTranslations : Array<Pair<String, String> > = arrayOf(
-        Pair("cat", "кошка"),
-        Pair("dog", "собака"),
-        Pair("rat", "крыса"),
-        Pair("giraffe", "жираф"),
-        Pair("elephant", "слон"),
-        Pair("cow", "корова")
-    )*/
     private val arrayWordsTranslations = ArrayList<Pair<String, String>>()
 
     private lateinit var router: Router
     val name = "Learn set"
 
+    private lateinit var cards:FlipView
     private var word_number : Int = 0
     private var savedState : Bundle? = null
     private var createdStateInDestroyView: Boolean = false
@@ -42,6 +34,7 @@ class Cards : Fragment() {
         super.onCreate(savedInstanceState)
         router = Router(requireActivity(), R.id.fragment_container)
         sets = Sets(activity!!)
+
 
         if (savedInstanceState != null) {
             savedState = savedInstanceState.getBundle(saved)
@@ -72,6 +65,8 @@ class Cards : Fragment() {
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
+        cards = layout.findViewById(R.id.mFlipView)
+        //cards.setOnFlippingListener { flipView, checked ->  }
 
         return layout
     }
@@ -118,11 +113,18 @@ class Cards : Fragment() {
 
         next.setOnClickListener {
             word_number++
+
+            if (cards.isFlipped) {
+                cards.flip(false)
+            }
             switch(next, back)
         }
 
         back.setOnClickListener {
             word_number--
+            if (cards.isFlipped) {
+                cards.flip(false)
+            }
             switch(next, back)
         }
 
