@@ -24,7 +24,7 @@
     <color name="buttonNew">#8E77CE</color>
     <color name="buttonPressedNew">#655396</color>
     <color name="textNew">#F0EFD0</color>
-    <color name="color1">#A9CEFF</color>
-    <color name="color2">#D6BEE6</color>
-    <color name="color3">#B6E0AB</color>
+    <color name="color1">#D0E0F7</color>
+    <color name="color2">#E3D0F0</color>
+    <color name="color3">#CDEBC6</color>
 </resources>
