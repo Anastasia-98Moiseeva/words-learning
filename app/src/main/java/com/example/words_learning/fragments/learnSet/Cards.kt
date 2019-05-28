@@ -101,20 +101,31 @@ class Cards : Fragment() {
 
     private fun switch(next : ImageButton, back : ImageButton){
 
-        if (word_number < arrayWordsTranslations.size - 1 && word_number > -1) {
-            setState(word_number)
-            next.setOnClickListener {
-                word_number += 1
-                switch(next, back)
-            }
-            back.setOnClickListener {
-                word_number -= 1
-                switch(next, back)
-            }
+        setState(word_number)
 
-        } else {
-            router.navigateTo(true, ::LearnSetFragment, transportedMessage = msg)
+        if (word_number == 0) {
+            back.visibility = View.INVISIBLE
         }
+
+        if (word_number == arrayWordsTranslations.size - 1) {
+            next.visibility = View.INVISIBLE
+        }
+
+        if (word_number > 0 && (word_number < arrayWordsTranslations.size - 1)) {
+            next.visibility = View.VISIBLE
+            back.visibility = View.VISIBLE
+        }
+
+        next.setOnClickListener {
+            word_number++
+            switch(next, back)
+        }
+
+        back.setOnClickListener {
+            word_number--
+            switch(next, back)
+        }
+
     }
 
     override fun onResume() {
