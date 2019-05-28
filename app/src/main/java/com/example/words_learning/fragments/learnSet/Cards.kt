@@ -12,7 +12,6 @@ import com.example.words_learning.Router
 import com.example.words_learning.database.set.Sets
 import com.example.words_learning.message
 import eu.davidea.flipview.FlipView
-import kotlinx.android.synthetic.main.selected_item.view.*
 
 class Cards : Fragment() {
 
@@ -22,13 +21,13 @@ class Cards : Fragment() {
     val name = "Learn set"
 
     private lateinit var cards:FlipView
-    private var word_number : Int = 0
+    private var wordNumber : Int = 0
     private var savedState : Bundle? = null
     private var createdStateInDestroyView: Boolean = false
     private var saved : String = "saved_bundle"
     private var msg : String? = null
     private lateinit var sets : Sets
-    //private var sets : Se
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +59,7 @@ class Cards : Fragment() {
         val layout = inflater.inflate(R.layout.cards, container, false)
 
         if (savedState != null) {
-            word_number = savedState!!.getInt(saved)
+            wordNumber = savedState!!.getInt(saved)
         }
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
@@ -96,23 +95,23 @@ class Cards : Fragment() {
 
     private fun switch(next : ImageButton, back : ImageButton){
 
-        setState(word_number)
+        setState(wordNumber)
 
-        if (word_number == 0) {
+        if (wordNumber == 0) {
             back.visibility = View.INVISIBLE
         }
 
-        if (word_number == arrayWordsTranslations.size - 1) {
+        if (wordNumber == arrayWordsTranslations.size - 1) {
             next.visibility = View.INVISIBLE
         }
 
-        if (word_number > 0 && (word_number < arrayWordsTranslations.size - 1)) {
+        if (wordNumber > 0 && (wordNumber < arrayWordsTranslations.size - 1)) {
             next.visibility = View.VISIBLE
             back.visibility = View.VISIBLE
         }
 
         next.setOnClickListener {
-            word_number++
+            wordNumber++
 
             if (cards.isFlipped) {
                 cards.flip(false)
@@ -121,7 +120,7 @@ class Cards : Fragment() {
         }
 
         back.setOnClickListener {
-            word_number--
+            wordNumber--
             if (cards.isFlipped) {
                 cards.flip(false)
             }
@@ -138,17 +137,17 @@ class Cards : Fragment() {
         super.onDestroyView()
         savedState = saveState()
         createdStateInDestroyView = true
-        word_number = 0
+        wordNumber = 0
     }
 
     private fun saveState(): Bundle {
         val state = Bundle()
-        state.putInt(saved, word_number)
+        state.putInt(saved, wordNumber)
         return state
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        if (word_number == 0) {
+        if (wordNumber == 0) {
             outState.putBundle(saved, savedState)
         } else {
             outState.putBundle(saved, if (createdStateInDestroyView) savedState else saveState())
