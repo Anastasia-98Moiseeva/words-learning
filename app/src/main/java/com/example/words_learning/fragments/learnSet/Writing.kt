@@ -85,10 +85,16 @@ class Writing : Fragment() {
 
         if (wordNumber == 0) {
             back.visibility = View.INVISIBLE
+            if (wordNumber != (arrayWordsTranslations.size - 1)) {
+                next.visibility = View.VISIBLE
+            }
         }
 
         if (wordNumber == arrayWordsTranslations.size - 1) {
             next.visibility = View.INVISIBLE
+            if (wordNumber != 0) {
+                back.visibility = View.VISIBLE
+            }
         }
 
         if (wordNumber > 0 && (wordNumber < arrayWordsTranslations.size - 1)) {
