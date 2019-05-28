@@ -24,7 +24,8 @@
     <color name="buttonNew">#8E77CE</color>
     <color name="buttonPressedNew">#655396</color>
     <color name="textNew">#F0EFD0</color>
-    <color name="color1">#D0E0F7</color>
+    <color name="color1">#B8D1F5</color>
     <color name="color2">#E3D0F0</color>
     <color name="color3">#CDEBC6</color>
+    <color name="textViewCol">#D5DEF7</color>
 </resources>
