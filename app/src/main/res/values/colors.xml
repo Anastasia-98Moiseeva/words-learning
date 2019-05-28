@@ -28,4 +28,5 @@
     <color name="color2">#E3D0F0</color>
     <color name="color3">#CDEBC6</color>
     <color name="textViewCol">#D5DEF7</color>
+    <color name="defText">#3F3E3E</color>
 </resources>

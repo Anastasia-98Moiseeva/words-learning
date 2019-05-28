@@ -21,14 +21,15 @@ class StatisticFragment : Fragment() {
     private lateinit var statistic : Statistic
 
     val name = "Statistics"
-    private val numWordsLearned = "Столько слов вы выучили за "
-    private val day = "день: "
-    private val month = "месяц: "
+    private val numWordsLearned = "You have learned:"
+    private val day = " in a day "
+    private val week = " in a week "
+    private val month = " in a month "
 
-    val data = Array<Pair<Int, String>>(3) {
+    /*val data = Array<Pair<Int, String>>(3) {
         Pair(1, "Месяц")
 
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,16 +41,34 @@ class StatisticFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layout = inflater.inflate(R.layout.fragment_statistic, container, false)
 
+        val numInDay = statistic.getNumWordsDate(1) // выводит кол-во изученных слов за ласт дни, в скоб скок дней.
+        val numInWeek = statistic.getNumWordsDate(7)
+        val numInMonth = statistic.getNumWordsDate(30)
 
+        val textView = layout.findViewById<TextView>(R.id.textView6)
+        textView.setText(numWordsLearned)
 
-        val num = statistic.getNumWordsDate(1) // выводит кол-во изученных слов за ласт дни, в скоб скок дней.
+        val textViewDay = layout.findViewById<TextView>(R.id.textView1)
+        textViewDay.setText(makeStr(day, numInDay))
 
+        val textViewWeek = layout.findViewById<TextView>(R.id.textView3)
+        textViewWeek.setText(makeStr(week, numInWeek))
+
+        val textViewMonth = layout.findViewById<TextView>(R.id.textView4)
+        textViewMonth.setText(makeStr(month, numInMonth))
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
 
         return layout
+    }
 
+    fun makeStr (str : String, num : Int) : String {
+        if (num != 1) {
+            return " " + num.toString() + " words" + str
+        } else {
+            return " " + num.toString() + " word" + str
+        }
     }
 
     @SuppressLint("SetTextI18n")
