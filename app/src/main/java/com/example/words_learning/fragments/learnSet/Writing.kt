@@ -1,5 +1,6 @@
 package com.example.words_learning.fragments.learnSet
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -82,7 +83,6 @@ class Writing : Fragment() {
     private fun printAnswerAndSwitch(translation: TextView, editText: EditText,
                                     check: Button, answer : TextView, next : ImageButton, back : ImageButton) {
 
-
         if (wordNumber == 0) {
             back.visibility = View.INVISIBLE
         }
@@ -98,8 +98,6 @@ class Writing : Fragment() {
 
         translation.text = arrayWordsTranslations[wordNumber].second
 
-        val word: String = editText.text.toString()
-
         editText.run {
             setText("")
         }
@@ -107,7 +105,17 @@ class Writing : Fragment() {
         answer.text = ""
 
         check.setOnClickListener {
-            answer.text = arrayWordsTranslations[wordNumber].first
+
+            if(arrayWordsTranslations[wordNumber].first == editText.text.toString()){
+                answer.setText("That's right!")
+                answer.setTextColor(Color.parseColor("#206D20"))
+
+            } else {
+                answer.setText("Right answer: " + arrayWordsTranslations[wordNumber].first)
+                answer.setTextColor(Color.parseColor("#A51E43"))
+            }
+
+           /* answer.text = arrayWordsTranslations[wordNumber].first*/
         }
 
         next.setOnClickListener {
