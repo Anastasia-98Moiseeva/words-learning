@@ -78,9 +78,10 @@ class MakeSetFragment : Fragment() {
             if (!set.isSet(setText)) {
                 set.newSet(setText, checkedWords)
                 created = true
+                layout.editTextMakeSet.setText("")
             }
 
-            var snackText = ""
+            val snackText: String
 
             snackText = if (created) {
                 "Set $setText was created."
