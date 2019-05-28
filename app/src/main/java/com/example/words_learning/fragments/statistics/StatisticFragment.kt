@@ -24,7 +24,7 @@ class StatisticFragment : Fragment() {
     private val numWordsLearned = "You have learned:"
     private val day = " in a day "
     private val week = " in a week "
-    private val month = " in a month "
+    private val twoWeek = " in two weeks "
 
     /*val data = Array<Pair<Int, String>>(3) {
         Pair(1, "Месяц")
@@ -43,7 +43,7 @@ class StatisticFragment : Fragment() {
 
         val numInDay = statistic.getNumWordsDate(1) // выводит кол-во изученных слов за ласт дни, в скоб скок дней.
         val numInWeek = statistic.getNumWordsDate(7)
-        val numInMonth = statistic.getNumWordsDate(30)
+        val numInTwoWeek = statistic.getNumWordsDate(14)
 
         val textView = layout.findViewById<TextView>(R.id.textView6)
         textView.setText(numWordsLearned)
@@ -55,7 +55,7 @@ class StatisticFragment : Fragment() {
         textViewWeek.setText(makeStr(week, numInWeek))
 
         val textViewMonth = layout.findViewById<TextView>(R.id.textView4)
-        textViewMonth.setText(makeStr(month, numInMonth))
+        textViewMonth.setText(makeStr(twoWeek, numInTwoWeek))
 
         val listView = activity!!.findViewById<TextView>(R.id.textView2)
         listView.text = name
@@ -69,12 +69,6 @@ class StatisticFragment : Fragment() {
         } else {
             return " " + num.toString() + " word" + str
         }
-    }
-
-    @SuppressLint("SetTextI18n")
-    fun viewStatistic(textView : TextView, numDays : Int) {
-        val num = statistic.getNumWordsDate(numDays)
-        textView.text =  numWordsLearned + month + num.toString()
     }
 
     override fun onResume() {
